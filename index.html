@@ -11,6 +11,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://via.placeholder.com/16/009AA5/ffffff?text=PR">
     <link rel="apple-touch-icon" sizes="180x180" href="https://via.placeholder.com/180/009AA5/ffffff?text=PR">
 
+    <!-- Google Fonts - Nazalation -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,6 +24,9 @@
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        'nazalation': ['Orbitron', 'sans-serif'],
+                    },
                     colors: {
                         primary: {
                             50: '#e6f7f9',
@@ -60,6 +68,26 @@
             }
         }
     </script>
+    <style>
+        /* Mengambil font langsung dari GitHub */
+        
+        @font-face {
+            font-family: 'Nasalization';
+            src: url('https://raw.githubusercontent.com/prcuisa/beta/main/nasalization-rg.ttf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        /* Fallback font jika yang utama tidak load */
+        
+        @font-face {
+            font-family: 'Nasalization';
+            src: url('https://cdn.jsdelivr.net/gh/marvinschopf/googlefonts@master/fonts/nasalization/nasalization-rg.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
     <style>
         .typing-cursor {
             display: inline-block;
@@ -150,6 +178,34 @@
         .dark .bg-gradient-to-r.from-primary-500.to-primary-600 {
             background-image: linear-gradient(to right, #008a94, #007780);
         }
+        /* Custom styles for logo and font */
+        
+        .logo-text {
+            font-family: Orbitron;
+            ;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo-img {
+            transition: opacity 0.3s ease;
+        }
+        
+        .logo-light {
+            display: block;
+        }
+        
+        .logo-dark {
+            display: none;
+        }
+        
+        .dark .logo-light {
+            display: none;
+        }
+        
+        .dark .logo-dark {
+            display: block;
+        }
     </style>
 </head>
 
@@ -171,8 +227,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <a href="#" class="flex items-center space-x-2">
-                    <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center text-white font-bold text-xl">PR</div>
-                    <span class="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">PRCUISA</span>
+                    <!-- Logo dengan mode terang/gelap -->
+                    <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/prcuisa/beta/refs/heads/main/logolight.png" alt="PRCUISA Logo" class="logo-img logo-light w-8 h-8 object-contain">
+                        <img src="https://raw.githubusercontent.com/prcuisa/beta/refs/heads/main/logodark.png" alt="PRCUISA Logo" class="logo-img logo-dark w-8 h-8 object-contain">
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent logo-text">PRCUISA</span>
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
@@ -472,33 +532,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Clients Section 
-    <section class="py-12 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-8">Trusted by innovative companies</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
-                <div class="flex justify-center opacity-70 hover:opacity-100 transition-opacity">
-                    <img src="https://logo.clearbit.com/sony.com" alt="Sony" class="h-8 dark:invert">
-                </div>
-                <div class="flex justify-center opacity-70 hover:opacity-100 transition-opacity">
-                    <img src="https://logo.clearbit.com/nike.com" alt="Nike" class="h-8 dark:invert">
-                </div>
-                <div class="flex justify-center opacity-70 hover:opacity-100 transition-opacity">
-                    <img src="https://logo.clearbit.com/airbnb.com" alt="Airbnb" class="h-8 dark:invert">
-                </div>
-                <div class="flex justify-center opacity-70 hover:opacity-100 transition-opacity">
-                    <img src="https://logo.clearbit.com/adobe.com" alt="Adobe" class="h-8 dark:invert">
-                </div>
-                <div class="flex justify-center opacity-70 hover:opacity-100 transition-opacity">
-                    <img src="https://logo.clearbit.com/samsung.com" alt="Samsung" class="h-8 dark:invert">
-                </div>
-                <div class="flex justify-center opacity-70 hover:opacity-100 transition-opacity">
-                    <img src="https://logo.clearbit.com/spotify.com" alt="Spotify" class="h-8 dark:invert">
-                </div>
-            </div>
-        </div>
-    </section>-->
 
     <!-- Services Section -->
     <section id="services" class="py-20">
@@ -1116,8 +1149,11 @@
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
                 <div class="col-span-2">
                     <a href="#" class="flex items-center space-x-2 mb-6">
-                        <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center text-white font-bold text-xl">PR</div>
-                        <span class="text-xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent">PRCUISA</span>
+                        <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
+                            <img src="https://raw.githubusercontent.com/prcuisa/beta/refs/heads/main/logolight.png" alt="PRCUISA Logo" class="logo-img logo-light w-8 h-8 object-contain">
+                            <img src="https://raw.githubusercontent.com/prcuisa/beta/refs/heads/main/logodark.png" alt="PRCUISA Logo" class="logo-img logo-dark w-8 h-8 object-contain">
+                        </div>
+                        <span class="text-xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent logo-text">PRCUISA</span>
                     </a>
                     <p class="text-gray-400 mb-6">
                         Digital creative solutions for the modern world. Combining technology and creativity to deliver exceptional results.
