@@ -164,8 +164,52 @@
             opacity: 0;
             pointer-events: none;
         }
-
+/* Dark mode specific styles */
+        
+        .dark .bg-white\/80 {
+            background-color: rgba(17, 24, 39, 0.8);
+        }
+        
+        .dark .bg-white\/50 {
+            background-color: rgba(17, 24, 39, 0.5);
+        }
+        
+        .dark .bg-white\/10 {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark .border-gray-300 {
+            border-color: rgba(55, 65, 81, 0.5);
+        }
+        
+        .dark .text-gray-800 {
+            color: #e5e7eb;
+        }
+        
+        .dark .text-gray-700 {
+            color: #d1d5db;
+        }
+        
+        .dark .text-gray-600 {
+            color: #9ca3af;
+        }
+        
+        .dark .bg-gradient-to-r.from-primary-500.to-primary-600 {
+            background-image: linear-gradient(to right, #008a94, #007780);
+        }
+        /* Custom styles for logo and font */
+        
+        .logo-text {
+    width: 120px; /* Sesuaikan dengan lebar gambar logo */
+    height: 32px; /* Sesuaikan dengan tinggi gambar logo */
+    background-image: url('https://raw.githubusercontent.com/prcuisa/beta/refs/heads/main/PRCUISAA.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block; /* atau block, tergantung layout */
+}
 /* Untuk mode gelap - membuat logo putih */
+
 .dark .logo-text {
     filter: brightness(0) invert(1);
 }
