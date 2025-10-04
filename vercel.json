@@ -1,3 +1,5 @@
 {
-  "rewrites": [{ "source": "/comingsoon", "destination": "/comingsoon.html" }]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/$1.html" }
+  ]
 }
