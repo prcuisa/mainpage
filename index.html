@@ -110,7 +110,6 @@
         }
         /* Preloader styles */
         
-        /* Preloader styles */
         #preloader {
             position: fixed;
             top: 0;
@@ -118,7 +117,7 @@
             width: 100%;
             height: 100%;
             background: #f8fafc;
-            display: flex;
+            display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -126,10 +125,9 @@
             transition: opacity 0.5s ease-out;
         }
         
-        .preloader-logo {
-            width: 100px;
-            margin-bottom: 2rem;
-            animation: pulse 2s infinite;
+        .loaded #preloader {
+            opacity: 0;
+            pointer-events: none;
         }
         
         .spinner {
@@ -139,32 +137,15 @@
             border-radius: 50%;
             border-top-color: #009AA5;
             animation: spin 1s linear infinite;
+            margin-top: 10px;
         }
         
         @keyframes spin {
-            100% { transform: rotate(360deg); }
+            100% {
+                transform: rotate(360deg);
+            }
         }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.9; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        
-        .content {
-            opacity: 0;
-            transition: opacity 0.5s ease-in;
-        }
-        
-        .loaded .content {
-            opacity: 1;
-        }
-        
-        .loaded #preloader {
-            opacity: 0;
-            pointer-events: none;
-        }
-/* Dark mode specific styles */
+        /* Dark mode specific styles */
         
         .dark .bg-white\/80 {
             background-color: rgba(17, 24, 39, 0.8);
@@ -208,8 +189,8 @@
     background-position: center;
     display: inline-block; /* atau block, tergantung layout */
 }
-/* Untuk mode gelap - membuat logo putih */
 
+/* Untuk mode gelap - membuat logo putih */
 .dark .logo-text {
     filter: brightness(0) invert(1);
 }
@@ -238,7 +219,7 @@
 
 <body class="font-sans antialiased text-gray-800 bg-gray-50 dark:bg-gray-900" data-new-gr-c-s-check-loaded="14.1245.0" data-gr-ext-installed="" cz-shortcut-listen="true">
     <!-- Preloader -->
-     <div id="preloader">
+    <div id="preloader">
         <img src="https://raw.githubusercontent.com/prcuisa/tailwind/refs/heads/main/src/public/images/prcuisa.png" alt="PRCUISA Logo" class="preloader-logo">
         <div class="spinner"></div>
     </div>
