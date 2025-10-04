@@ -1,0 +1,246 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRCUISA - Coming Soon</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/prcuisa/beta/refs/heads/main/logodark.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/prcuisa/beta/refs/heads/main/logodark.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/prcuisa/beta/refs/heads/main/logodark.png">
+    <link rel="shortcut icon" href="https://via.placeholder.com/64/f4a261/000000?text=PR">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        dark: '#1E293B',
+                        light: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .text-primary {
+            color: #009AA5 !important;
+        }
+        
+        /* Typing animation styles */
+        .typing-container {
+            display: inline-block;
+            position: relative;
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: #009AA5;
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Preloader styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .preloader-logo {
+            width: 100px;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(0, 154, 165, 0.2);
+            border-radius: 50%;
+            border-top-color: #009AA5;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .content {
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        
+        .loaded .content {
+            opacity: 1;
+        }
+        
+        .loaded #preloader {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="https://raw.githubusercontent.com/prcuisa/tailwind/refs/heads/main/src/public/images/prcuisa.png" alt="PRCUISA Logo" class="preloader-logo">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="content min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-screen">
+            <div class="text-center max-w-2xl mx-auto">
+                <!-- Logo with PRCUISA -->
+                <div class="animate-float mb-10">
+                    <div class="mx-auto flex items-center justify-center">
+                        <img src="https://raw.githubusercontent.com/prcuisa/tailwind/refs/heads/main/src/public/images/prcuisa.png" alt="PRCUISA Logo" class="h-16 w-auto">
+                    </div>
+                </div>
+                
+                <!-- Heading -->
+                <h1 class="text-4xl md:text-5xl font-bold text-dark mb-6">  
+                    Something <span class="typing-container text-primary" id="rotating-text"></span> is coming soon
+                </h1>
+                
+                <!-- Description -->
+                <p class="text-lg text-gray-600 mb-12 leading-relaxed">
+                    Our website is currently under construction. We're working hard to deliver an exceptional experience. Please check back later for our official launch.
+                </p>
+                
+                <!-- Divider -->
+                <div class="relative mb-12">
+                    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                        <div class="w-full border-t border-gray-200"></div>
+                    </div>
+                    <div class="relative flex justify-center">
+                        <span class="bg-blue-50 px-4 text-gray-500">
+                            <i class="fas fa-rocket text-primary"></i>
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-4 mb-8">
+                    <a href="https://t.me/prcuisa" class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-primary hover:bg-blue-50 transition-colors">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://instagram.com/prcuisa" class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-primary hover:bg-blue-50 transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                
+                <!-- Copyright -->
+                <p class="text-sm text-gray-500">
+                    © 2025 Prcuisa Labs. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Preloader functionality
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+                setTimeout(function() {
+                    document.getElementById('preloader').style.display = 'none';
+                }, 500); // Match this with the transition duration
+            }, 1500); // Minimum show time for preloader
+        });
+        
+        // Typing animation
+        const words = ["amazing", "awesome", "incredible", "fantastic", "wonderful", "stellar"];
+        let currentIndex = 0;
+        const textElement = document.getElementById('rotating-text');
+        let isDeleting = false;
+        let charIndex = 0;
+        let currentWord = '';
+        let typingSpeed = 150;
+        let delayBetweenWords = 2000;
+        
+        function typeWriter() {
+            const fullWord = words[currentIndex];
+            
+            if (isDeleting) {
+                currentWord = fullWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                currentWord = fullWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            textElement.innerHTML = currentWord + '<span class="typing-cursor"></span>';
+            
+            let typeSpeed = typingSpeed;
+            if (isDeleting) {
+                typeSpeed /= 2;
+            }
+            
+            if (!isDeleting && charIndex === fullWord.length) {
+                typeSpeed = delayBetweenWords;
+                isDeleting = true;
+            } 
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                currentIndex = (currentIndex + 1) % words.length;
+                typeSpeed = 500;
+            }
+            
+            setTimeout(typeWriter, typeSpeed);
+        }
+        
+        // Start typing animation after preloader
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeWriter, 2000); // Start after preloader transition
+        });
+    </script>
+</body>
+</html>
