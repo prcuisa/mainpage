@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="dark" itemscope itemtype="https://schema.org/Organization">
+<html lang="id" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -237,7 +237,6 @@
             }
         }
     </script>
-
     <style>
         /* Custom styles */
         @font-face {
@@ -509,16 +508,15 @@
         }
     </style>
 </head>
-
-<body class="font-inter antialiased text-gray-800 bg-gray-50 dark:bg-gray-900 loaded" itemscope itemtype="https://schema.org/WebPage">
+<body class="font-inter antialiased text-gray-800 bg-gray-50 dark:bg-gray-900 loaded">
     <!-- Preloader -->
-    <div id="preloader" style="display: none;" aria-hidden="true">
+    <div id="preloader" style="display: none;">
         <img src="https://raw.githubusercontent.com/prcuisa/tailwind/refs/heads/main/src/public/images/prcuisa.png" alt="PRCUISA Logo" class="preloader-logo">
         <div class="spinner"></div>
     </div>
 
     <!-- Animated Background Elements -->
-    <div class="fixed inset-0 overflow-hidden -z-10" aria-hidden="true">
+    <div class="fixed inset-0 overflow-hidden -z-10">
         <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary-400 opacity-10 mix-blend-multiply filter blur-3xl animate-spin-slow"></div>
         <div class="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-accent-400 opacity-10 mix-blend-multiply filter blur-3xl animate-spin-slow"></div>
         <div class="absolute top-1/2 right-1/4 w-72 h-72 rounded-full bg-primary-500 opacity-10 mix-blend-multiply filter blur-3xl animate-float"></div>
@@ -526,29 +524,29 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="glass sticky top-0 z-50" role="navigation" aria-label="Main navigation">
+    <nav class="glass sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <a href="#" class="flex items-center space-x-2" aria-label="PRCUISA Home">
+                <a href="#" class="flex items-center space-x-2">
                     <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
                         <img src="/logolight.png" alt="PRCUISA Logo" class="logo-img logo-light w-8 h-8 object-contain">
                         <img src="/logodark.png" alt="PRCUISA Logo" class="logo-img logo-dark w-8 h-8 object-contain">
                     </div>
-                    <div class="logo-text" aria-label="PRCUISA"></div>
+                    <div class="logo-text"></div>
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors duration-300 font-medium">Layanan</a>
-                    <a href="#work" class="text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors duration-300 font-medium">Portfolio</a>
-                    <a href="#about" class="text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors duration-300 font-medium">Tentang Kami</a>
-                    <a href="#contact" class="text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors duration-300 font-medium">Kontak</a>
-                    <button id="theme-toggle" class="p-2 rounded-lg focus:outline-none" aria-label="Toggle dark mode">
+                    <a href="#services" class="text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors duration-300 font-medium">Services</a>
+                    <a href="#work" class="text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors duration-300 font-medium">Our Work</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors duration-300 font-medium">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors duration-300 font-medium">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-lg focus:outline-none">
                         <i class="fas fa-sun text-yellow-400"></i>
                     </button>
-                    <a href="#contact" class="px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white hover:shadow-lg transition-all duration-300">Konsultasi Gratis</a>
+                    <a href="#contact" class="px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white hover:shadow-lg transition-all duration-300">Get Started</a>
                 </div>
 
-                <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300" aria-label="Toggle mobile menu">
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -557,53 +555,53 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden glass">
             <div class="px-2 pt-2 pb-3 space-y-2">
-                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800">Layanan</a>
-                <a href="#work" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800">Portfolio</a>
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800">Tentang Kami</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800">Kontak</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
+                <a href="#work" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800">Our Work</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
                 <button id="mobile-theme-toggle" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800 w-full text-left">
-                    <i class="fas fa-sun mr-2 text-yellow-400"></i> Ganti Mode Terang
+                    <i class="fas fa-sun mr-2 text-yellow-400"></i> Toggle Light Mode
                 </button>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-center text-white bg-gradient-to-r from-primary-500 to-accent-500">Konsultasi Gratis</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-center text-white bg-gradient-to-r from-primary-500 to-accent-500">Get Started</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden" role="banner">
+    <section class="relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="text-center lg:text-left">
                     <div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 text-sm font-medium mb-6">
                         <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
-                        Konsultasi Gratis 30 Menit Tersedia
+                        Free 30-Minute Consultation Available
                     </div>
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight dark:text-white">
                         <span class="gradient-text">
-                            <span id="typing-text">Solusi Digital</span><span class="typing-cursor" style="animation: 0.7s ease 0s infinite normal none running blink;"></span>
-                        </span><br> Untuk Setiap Visi
+                            <span id="typing-text">Build Anything</span><span class="typing-cursor" style="animation: 0.7s ease 0s infinite normal none running blink;"></span>
+                        </span><br> For Every Vision
                     </h1>
                     <p class="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-lg">
-                        Kami menggabungkan kreativitas, teknologi, dan strategi untuk mengubah ide menjadi solusi digital yang bekerja di mana saja di dunia. Mulai dengan konsultasi gratis hari ini.
+                      We combine creativity, technology, and strategy to turn ideas into digital solutions that work anywhere in the world. Start with a free consultation today.
                     </p>
                     <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <a href="#contact" class="px-8 py-3 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white hover:shadow-lg hover:shadow-primary-100 transition-all duration-300 text-center font-medium">
-                            Booking Konsultasi Gratis
+                            Book Free Consultation
                         </a>
                         <a href="#services" class="px-8 py-3 rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 text-center font-medium">
-                            Jelajahi Layanan
+                            Explore Services
                         </a>
                     </div>
 
                     <div class="mt-12 flex items-center justify-center lg:justify-start space-x-6">
                         <div class="flex items-center">
                             <div class="flex -space-x-2">
-                                <img class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800" src="https://randomuser.me/api/portraits/women/12.jpg" alt="Klien PRCUISA 1">
-                                <img class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Klien PRCUISA 2">
-                                <img class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800" src="https://randomuser.me/api/portraits/women/45.jpg" alt="Klien PRCUISA 3">
+                                <img class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800" src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
+                                <img class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                                <img class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800" src="https://randomuser.me/api/portraits/women/45.jpg" alt="">
                             </div>
                             <div class="ml-4">
-                                <p class="text-sm font-medium text-gray-700 dark:text-gray-300">Dipercaya 100+ klien</p>
+                                <p class="text-sm font-medium text-gray-700 dark:text-gray-300">Trusted by 100+ clients</p>
                                 <div class="flex items-center">
                                     <i class="fas fa-star text-yellow-400"></i>
                                     <i class="fas fa-star text-yellow-400"></i>
@@ -684,7 +682,7 @@
 
                                 <!-- Tools -->
                                 <div class="md:col-span-2">
-                                    <div class="text-purple-400 dark:text-purple-600 mb-2"># TOOLS &amp; SERVICES</div>
+                                    <div class="text-purple-400 dark:text-purple-600 mb-2"># TOOLS & SERVICES</div>
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-2 py-1 bg-gray-800 dark:bg-gray-200 rounded text-xs">Vercel</span>
                                         <span class="px-2 py-1 bg-gray-800 dark:bg-gray-200 rounded text-xs">Git</span>
@@ -719,20 +717,20 @@
             <div class="text-center">
                 <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm mb-6">
                     <i class="fas fa-gift mr-2"></i>
-                    <span class="font-semibold">Penawaran Terbatas</span>
+                    <span class="font-semibold">Limited Time Offer</span>
                 </div>
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Dapatkan Konsultasi Gratis 30 Menit</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get a Free 30-Minute Consultation</h2>
                 <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                    Tidak yakin layanan mana yang tepat untuk Anda? Jadwalkan konsultasi gratis dengan ahli kami untuk mendiskusikan kebutuhan proyek, tujuan, dan bagaimana kami dapat membantu mewujudkan visi Anda.
+                    Not sure which service is right for you? Schedule a free consultation with our experts to discuss your project needs, goals, and how we can help bring your vision to life.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a href="#contact" class="px-8 py-4 rounded-full bg-white text-primary-600 font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                         <i class="fas fa-calendar-check mr-2"></i>
-                        Booking Konsultasi Gratis Anda
+                        Book Your Free Consultation
                     </a>
                     <div class="flex items-center text-white/80">
                         <i class="fas fa-clock mr-2"></i>
-                        <span>Tanpa kewajiban • 100% gratis</span>
+                        <span>No obligation • 100% free</span>
                     </div>
                 </div>
             </div>
@@ -745,9 +743,9 @@
     <section id="services" class="py-20 bg-gray-100 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto">
-                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Layanan Kami</span>
-                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Solusi Digital Komprehensif</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400">Kami menawarkan layanan end-to-end untuk mewujudkan visi digital Anda. Booking konsultasi gratis untuk belajar lebih lanjut.</p>
+                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Our Services</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Comprehensive Digital Solutions</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">We offer end-to-end services to bring your digital vision to life. Book a free consultation to learn more.</p>
             </div>
 
             <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -758,10 +756,10 @@
                             <i class="fas fa-pencil-ruler text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">PRCUISArt</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">Layanan desain UI/UX profesional yang menciptakan pengalaman digital intuitif dan indah.</p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">Professional UI/UX design services that create intuitive and beautiful digital experiences.</p>
                         <div class="mt-auto">
                             <a href="#contact" class="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium transition-colors duration-300">
-                                Konsultasi Desain Gratis
+                                Free Design Consultation
                                 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                             </a>
                         </div>
@@ -775,10 +773,10 @@
                             <i class="fas fa-desktop text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">BuildWithPrcuisa</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">Perakitan PC custom dan workstation yang disesuaikan dengan kebutuhan spesifik Anda.</p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">Custom PC builds and workstations tailored to your specific needs.</p>
                         <div class="mt-auto">
                             <a href="#contact" class="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium transition-colors duration-300">
-                                Konsultasi Build Gratis
+                                Free Build Consultation
                                 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                             </a>
                         </div>
@@ -792,10 +790,10 @@
                             <i class="fas fa-code text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">PRCUISA WEB</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">Pengembangan web custom dan pengalaman digital yang mendorong hasil.</p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">Custom web development and digital experiences that drive results.</p>
                         <div class="mt-auto">
                             <a href="#contact" class="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium transition-colors duration-300">
-                                Konsultasi Dev Gratis
+                                Free Dev Consultation
                                 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                             </a>
                         </div>
@@ -809,10 +807,10 @@
                             <i class="fas fa-microchip text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">PRCUISA IoT</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">Solusi IoT pintar untuk otomasi rumah dan aplikasi bisnis.</p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">Smart IoT solutions for home automation and business applications.</p>
                         <div class="mt-auto">
                             <a href="#contact" class="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium transition-colors duration-300">
-                                Konsultasi IoT Gratis
+                                Free IoT Consultation
                                 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                             </a>
                         </div>
@@ -826,9 +824,9 @@
     <section id="process" class="py-20 bg-white dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto">
-                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Proses Kami</span>
-                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Langkah Sederhana untuk Memulai</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400">Dari konsultasi gratis hingga peluncuran, kami membuat prosesnya mulus dan transparan.</p>
+                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Our Process</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Simple Steps to Get Started</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">From free consultation to launch, we make the process seamless and transparent.</p>
             </div>
 
             <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -836,38 +834,38 @@
                     <div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 group-hover:scale-110">
                         <span class="text-3xl font-bold text-white">1</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Konsultasi Gratis</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Jadwalkan panggilan gratis 30 menit untuk mendiskusikan kebutuhan dan tujuan proyek Anda.</p>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Free Consultation</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Schedule a free 30-minute call to discuss your project needs and goals.</p>
                 </div>
                 
                 <div class="text-center group">
                     <div class="w-20 h-20 rounded-full bg-gradient-to-br from-accent-400 to-accent-600 flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 group-hover:scale-110">
                         <span class="text-3xl font-bold text-white">2</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Proposal Custom</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Terima proposal yang disesuaikan dengan timeline detail dan harga transparan.</p>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Custom Proposal</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Receive a tailored proposal with detailed timeline and transparent pricing.</p>
                 </div>
                 
                 <div class="text-center group">
                     <div class="w-20 h-20 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 group-hover:scale-110">
                         <span class="text-3xl font-bold text-white">3</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Pengembangan</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Tim ahli kami mewujudkan visi Anda dengan update reguler.</p>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Development</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Our expert team brings your vision to life with regular updates.</p>
                 </div>
                 
                 <div class="text-center group">
                     <div class="w-20 h-20 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 group-hover:scale-110">
                         <span class="text-3xl font-bold text-white">4</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Launch &amp; Support</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Kami deploy solusi Anda dan memberikan dukungan serta maintenance berkelanjutan.</p>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Launch & Support</h3>
+                    <p class="text-gray-600 dark:text-gray-400">We deploy your solution and provide ongoing support and maintenance.</p>
                 </div>
             </div>
 
             <div class="mt-12 text-center">
                 <a href="#contact" class="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                    Mulai dengan Konsultasi Gratis
+                    Start with Free Consultation
                     <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
@@ -878,22 +876,22 @@
     <section id="work" class="py-20 bg-gray-100 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto">
-                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Portfolio Kami</span>
-                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Proyek Unggulan</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400">Jelajahi beberapa karya terbaru kami. Booking konsultasi gratis untuk melihat bagaimana kami dapat membantu dengan proyek Anda.</p>
+                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Our Portfolio</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Featured Projects</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Explore some of our recent work. Book a free consultation to see how we can help with your project.</p>
             </div>
 
             <div class="mt-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project 1 -->
                     <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Dashboard Design PRCUISA" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Dashboard Design" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6">
                             <span class="text-sm text-primary-300 font-medium">Dashboard UI</span>
                             <h3 class="text-xl font-bold text-white mt-1">Analytics Dashboard</h3>
-                            <p class="text-gray-300 mt-2">Visualisasi data kompleks dengan navigasi intuitif</p>
+                            <p class="text-gray-300 mt-2">Complex data visualization with intuitive navigation</p>
                             <a href="#contact" class="mt-4 inline-flex items-center text-white font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                Dapatkan Konsultasi Gratis
+                                Get Free Consultation
                                 <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
@@ -901,13 +899,13 @@
 
                     <!-- Project 2 -->
                     <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
-                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="PC Build Project PRCUISA" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="PC Build Project" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6">
                             <span class="text-sm text-primary-300 font-medium">Custom PC</span>
                             <h3 class="text-xl font-bold text-white mt-1">Gaming Beast Setup</h3>
-                            <p class="text-gray-300 mt-2">PC gaming high-end dengan kustomisasi RGB</p>
+                            <p class="text-gray-300 mt-2">High-end gaming PC with RGB customization</p>
                             <a href="#contact" class="mt-4 inline-flex items-center text-white font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                Dapatkan Konsultasi Gratis
+                                Get Free Consultation
                                 <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
@@ -915,13 +913,13 @@
 
                     <!-- Project 3 -->
                     <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Web Development Project PRCUISA" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Web Development Project" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6">
                             <span class="text-sm text-primary-300 font-medium">Web Development</span>
                             <h3 class="text-xl font-bold text-white mt-1">E-commerce Platform</h3>
-                            <p class="text-gray-300 mt-2">Toko online custom dengan integrasi pembayaran</p>
+                            <p class="text-gray-300 mt-2">Custom online store with payment integration</p>
                             <a href="#contact" class="mt-4 inline-flex items-center text-white font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                Dapatkan Konsultasi Gratis
+                                Get Free Consultation
                                 <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
@@ -930,7 +928,7 @@
 
                 <div class="mt-12 text-center">
                     <a href="#contact" class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium hover:shadow-lg transition-all duration-300">
-                        Diskusikan Proyek Anda - Konsultasi Gratis
+                        Discuss Your Project - Free Consultation
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -944,16 +942,16 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="relative">
                     <div class="relative z-10 rounded-2xl overflow-hidden shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Tim PRCUISA" class="w-full h-auto">
+                        <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Our Team" class="w-full h-auto">
                     </div>
                     <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-primary-400/20 animate-float"></div>
                     <div class="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-accent-400/20 animate-float-reverse"></div>
                 </div>
                 <div>
-                    <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Tentang Kami</span>
-                    <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Penyedia Solusi Digital Inovatif</h2>
+                    <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">About Us</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Innovative Digital Solutions Provider</h2>
                     <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-                        Didirikan pada 2015, PRCUISA telah berkembang dari studio kreatif kecil menjadi penyedia solusi digital layanan lengkap. Tim kami yang terdiri dari kreatif, developer, dan teknolog yang bersemangat bekerja sama untuk memberikan hasil yang luar biasa bagi klien kami.
+                        Founded in 2015, PRCUISA has grown from a small creative studio to a full-service digital solutions provider. Our team of passionate creatives, developers, and technologists work together to deliver exceptional results for our clients.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start">
@@ -963,8 +961,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Konsultasi Ahli Gratis</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mt-1">Mulai dengan konsultasi 30 menit gratis untuk mengeksplorasi kemungkinan proyek Anda.</p>
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Free Expert Consultation</h3>
+                                <p class="text-gray-600 dark:text-gray-400 mt-1">Start with a complimentary 30-minute consultation to explore your project possibilities.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -974,8 +972,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Pendekatan Kami</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mt-1">Kami menggabungkan pemikiran strategis dengan keunggulan teknis untuk menciptakan solusi yang disesuaikan dengan kebutuhan unik Anda.</p>
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Our Approach</h3>
+                                <p class="text-gray-600 dark:text-gray-400 mt-1">We combine strategic thinking with technical excellence to create solutions tailored to your unique needs.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -985,14 +983,14 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Janji Kami</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mt-1">Kualitas, keandalan, dan dukungan berkelanjutan untuk memastikan kesuksesan digital Anda.</p>
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Our Promise</h3>
+                                <p class="text-gray-600 dark:text-gray-400 mt-1">Quality, reliability, and ongoing support to ensure your digital success.</p>
                             </div>
                         </div>
                     </div>
                     <div class="mt-8">
                         <a href="#contact" class="px-6 py-3 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white hover:shadow-lg hover:shadow-primary-100 transition-all duration-300 inline-flex items-center">
-                            Jadwalkan Konsultasi Gratis
+                            Schedule Free Consultation
                             <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
@@ -1005,21 +1003,21 @@
     <section class="py-20 bg-gray-100 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto">
-                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Tim Kami</span>
-                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Temu Pendiri Kami</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400">Visioner di balik kisah sukses kami. Booking konsultasi gratis untuk mendiskusikan proyek Anda langsung dengan ahli kami.</p>
+                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Our Team</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Meet Our Founder</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">The visionary behind our success story. Book a free consultation to discuss your project directly with our experts.</p>
             </div>
 
             <div class="mt-16 flex justify-center">
                 <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-4xl w-full card-hover">
                     <div class="flex flex-col md:flex-row">
                         <div class="md:w-1/3">
-                            <img src="/ecsa.jpg" alt="Ecsa Ahcri Pracasa - Founder PRCUISA" class="w-full h-64 md:h-full object-cover">
+                            <img src="/ecsa.jpg" alt="Ecsa Ahcri Pracasa" class="w-full h-64 md:h-full object-cover">
                         </div>
                         <div class="md:w-2/3 p-8">
                             <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Ecsa Ahcri Pracasa</h3>
-                            <p class="text-primary-600 dark:text-primary-400 mt-1 text-lg">Founder &amp; CEO</p>
-                            <p class="text-gray-600 dark:text-gray-400 mt-4 text-lg">Pemimpin visioner dengan 15+ tahun pengalaman dalam inovasi digital. Bersemangat menciptakan solusi yang membuat perbedaan.</p>
+                            <p class="text-primary-600 dark:text-primary-400 mt-1 text-lg">Founder & CEO</p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-4 text-lg">Visionary leader with 15+ years in digital innovation. Passionate about creating solutions that make a difference.</p>
                             <div class="mt-6 flex space-x-4">
                                 <a href="https://www.linkedin.com/in/denecsa/" class="text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">
                                     <i class="fab fa-linkedin-in"></i>
@@ -1030,7 +1028,7 @@
                             </div>
                             <div class="mt-6">
                                 <a href="#contact" class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium hover:shadow-lg transition-all duration-300">
-                                    Booking Konsultasi dengan Ecsa
+                                    Book Consultation with Ecsa
                                     <i class="fas fa-arrow-right ml-2"></i>
                                 </a>
                             </div>
@@ -1045,16 +1043,16 @@
     <section id="contact" class="py-20 bg-gray-100 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Konsultasi Gratis</span>
-                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Jadwalkan Konsultasi Gratis 30-Menit Anda</h2>
+                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Free Consultation</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Schedule Your Free 30-Minute Consultation</h2>
                 <p class="text-lg text-gray-600 dark:text-gray-400">
-                    Tidak yakin layanan mana yang tepat untuk Anda? Ahli kami siap membantu. Booking konsultasi gratis untuk mendiskusikan kebutuhan dan tujuan proyek Anda. Tanpa kewajiban, tanpa tekanan.
+                    Not sure which service is right for you? Our experts are here to help. Book a free consultation to discuss your project needs and goals. No obligation, no pressure.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Mengapa Memilih Konsultasi Gratis Kami?</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Why Choose Our Free Consultation?</h3>
                     <div class="space-y-4 mb-8">
                         <div class="flex items-start">
                             <div class="flex-shrink-0">
@@ -1063,8 +1061,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h4 class="font-medium text-gray-900 dark:text-white">100% Gratis &amp; Tanpa Kewajiban</h4>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm">Dapatkan saran ahli tanpa komitmen</p>
+                                <h4 class="font-medium text-gray-900 dark:text-white">100% Free & No Obligation</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Get expert advice without any commitment</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -1074,8 +1072,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h4 class="font-medium text-gray-900 dark:text-white">Panduan Ahli</h4>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm">Belajar dari profesional industri dengan 15+ tahun pengalaman</p>
+                                <h4 class="font-medium text-gray-900 dark:text-white">Expert Guidance</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Learn from industry professionals with 15+ years experience</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -1085,8 +1083,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h4 class="font-medium text-gray-900 dark:text-white">Solusi Custom</h4>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm">Terima rekomendasi yang dipersonalisasi untuk proyek Anda</p>
+                                <h4 class="font-medium text-gray-900 dark:text-white">Custom Solutions</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Receive personalized recommendations for your project</p>
                             </div>
                         </div>
                     </div>
@@ -1099,7 +1097,7 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Kantor Kami</h3>
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Our Office</h3>
                                 <p class="text-gray-600 dark:text-gray-400 mt-1">Jakarta, Indonesia</p>
                             </div>
                         </div>
@@ -1111,14 +1109,14 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Email Kami</h3>
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Email Us</h3>
                                 <p class="text-gray-600 dark:text-gray-400 mt-1">prcuisa@gmail.com</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-12">
-                        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Ikuti Kami</h3>
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Follow Us</h3>
                         <div class="flex space-x-4">
                             <a href="https://instagram.com/prcuisa" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">
                                 <i class="fab fa-instagram"></i>
@@ -1131,36 +1129,36 @@
                 </div>
 
                 <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Booking Konsultasi Gratis Anda</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Book Your Free Consultation</h3>
                     <form id="contact-form" action="https://formspree.io/f/xblzdoew" method="POST">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nama Anda</label>
+                                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Name</label>
                                 <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-all duration-300" placeholder="John Doe" required>
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Alamat Email</label>
+                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
                                 <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-all duration-300" placeholder="john@example.com" required>
                             </div>
                         </div>
                         <div class="mt-6">
-                            <label for="service" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Minat Layanan</label>
+                            <label for="service" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Service Interest</label>
                             <select id="service" name="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-all duration-300">
-                                <option value="">Pilih layanan</option>
+                                <option value="">Select a service</option>
                                 <option value="design">UI/UX Design</option>
                                 <option value="pc">Custom PC Build</option>
                                 <option value="web">Web Development</option>
                                 <option value="iot">IoT Solutions</option>
-                                <option value="other">Lainnya / Tidak Yakin</option>
+                                <option value="other">Other / Not Sure</option>
                             </select>
                         </div>
                         <div class="mt-6">
-                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Ceritakan tentang proyek Anda</label>
-                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-all duration-300" placeholder="Jelaskan tujuan dan kebutuhan proyek Anda..." required></textarea>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tell us about your project</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-all duration-300" placeholder="Describe your project goals and requirements..." required></textarea>
                         </div>
                         <div class="mt-8">
                             <button type="submit" class="w-full px-6 py-4 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium hover:shadow-lg hover:shadow-primary-100 transition-all duration-300">
-                                Jadwalkan Konsultasi Gratis
+                                Schedule Free Consultation
                                 <i class="fas fa-calendar-check ml-2"></i>
                             </button>
                         </div>
@@ -1175,15 +1173,15 @@
     <section class="py-20 bg-white dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto">
-                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Testimoni</span>
-                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Apa Kata Klien Kami</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400">Jangan hanya percaya kata kami. Lihat apa yang dikatakan klien kami tentang pengalaman konsultasi gratis mereka.</p>
+                <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 mb-4">Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">What Our Clients Say</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Don't just take our word for it. See what our clients have to say about their free consultation experience.</p>
             </div>
 
             <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl">
                     <div class="flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Klien Sarah Johnson" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-semibold text-gray-900 dark:text-white">Sarah Johnson</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400">CEO, TechStart</p>
@@ -1196,12 +1194,12 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400">"Konsultasi gratisnya sangat berharga. Mereka memahami kebutuhan kami dengan sempurna dan memberikan rekomendasi yang jelas. Sangat direkomendasikan!"</p>
+                    <p class="text-gray-600 dark:text-gray-400">"The free consultation was incredibly valuable. They understood our needs perfectly and provided clear recommendations. Highly recommend!"</p>
                 </div>
 
                 <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl">
                     <div class="flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Klien Michael Chen" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-semibold text-gray-900 dark:text-white">Michael Chen</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Founder, InnovateCo</p>
@@ -1214,12 +1212,12 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400">"Keputusan terbaik yang kami buat! Konsultasi gratis membantu kami memperjelas ruang lingkup proyek dan menghemat minggu perencanaan."</p>
+                    <p class="text-gray-600 dark:text-gray-400">"Best decision we made! The free consultation helped us clarify our project scope and saved us weeks of planning."</p>
                 </div>
 
                 <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl">
                     <div class="flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Klien Emily Davis" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-semibold text-gray-900 dark:text-white">Emily Davis</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Product Manager, CloudNine</p>
@@ -1232,7 +1230,7 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400">"Profesional, berpengetahuan, dan benar-benar tertarik membantu. Konsultasi gratis melebihi semua harapan kami."</p>
+                    <p class="text-gray-600 dark:text-gray-400">"Professional, knowledgeable, and genuinely interested in helping. The free consultation exceeded all our expectations."</p>
                 </div>
             </div>
         </div>
@@ -1248,10 +1246,10 @@
                             <img src="/logodark.png" alt="PRCUISA Logo" class="logo-img logo-light w-8 h-8 object-contain">
                             <img src="/logodark.png" alt="PRCUISA Logo" class="logo-img logo-dark w-8 h-8 object-contain">
                         </div>
-                        <div class="logo-text" aria-label="PRCUISA"></div>
+                        <div class="logo-text"></div>
                     </a>
                     <p class="text-gray-400 mb-6">
-                        Kami menggabungkan kreativitas, teknologi, dan strategi untuk mengubah ide menjadi solusi digital yang bekerja di mana saja di dunia.
+                        We combine creativity, technology, and strategy to turn ideas into digital solutions that work anywhere in the world.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary-600 flex items-center justify-center text-gray-300 hover:text-white transition-colors duration-300">
@@ -1264,9 +1262,9 @@
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-semibold text-white mb-6">Layanan</h3>
+                    <h3 class="text-lg font-semibold text-white mb-6">Services</h3>
                     <ul class="space-y-3">
-                        <li><a href="#contact" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Konsultasi Gratis</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Free Consultation</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Custom PC Builds</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Web Development</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">IoT Solutions</a></li>
@@ -1274,24 +1272,24 @@
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-semibold text-white mb-6">Perusahaan</h3>
+                    <h3 class="text-lg font-semibold text-white mb-6">Company</h3>
                     <ul class="space-y-3">
-                        <li><a href="#about" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Tentang Kami</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Tim Kami</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Karir</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Our Team</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Careers</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Blog</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Kontak</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Contact</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-semibold text-white mb-6">Dukungan</h3>
+                    <h3 class="text-lg font-semibold text-white mb-6">Support</h3>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Pusat Bantuan</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">FAQ</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Syarat Layanan</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Kebijakan Privasi</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Kebijakan Cookie</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -1299,8 +1297,8 @@
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Prcuisa Labs. All Rights Reserved.</p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-300">Kebijakan Privasi</a>
-                    <a href="#" class="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-300">Syarat Layanan</a>
+                    <a href="#" class="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-300">Terms of Service</a>
                     <a href="#" class="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-300">Cookies</a>
                 </div>
             </div>
@@ -1311,7 +1309,7 @@
     <div class="fixed bottom-8 left-8 z-40 float-animation">
         <a href="#contact" class="flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             <i class="fas fa-comments mr-2"></i>
-            Konsultasi Gratis
+            Free Consultation
         </a>
     </div>
 
@@ -1344,7 +1342,7 @@
             if (savedTheme === 'dark') {
                 html.classList.add('dark');
                 themeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
-                mobileThemeToggle.innerHTML = '<i class="fas fa-sun mr-2 text-yellow-400"></i> Ganti Mode Terang';
+                mobileThemeToggle.innerHTML = '<i class="fas fa-sun mr-2 text-yellow-400"></i> Toggle Light Mode';
             }
 
             themeToggle.addEventListener('click', function() {
@@ -1352,7 +1350,7 @@
                 const isDark = html.classList.contains('dark');
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
                 themeToggle.innerHTML = isDark ? '<i class="fas fa-sun text-yellow-400"></i>' : '<i class="fas fa-moon text-gray-700"></i>';
-                mobileThemeToggle.innerHTML = isDark ? '<i class="fas fa-sun mr-2 text-yellow-400"></i> Ganti Mode Terang' : '<i class="fas fa-moon mr-2"></i> Ganti Mode Gelap';
+                mobileThemeToggle.innerHTML = isDark ? '<i class="fas fa-sun mr-2 text-yellow-400"></i> Toggle Light Mode' : '<i class="fas fa-moon mr-2"></i> Toggle Dark Mode';
             });
 
             mobileThemeToggle.addEventListener('click', function() {
@@ -1360,7 +1358,7 @@
                 const isDark = html.classList.contains('dark');
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
                 themeToggle.innerHTML = isDark ? '<i class="fas fa-sun text-yellow-400"></i>' : '<i class="fas fa-moon text-gray-700"></i>';
-                mobileThemeToggle.innerHTML = isDark ? '<i class="fas fa-sun mr-2 text-yellow-400"></i> Ganti Mode Terang' : '<i class="fas fa-moon mr-2"></i> Ganti Mode Gelap';
+                mobileThemeToggle.innerHTML = isDark ? '<i class="fas fa-sun mr-2 text-yellow-400"></i> Toggle Light Mode' : '<i class="fas fa-moon mr-2"></i> Toggle Dark Mode';
             });
 
             // Mobile menu toggle
@@ -1465,7 +1463,7 @@
                 const originalButtonText = submitButton.innerHTML;
                 
                 // Show loading state
-                submitButton.innerHTML = 'Menjadwalkan... <i class="fas fa-spinner fa-spin ml-2"></i>';
+                submitButton.innerHTML = 'Scheduling... <i class="fas fa-spinner fa-spin ml-2"></i>';
                 submitButton.disabled = true;
                 
                 try {
@@ -1479,14 +1477,14 @@
                     });
                     
                     if (response.ok) {
-                        formStatus.innerHTML = '<div class="text-green-600 bg-green-100 p-3 rounded-lg">Terima kasih telah menjadwalkan konsultasi! Kami akan menghubungi Anda dalam 24 jam untuk mengonfirmasi janji temu Anda.</div>';
+                        formStatus.innerHTML = '<div class="text-green-600 bg-green-100 p-3 rounded-lg">Thank you for scheduling a consultation! We will contact you within 24 hours to confirm your appointment.</div>';
                         formStatus.classList.remove('hidden');
                         contactForm.reset();
                     } else {
                         throw new Error('Form submission failed');
                     }
                 } catch (error) {
-                    formStatus.innerHTML = '<div class="text-red-600 bg-red-100 p-3 rounded-lg">Maaf, ada kesalahan dalam menjadwalkan konsultasi Anda. Silakan coba lagi nanti atau hubungi kami langsung di prcuisa@gmail.com.</div>';
+                    formStatus.innerHTML = '<div class="text-red-600 bg-red-100 p-3 rounded-lg">Sorry, there was an error scheduling your consultation. Please try again later or contact us directly at prcuisa@gmail.com.</div>';
                     formStatus.classList.remove('hidden');
                 } finally {
                     submitButton.innerHTML = originalButtonText;
@@ -1500,6 +1498,5 @@
             });
         });
     </script>
-
 </body>
 </html>
