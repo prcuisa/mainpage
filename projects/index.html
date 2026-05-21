@@ -952,21 +952,21 @@
 
         // AI Agent Modal Toggle
         const openBtn = document.getElementById('openAgentBtn');
-        const modal = document.getElementById('aiAgentModal');
+        const modalz = document.getElementById('aiAgentModal');
         const closeBtn = document.getElementById('closeAgentBtn');
 
-        if (openBtn && modal && closeBtn) {
+        if (openBtn && modalz && closeBtn) {
             // Remove default anchor behavior
             openBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
+                modalz.classList.remove('hidden');
+                modalz.classList.add('flex');
                 document.body.style.overflow = 'hidden';
             });
 
             function closeModal() {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
+                modalz.classList.add('hidden');
+                modalz.classList.remove('flex');
                 document.body.style.overflow = '';
             }
 
@@ -974,12 +974,12 @@
             
             // Close when clicking outside the modal content
             modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeModal();
+                if (e.target === modalz) closeModal();
             });
 
             // Close on ESC key
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                if (e.key === 'Escape' && !modalz.classList.contains('hidden')) {
                     closeModal();
                 }
             });
