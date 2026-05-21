@@ -701,8 +701,29 @@
             </div>
         </div>
     </footer>
+<!-- Floating AI Agent Bubble Modal -->
+    <div id="aiAgentModal" class="fixed inset-0 z-50 hidden items-center justify-center px-4" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);">
+        <div class="relative w-full max-w-sm bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden animate-scale-in">
+            <div class="flex justify-between items-center p-4 border-b border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span class="font-semibold text-gray-800 dark:text-white">AI Agent</span>
+                </div>
+                <button id="closeAgentBtn" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="h-[600px] w-full">
+                <iframe src="https://agent.prcuisa.com/" class="w-full h-full border-0" title="AI Agent"></iframe>
+            </div>
+        </div>
+    </div>
 
-    <a href="/#contact" class="fixed bottom-6 left-6 bg-gradient-to-r from-primary-500 to-accent-500 text-white px-5 py-3 rounded-full shadow-lg flex items-center gap-2 hover:shadow-xl transition-all z-40 float-animation"><i class="fas fa-comment"></i> Free Consult</a>
+    <!-- Floating Button - Updated text -->
+    <a href="#" id="openAgentBtn" class="fixed bottom-6 right-6 bg-gradient-to-r from-primary-500 to-accent-500 text-white px-5 py-3 rounded-full shadow-lg flex items-center gap-2 hover:shadow-xl transition-all z-40 float-animation">
+        <i class="fas fa-comment-dots"></i> Chat AI Agent
+    </a>
+    
 
     <!-- Project Modal -->
     <div id="project-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
@@ -928,6 +949,41 @@
                 }
             });
         });
+
+        // AI Agent Modal Toggle
+        const openBtn = document.getElementById('openAgentBtn');
+        const modal = document.getElementById('aiAgentModal');
+        const closeBtn = document.getElementById('closeAgentBtn');
+
+        if (openBtn && modal && closeBtn) {
+            // Remove default anchor behavior
+            openBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            });
+
+            function closeModal() {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            
+            // Close when clicking outside the modal content
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // Close on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        }
     </script>
 
 </body></html>
