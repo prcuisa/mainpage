@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Livin' KSM Emas · Opsi 2</title>
+<style>
+  :root{
+    --blue-900:#00204A;--blue-800:#00305F;--blue-700:#003D79;--blue-500:#0A5AC0;--blue-300:#4E8BE6;
+    --gold-600:#F2A900;--gold-500:#FFC61E;--gold-400:#FFD75E;--gold-200:#FFE9A6;
+    --ink:#0B1B3A;--slate:#5B6B88;--mist:#C8D6EE;--paper:#F3F7FD;--line:#E4ECF7;--white:#fff;--ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased;background:#DDE7F4}
+  .wrap{max-width:460px;margin:0 auto;background:var(--paper);position:relative;overflow:hidden}
+  section{padding:44px 24px}
+  .anim{opacity:0;transform:translateY(24px);animation:fu .8s var(--ease) forwards}
+  @keyframes fu{to{opacity:1;transform:none}}
+
+  .hero{position:relative;padding:36px 24px 40px;overflow:hidden;
+    background:linear-gradient(160deg,#1266D6 0%,#0A5AC0 34%,#003D79 68%,#00274F 100%);background-size:200% 200%;animation:drift 13s ease-in-out infinite alternate}
+  @keyframes drift{0%{background-position:0% 0%}100%{background-position:100% 70%}}
+  .hero .blob{position:absolute;border-radius:50%;filter:blur(42px);z-index:0}
+  .hero .bg{width:240px;height:240px;background:rgba(255,198,30,.34);top:-70px;right:-70px;animation:fl 10s ease-in-out infinite}
+  .hero .bb{width:200px;height:200px;background:rgba(78,139,230,.5);bottom:-60px;left:-70px;animation:fl 12s ease-in-out .5s infinite}
+  @keyframes fl{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-14px,16px) scale(1.1)}}
+
+  .pf{position:absolute;border-radius:50%;background:radial-gradient(circle,#FFF3C6,#F2A900);z-index:1;box-shadow:0 0 9px rgba(255,198,30,.9);animation:rise linear infinite}
+  @keyframes rise{0%{transform:translateY(30px) scale(.5);opacity:0}14%{opacity:1}82%{opacity:1}100%{transform:translateY(-150px) scale(1.1);opacity:0}}
+
+  .lock{position:relative;z-index:2;opacity:0;animation:fu .8s var(--ease) .1s forwards}
+  .lock .l{font-family:inherit;font-weight:800;font-style:italic;font-size:38px;color:#fff;line-height:.9}
+  .lock .k{font-size:13px;font-weight:700;letter-spacing:.2em;color:#DCE8FB;text-transform:uppercase}
+  .lock .e{font-size:24px;font-weight:800;margin-left:4px;background:linear-gradient(90deg,#FFE9A6,#FFC61E,#FFF3C6,#F2A900,#FFE9A6);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4s linear infinite}
+  @keyframes shimmer{0%{background-position:0% 0}100%{background-position:250% 0}}
+  .hero h1{position:relative;z-index:2;margin-top:18px;font-size:27px;line-height:1.16;font-weight:800;color:#fff;letter-spacing:-.02em;opacity:0;animation:fu .8s var(--ease) .25s forwards}
+  .hero h1 .hl{background:linear-gradient(90deg,#FFC61E,#FFF3C6,#FFC61E);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3s linear infinite}
+  .hero .sub{position:relative;z-index:2;margin-top:12px;font-size:14px;line-height:1.55;color:var(--mist);font-weight:500;max-width:320px;opacity:0;animation:fu .8s var(--ease) .4s forwards}
+
+  .scene{position:relative;z-index:2;height:220px;margin-top:8px;opacity:0;animation:fu .9s var(--ease) .5s forwards}
+  .halo{position:absolute;left:50%;top:48%;width:220px;height:220px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,198,30,.42),transparent 64%);animation:pulse 3.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(.9);opacity:.7}50%{transform:translate(-50%,-50%) scale(1.14);opacity:1}}
+  .phone{position:absolute;left:50%;top:50%;width:140px;height:196px;transform:translate(-50%,-50%) rotate(-5deg);border-radius:26px;
+    background:linear-gradient(160deg,#0C4E9E,#00285A);border:2px solid rgba(255,255,255,.2);box-shadow:0 30px 60px rgba(0,10,40,.5),inset 0 0 0 5px rgba(255,255,255,.04);animation:bob 5.4s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,-50%) rotate(-5deg)}50%{transform:translate(-50%,calc(-50% - 14px)) rotate(-2deg)}}
+  .phone .scr{position:absolute;inset:12px;border-radius:18px;background:linear-gradient(165deg,#083E82,#00224C);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+  .bar{width:66px;height:100px;border-radius:10px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg,#FFF0B8,#FFD75E 22%,#F2A900 52%,#FFCE5C 76%,#D68A00);box-shadow:0 14px 26px rgba(90,55,0,.5),inset 0 2px 3px rgba(255,255,255,.75)}
+  .bar .bv{position:absolute;top:6px;left:6px;right:6px;height:20px;border-radius:5px;background:linear-gradient(180deg,rgba(255,255,255,.55),transparent)}
+  .bar .fc{position:absolute;left:0;right:0;top:26px;text-align:center;color:#7A5410}
+  .bar .fc .a{font-size:5px;letter-spacing:1px;font-weight:800}
+  .bar .fc .b{font-size:9px;font-weight:800;margin-top:10px}
+  .bar .fc .c{font-size:12px;font-weight:800}
+  .bar .fc .d{font-size:7px;font-weight:700;margin-top:8px}
+  .bar .g{position:absolute;top:0;left:-45%;width:40%;height:100%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);animation:glint 3.4s ease-in-out infinite}
+  @keyframes glint{0%,52%{left:-45%}78%,100%{left:135%}}
+  .coin{position:absolute;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#8A5A00;z-index:3;
+    background:radial-gradient(circle at 34% 30%,#FFF3C6,#FFD75E 44%,#F2A900 82%);box-shadow:0 8px 16px rgba(120,80,0,.42),inset 0 2px 3px rgba(255,255,255,.7);border:2px solid rgba(255,255,255,.35)}
+  .coin.a{width:48px;height:48px;font-size:15px;top:10px;right:38px;animation:cb 4.4s ease-in-out infinite}
+  .coin.b{width:32px;height:32px;font-size:12px;bottom:18px;left:46px;animation:cb 5.4s ease-in-out .5s infinite}
+  .coin.c{width:24px;height:24px;font-size:10px;top:96px;right:20px;animation:cb 6s ease-in-out 1s infinite}
+  @keyframes cb{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-15px) rotate(8deg)}}
+  .spark{position:absolute;color:#FFE9A6;text-shadow:0 0 10px rgba(255,198,30,1);animation:tw 2.4s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.25;transform:scale(.6) rotate(0)}50%{opacity:1;transform:scale(1.25) rotate(20deg)}}
+
+  .story{text-align:center;background:var(--paper)}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-600);animation-delay:.05s}
+  .story h2{margin-top:10px;font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--ink);animation-delay:.15s}
+  .story h2 .b{color:var(--blue-500)}
+  .cards{margin-top:20px;display:flex;flex-direction:column;gap:14px}
+  .card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;text-align:left;box-shadow:0 10px 26px rgba(0,40,90,.06)}
+  .card.c1{animation-delay:.25s}.card.c2{animation-delay:.4s}
+  .card .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:24px;margin-bottom:14px;
+    background:linear-gradient(150deg,var(--gold-400),var(--gold-600));color:var(--blue-900);box-shadow:0 10px 20px rgba(242,169,0,.4);animation:beat 2.6s ease-in-out infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+  .card h3{font-size:17px;font-weight:800;color:var(--ink)}
+  .card p{margin-top:5px;font-size:13.5px;line-height:1.5;color:var(--slate);font-weight:500}
+  .card .deco{position:absolute;width:130px;height:130px;border-radius:50%;right:-44px;top:-44px;background:radial-gradient(circle,rgba(255,198,30,.16),transparent 70%);animation:pulse2 4s ease-in-out infinite}
+  @keyframes pulse2{0%,100%{transform:scale(.9);opacity:.7}50%{transform:scale(1.15);opacity:1}}
+
+  .band{margin:0 14px;padding:30px 24px;border-radius:28px;text-align:center;position:relative;overflow:hidden;
+    background:linear-gradient(150deg,#1266D6,#003D79);background-size:200% 200%;box-shadow:0 20px 44px rgba(0,40,90,.22);animation:drift 12s ease-in-out infinite alternate}
+  .band .sp{position:absolute;color:rgba(255,233,166,1);text-shadow:0 0 10px rgba(255,198,30,1);animation:tw 2.6s ease-in-out infinite}
+  .band .cap{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-400)}
+  .band h2{margin-top:8px;font-size:24px;font-weight:800;color:#fff;letter-spacing:-.01em}
+  .band h2 .g{background:linear-gradient(90deg,#FFC61E,#FFF3C6,#FFC61E);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3s linear infinite}
+
+  .tagline{text-align:center;padding:36px 24px 30px;background:var(--paper)}
+  .tagline .t1{font-family:inherit;font-weight:800;font-style:italic;font-size:34px;color:var(--blue-700)}
+  .tagline .t2{font-size:19px;font-weight:700;color:var(--ink);margin-left:2px}
+  .tagline .by{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--slate)}
+  .tagline .info{margin-top:14px;font-size:12.5px;color:var(--slate);font-weight:600}
+  .tagline .info b{color:var(--blue-500)}
+  .tagline .disc{margin-top:8px;font-size:10.5px;color:#9AA8C2}
+
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;animation-iteration-count:1!important}
+    .anim,.lock,.hero h1,.hero .sub,.scene{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="blob bg"></div><div class="blob bb"></div>
+    <div class="pf" style="width:5px;height:5px;left:16%;top:70%;animation-duration:7s"></div>
+    <div class="pf" style="width:4px;height:4px;left:32%;top:64%;animation-duration:8.5s;animation-delay:1.4s"></div>
+    <div class="pf" style="width:6px;height:6px;left:58%;top:72%;animation-duration:6.5s;animation-delay:.6s"></div>
+    <div class="pf" style="width:4px;height:4px;left:78%;top:66%;animation-duration:9s;animation-delay:2.2s"></div>
+    <div class="pf" style="width:5px;height:5px;left:88%;top:74%;animation-duration:7.5s;animation-delay:1s"></div>
+
+    <div class="lock"><span class="l">livin'</span> <span class="k">ksm</span><span class="e">EMAS</span> <span style="font-size:20px">🥇</span></div>
+    <h1>Mau beli emas dengan <span class="hl">mudah &amp; cepat</span>? 🤩</h1>
+    <p class="sub">Kini miliki emas bisa secepat dan semudah itu dengan fitur baru di Livin' by Mandiri!</p>
+    <div class="scene">
+      <div class="halo"></div>
+      <span class="spark" style="top:12px;left:56px;font-size:18px">✦</span>
+      <span class="spark" style="bottom:10px;right:56px;font-size:20px;animation-delay:1s">✦</span>
+      <span class="spark" style="top:90px;left:30px;font-size:13px;animation-delay:.5s">✦</span>
+      <div class="coin a">Rp</div>
+      <div class="coin c">Rp</div>
+      <div class="phone"><div class="scr">
+        <div class="bar"><div class="bv"></div><div class="fc"><div class="a">LOGAM MULIA</div><div class="b">FINE GOLD</div><div class="c">999.9</div><div class="d">10 g</div></div><div class="g"></div></div>
+      </div></div>
+      <div class="coin b">Rp</div>
+    </div>
+  </div>
+
+  <section class="story">
+    <span class="eyebrow anim">Fitur baru</span>
+    <h2 class="anim">Punya emas kini <span class="b">semudah ini.</span></h2>
+    <div class="cards">
+      <div class="card anim c1">
+        <div class="deco"></div>
+        <div class="ic">⚡</div>
+        <h3>Pengajuan Cepat</h3>
+        <p>Prosesnya praktis, 100% online langsung dari Livin' by Mandiri.</p>
+      </div>
+      <div class="card anim c2">
+        <div class="deco"></div>
+        <div class="ic">📅</div>
+        <h3>Tenor Fleksibel s.d. 5 Tahun*</h3>
+        <p>Pilih cicilan panjang & fleksibel, angsuran jadi lebih ringan.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="band anim">
+    <span class="sp" style="top:16px;left:26px;font-size:16px">✦</span>
+    <span class="sp" style="bottom:18px;right:30px;font-size:20px;animation-delay:1s">✦</span>
+    <span class="sp" style="top:24px;right:50px;font-size:12px;animation-delay:.5s">✦</span>
+    <span class="sp" style="bottom:22px;left:44px;font-size:14px;animation-delay:1.5s">✦</span>
+    <div class="cap">Livin' KSM Emas</div>
+    <h2><span class="g">Mudah &amp; Cepat</span><br>Miliki Emas</h2>
+  </div>
+
+  <div class="tagline anim">
+    <div><span class="t1">livin'</span><span class="t2">Aja, Semua Bisa!</span></div>
+    <div class="by">by mandiri</div>
+    <div class="info">Info: <b>bmri.id/KSMEmas</b></div>
+    <div class="disc">*Tenor sesuai penilaian bank · S&amp;K berlaku</div>
+  </div>
+
+</div>
+</body>
+</html>
