@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>PRCUISA — Rebuilding Something Better</title>
+
+  <meta
+    name="description"
+    content="PRCUISA is evolving. We're rebuilding our platform around Business Systems, AI Automation, and Smart Technology."
+  />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#fafbfb" />
+
+  <link rel="canonical" href="https://prcuisa.com" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PRCUISA — Rebuilding Something Better" />
+  <meta
+    property="og:description"
+    content="Business Systems. AI Automation. Smart Technology. A new PRCUISA is coming."
+  />
+  <meta property="og:url" content="https://prcuisa.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PRCUISA" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/logodark.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    :root {
+      --primary: #009aa5;
+      --primary-soft: rgba(0, 154, 165, 0.08);
+
+      --bg: #fafbfb;
+      --surface: rgba(255, 255, 255, 0.72);
+
+      --text: #242727;
+      --muted: #777d7d;
+
+      --border: rgba(67, 66, 66, 0.11);
+      --grid: rgba(67, 66, 66, 0.045);
+    }
+
+    html.dark {
+      --bg: #0b0d0d;
+      --surface: rgba(20, 23, 23, 0.68);
+
+      --text: #f3f5f5;
+      --muted: #929999;
+
+      --border: rgba(255, 255, 255, 0.09);
+      --grid: rgba(255, 255, 255, 0.035);
+
+      --primary-soft: rgba(0, 154, 165, 0.1);
+    }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+
+      font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: var(--text);
+      background: var(--bg);
+
+      overflow-x: hidden;
+
+      transition:
+        background 0.35s ease,
+        color 0.35s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+    }
+
+
+    /* =====================================================
+       BACKGROUND
+    ===================================================== */
+
+    .background {
+      position: fixed;
+      inset: 0;
+
+      z-index: 0;
+
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          var(--grid) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          var(--grid) 1px,
+          transparent 1px
+        );
+
+      background-size: 48px 48px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          rgba(0, 0, 0, 0.35) 55%,
+          transparent 90%
+        );
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          rgba(0, 0, 0, 0.35) 55%,
+          transparent 90%
+        );
+    }
+
+    .glow {
+      position: absolute;
+
+      width: 680px;
+      height: 680px;
+
+      top: -390px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(0, 154, 165, 0.17),
+          rgba(0, 154, 165, 0.04) 40%,
+          transparent 70%
+        );
+
+      filter: blur(10px);
+    }
+
+    .glow-small {
+      position: absolute;
+
+      width: 320px;
+      height: 320px;
+
+      right: -170px;
+      bottom: 10%;
+
+      border-radius: 50%;
+
+      background:
+        rgba(0, 154, 165, 0.07);
+
+      filter: blur(70px);
+    }
+
+
+    /* =====================================================
+       PAGE
+    ===================================================== */
+
+    .page {
+      position: relative;
+      z-index: 1;
+
+      width: 100%;
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+
+      padding:
+        28px
+        clamp(22px, 5vw, 72px);
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    header {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 31px;
+      height: 31px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-icon img {
+      width: 26px;
+      height: 26px;
+
+      object-fit: contain;
+    }
+
+    .logo-light {
+      display: block;
+    }
+
+    .logo-dark {
+      display: none;
+    }
+
+    html.dark .logo-light {
+      display: none;
+    }
+
+    html.dark .logo-dark {
+      display: block;
+    }
+
+    .wordmark {
+      width: 112px;
+      height: 30px;
+
+      display: block;
+
+      background-image:
+        url("/PRCUISAA.png");
+
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    html.dark .wordmark {
+      filter:
+        brightness(0)
+        invert(1);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+
+      gap: 20px;
+    }
+
+
+    /* =====================================================
+       STATUS
+    ===================================================== */
+
+    .status {
+      display: flex;
+      align-items: center;
+
+      gap: 9px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .status-dot {
+      position: relative;
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--primary);
+    }
+
+    .status-dot::after {
+      content: "";
+
+      position: absolute;
+      inset: -4px;
+
+      border-radius: inherit;
+
+      border:
+        1px solid
+        rgba(0, 154, 165, 0.25);
+
+      animation:
+        statusPulse
+        2.2s
+        ease-out
+        infinite;
+    }
+
+    @keyframes statusPulse {
+      0% {
+        transform: scale(0.7);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+    }
+
+
+    /* =====================================================
+       THEME BUTTON
+    ===================================================== */
+
+    .theme-toggle {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 50%;
+
+      background: var(--surface);
+
+      color: var(--text);
+
+      cursor: pointer;
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(8deg);
+
+      border-color:
+        rgba(0, 154, 165, 0.4);
+    }
+
+    .theme-toggle svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .moon {
+      display: none;
+    }
+
+    html.dark .sun {
+      display: none;
+    }
+
+    html.dark .moon {
+      display: block;
+    }
+
+
+    /* =====================================================
+       MAIN
+    ===================================================== */
+
+    main {
+      flex: 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        80px 0
+        90px;
+    }
+
+    .hero {
+      width: 100%;
+      max-width: 1000px;
+
+      text-align: center;
+    }
+
+
+    /* =====================================================
+       EYEBROW
+    ===================================================== */
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 8px;
+
+      padding:
+        8px 13px;
+
+      margin-bottom: 31px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 100px;
+
+      background: var(--surface);
+
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      color: var(--muted);
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size: 11px;
+      font-weight: 600;
+
+      letter-spacing: 0.12em;
+
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      color: var(--primary);
+    }
+
+
+    /* =====================================================
+       HERO TITLE
+    ===================================================== */
+
+    h1 {
+      max-width: 950px;
+
+      margin: 0 auto;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        clamp(
+          48px,
+          7.8vw,
+          92px
+        );
+
+      font-weight: 600;
+
+      line-height: 0.99;
+
+      letter-spacing: -0.06em;
+    }
+
+    .accent {
+      color: var(--primary);
+    }
+
+
+    /* =====================================================
+       TYPING TITLE
+    ===================================================== */
+
+    .typing-line {
+      display: block;
+
+      min-height: 1.05em;
+    }
+
+    .typing-wrapper {
+      display: inline-flex;
+      align-items: baseline;
+
+      white-space: nowrap;
+    }
+
+    .typing-cursor {
+      display: inline-block;
+
+      width: 4px;
+      height: 0.82em;
+
+      margin-left: 7px;
+
+      background: var(--primary);
+
+      border-radius: 2px;
+
+      transform: translateY(3px);
+
+      animation:
+        typingBlink
+        0.75s
+        infinite;
+    }
+
+    @keyframes typingBlink {
+      0%,
+      45% {
+        opacity: 1;
+      }
+
+      46%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+
+    /* =====================================================
+       DESCRIPTION
+    ===================================================== */
+
+    .hero-description {
+      max-width: 630px;
+
+      margin:
+        30px auto 0;
+
+      color: var(--muted);
+
+      font-size:
+        clamp(
+          16px,
+          2vw,
+          19px
+        );
+
+      line-height: 1.75;
+    }
+
+
+    /* =====================================================
+       PILLARS
+    ===================================================== */
+
+    .pillars {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 37px;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+
+      padding:
+        10px 14px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 10px;
+
+      background:
+        var(--surface);
+
+      backdrop-filter:
+        blur(12px);
+
+      -webkit-backdrop-filter:
+        blur(12px);
+
+      color:
+        var(--muted);
+
+      font-size: 12px;
+      font-weight: 500;
+
+      transition:
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .pillar:hover {
+      transform:
+        translateY(-2px);
+
+      border-color:
+        rgba(
+          0,
+          154,
+          165,
+          0.4
+        );
+
+      color:
+        var(--text);
+    }
+
+    .pillar-icon {
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background:
+        var(--primary);
+    }
+
+
+    /* =====================================================
+       BUILD STATUS
+    ===================================================== */
+
+    .build-line {
+      position: relative;
+
+      width: 100%;
+      max-width: 570px;
+
+      margin:
+        54px auto 0;
+
+      padding-top: 22px;
+
+      border-top:
+        1px solid
+        var(--border);
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      color: var(--muted);
+
+      font-family:
+        "Space Grotesk",
+        monospace;
+
+      font-size: 10px;
+
+      letter-spacing:
+        0.1em;
+
+      text-transform: uppercase;
+    }
+
+    .build-left {
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+    }
+
+    .terminal-cursor {
+      display: inline-block;
+
+      width: 6px;
+      height: 11px;
+
+      background:
+        var(--primary);
+
+      animation:
+        terminalBlink
+        1s
+        step-end
+        infinite;
+    }
+
+    @keyframes terminalBlink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+
+    .contact {
+      margin-top: 32px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 8px;
+
+      color: var(--text);
+
+      font-size: 13px;
+      font-weight: 500;
+
+      transition:
+        color 0.2s ease,
+        gap 0.2s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--primary);
+
+      gap: 12px;
+    }
+
+    .contact-link svg {
+      width: 15px;
+      height: 15px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      width: 100%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 24px;
+
+      padding-top: 25px;
+
+      border-top:
+        1px solid
+        var(--border);
+
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+
+      gap: 18px;
+    }
+
+    .socials a {
+      transition:
+        color 0.2s ease;
+    }
+
+    .socials a:hover {
+      color:
+        var(--primary);
+    }
+
+
+    /* =====================================================
+       ENTRANCE ANIMATION
+    ===================================================== */
+
+    .hero > * {
+      opacity: 0;
+
+      transform:
+        translateY(14px);
+
+      animation:
+        reveal
+        0.75s
+        cubic-bezier(
+          0.2,
+          0.8,
+          0.2,
+          1
+        )
+        forwards;
+    }
+
+    .hero > *:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .hero > *:nth-child(2) {
+      animation-delay: 0.12s;
+    }
+
+    .hero > *:nth-child(3) {
+      animation-delay: 0.19s;
+    }
+
+    .hero > *:nth-child(4) {
+      animation-delay: 0.26s;
+    }
+
+    .hero > *:nth-child(5) {
+      animation-delay: 0.33s;
+    }
+
+    .hero > *:nth-child(6) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 640px) {
+
+      .page {
+        padding: 22px;
+      }
+
+      .status-text {
+        display: none;
+      }
+
+      .wordmark {
+        width: 100px;
+      }
+
+      main {
+        padding:
+          65px 0
+          60px;
+      }
+
+      h1 {
+        font-size:
+          clamp(
+            46px,
+            14vw,
+            66px
+          );
+
+        letter-spacing:
+          -0.055em;
+      }
+
+      .typing-cursor {
+        width: 3px;
+
+        margin-left: 5px;
+      }
+
+      .hero-description {
+        margin-top: 25px;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+      }
+
+      .pillars {
+        max-width: 340px;
+
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .pillar {
+        flex: 1;
+
+        min-width: 150px;
+
+        justify-content: center;
+      }
+
+      .build-line {
+        margin-top: 42px;
+      }
+
+      .build-version {
+        display: none;
+      }
+
+      footer {
+        align-items:
+          flex-end;
+      }
+
+      .socials {
+        flex-direction:
+          column;
+
+        align-items:
+          flex-end;
+
+        gap: 6px;
+      }
+    }
+
+
+    /* =====================================================
+       SMALL MOBILE
+    ===================================================== */
+
+    @media (max-width: 390px) {
+
+      h1 {
+        font-size: 43px;
+      }
+
+      .pillar {
+        min-width: 100%;
+      }
+
+      .hero-description br {
+        display: none;
+      }
+    }
+
+
+    /* =====================================================
+       REDUCED MOTION
+    ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration:
+          0.01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          0.01ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- ==========================================
+       BACKGROUND
+  =========================================== -->
+
+  <div
+    class="background"
+    aria-hidden="true"
+  >
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="glow-small"></div>
+  </div>
+
+
+  <div class="page">
+
+
+    <!-- ==========================================
+         HEADER
+    =========================================== -->
+
+    <header>
+
+      <a
+        href="/"
+        class="brand"
+        aria-label="PRCUISA"
+      >
+
+        <div class="brand-icon">
+
+          <img
+            src="/logolight.png"
+            alt=""
+            class="logo-light"
+          />
+
+          <img
+            src="/logodark.png"
+            alt=""
+            class="logo-dark"
+          />
+
+        </div>
+
+
+        <span
+          class="wordmark"
+          aria-label="PRCUISA"
+        ></span>
+
+      </a>
+
+
+      <div class="header-right">
+
+        <div class="status">
+
+          <span
+            class="status-dot"
+          ></span>
+
+          <span
+            class="status-text"
+          >
+            Rebuilding
+          </span>
+
+        </div>
+
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+        >
+
+          <!-- SUN -->
+
+          <svg
+            class="sun"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          >
+
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+            />
+
+            <path
+              d="
+                M12 2v2
+                M12 20v2
+                M4.93 4.93l1.41 1.41
+                M17.66 17.66l1.41 1.41
+                M2 12h2
+                M20 12h2
+                M6.34 17.66l-1.41 1.41
+                M19.07 4.93l-1.41 1.41
+              "
+            />
+
+          </svg>
+
+
+          <!-- MOON -->
+
+          <svg
+            class="moon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+
+            <path
+              d="
+                M20.5 14.2
+                A8 8 0 0 1
+                9.8 3.5
+                A8.5 8.5 0 1 0
+                20.5 14.2Z
+              "
+            />
+
+          </svg>
+
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         MAIN HERO
+    =========================================== -->
+
+    <main>
+
+      <section class="hero">
+
+        <!-- Badge -->
+
+        <div class="eyebrow">
+
+          PRCUISA
+
+          <span class="eyebrow-dot">
+            ●
+          </span>
+
+          Version Next
+
+        </div>
+
+
+        <!-- Hero Title -->
+
+        <h1>
+
+          We're rebuilding
+
+          <span class="typing-line">
+
+            something
+
+            <span class="typing-wrapper">
+
+              <span
+                id="typing-text"
+                class="accent"
+              ></span>
+
+              <span
+                class="typing-cursor"
+                aria-hidden="true"
+              ></span>
+
+            </span>
+
+          </span>
+
+        </h1>
+
+
+        <!-- Description -->
+
+        <p class="hero-description">
+
+          PRCUISA is evolving from services
+          into systems.
+
+          We're building useful products,
+          intelligent automation and
+          technology designed to work
+          repeatedly.
+
+        </p>
+
+
+        <!-- ======================================
+             PILLARS
+        ======================================= -->
+
+        <div class="pillars">
+
+          <div class="pillar">
+
+            <span
+              class="pillar-icon"
+            ></span>
+
+            Business Systems
+
+          </div>
+
+
+          <div class="pillar">
+
+            <span
+              class="pillar-icon"
+            ></span>
+
+            AI Automation
+
+          </div>
+
+
+          <div class="pillar">
+
+            <span
+              class="pillar-icon"
+            ></span>
+
+            Smart Technology
+
+          </div>
+
+        </div>
+
+
+        <!-- ======================================
+             BUILD STATUS
+        ======================================= -->
+
+        <div class="build-line">
+
+          <div class="build-left">
+
+            <span>
+              building prcuisa.next
+            </span>
+
+            <span
+              class="terminal-cursor"
+            ></span>
+
+          </div>
+
+
+          <span class="build-version">
+            2026
+          </span>
+
+        </div>
+
+
+        <!-- ======================================
+             CONTACT
+        ======================================= -->
+
+        <div class="contact">
+
+          <a
+            href="mailto:prcuisa@gmail.com"
+            class="contact-link"
+          >
+
+            prcuisa@gmail.com
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <path
+                d="M5 12h14"
+              />
+
+              <path
+                d="m13 6 6 6-6 6"
+              />
+
+            </svg>
+
+          </a>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer>
+
+      <span>
+
+        ©
+        <span id="year"></span>
+        PRCUISA
+
+      </span>
+
+
+      <div class="socials">
+
+        <a
+          href="https://instagram.com/prcuisa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+
+
+        <a
+          href="https://t.me/prcuisa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Telegram
+        </a>
+
+
+        <a
+          href="https://id.linkedin.com/in/denecsa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+
+  <script>
+
+    /* =====================================================
+       YEAR
+    ===================================================== */
+
+    document.getElementById(
+      "year"
+    ).textContent =
+      new Date().getFullYear();
+
+
+    /* =====================================================
+       THEME
+    ===================================================== */
+
+    const html =
+      document.documentElement;
+
+    const themeToggle =
+      document.getElementById(
+        "themeToggle"
+      );
+
+    const themeColor =
+      document.querySelector(
+        'meta[name="theme-color"]'
+      );
+
+
+    const savedTheme =
+      localStorage.getItem(
+        "prcuisa-theme"
+      );
+
+
+    if (savedTheme) {
+
+      html.classList.toggle(
+        "dark",
+        savedTheme === "dark"
+      );
+
+    } else {
+
+      const prefersDark =
+        window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+      html.classList.toggle(
+        "dark",
+        prefersDark
+      );
+
+    }
+
+
+    function updateThemeColor() {
+
+      const isDark =
+        html.classList.contains(
+          "dark"
+        );
+
+      themeColor.setAttribute(
+        "content",
+        isDark
+          ? "#0b0d0d"
+          : "#fafbfb"
+      );
+
+    }
+
+
+    updateThemeColor();
+
+
+    themeToggle.addEventListener(
+      "click",
+      () => {
+
+        html.classList.toggle(
+          "dark"
+        );
+
+        const currentTheme =
+          html.classList.contains(
+            "dark"
+          )
+            ? "dark"
+            : "light";
+
+
+        localStorage.setItem(
+          "prcuisa-theme",
+          currentTheme
+        );
+
+
+        updateThemeColor();
+
+      }
+    );
+
+
+    /* =====================================================
+       HERO TYPING
+    ===================================================== */
+
+    const typingText =
+      document.getElementById(
+        "typing-text"
+      );
+
+
+    const typingWords = [
+      "better.",
+      "smarter.",
+      "useful.",
+      "scalable."
+    ];
+
+
+    let typingWordIndex = 0;
+
+    let typingCharIndex = 0;
+
+    let typingDeleting = false;
+
+
+    function runTyping() {
+
+      const currentWord =
+        typingWords[
+          typingWordIndex
+        ];
+
+
+      /*
+       * TYPING
+       */
+
+      if (!typingDeleting) {
+
+        typingCharIndex++;
+
+
+        typingText.textContent =
+          currentWord.substring(
+            0,
+            typingCharIndex
+          );
+
+
+        /*
+         * Word completed.
+         * Wait before deleting.
+         */
+
+        if (
+          typingCharIndex ===
+          currentWord.length
+        ) {
+
+          typingDeleting = true;
+
+
+          setTimeout(
+            runTyping,
+            1600
+          );
+
+
+          return;
+
+        }
+
+      }
+
+
+      /*
+       * DELETING
+       */
+
+      else {
+
+        typingCharIndex--;
+
+
+        typingText.textContent =
+          currentWord.substring(
+            0,
+            typingCharIndex
+          );
+
+
+        /*
+         * Word fully deleted.
+         */
+
+        if (
+          typingCharIndex === 0
+        ) {
+
+          typingDeleting = false;
+
+
+          typingWordIndex =
+            (
+              typingWordIndex + 1
+            )
+            %
+            typingWords.length;
+
+
+          setTimeout(
+            runTyping,
+            350
+          );
+
+
+          return;
+
+        }
+
+      }
+
+
+      /*
+       * SPEED
+       */
+
+      const typingSpeed =
+        typingDeleting
+          ? 45
+          : 85;
+
+
+      setTimeout(
+        runTyping,
+        typingSpeed
+      );
+
+    }
+
+
+    /*
+     * Start typing after
+     * hero entrance animation.
+     */
+
+    setTimeout(
+      runTyping,
+      750
+    );
+
+  </script>
+
+</body>
+</html>
