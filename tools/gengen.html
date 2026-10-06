@@ -319,8 +319,8 @@ input{font-family:inherit}
 <script>
 /* ============================================================
    CONFIG — 10 Produk
-   MGM: ref WAJIB (startsWith MGM)
-   Lainnya: ref OPSIONAL, kalau kosong auto "null"
+   MGM: ref WAJIB
+   Lainnya: ref OPSIONAL, kosong auto "null"
    ============================================================ */
 const GENERATORS = {
   mgm: {
@@ -524,7 +524,7 @@ const LOGO_BASE64 = "https://prcuisa.com/tools/Logo.png";
 const state = { current: null, urls: {}, images: {}, step: 1 };
 
 /* ============================================================
-   QR CONFIG
+   QR CONFIG — shadow OFF, clearance lebih lega
    ============================================================ */
 const QR_CONFIG = {
   errorLevelWithLogo: QRCode.CorrectLevel.H,
@@ -542,12 +542,12 @@ const QR_CONFIG = {
   logoMaxRatio:      0.26,
   logoPaddingRatio:  0.06,
   logoRadiusRatio:   0.30,
-  logoClearModules:  0.75,
+  logoClearModules:  1.1,                   // ← lebih lega, dot tidak nempel
   logoBg:            '#ffffff',
   logoBorderWidth:   0,
   logoBorderColor:   'transparent',
-  logoShadow:        true,
-  logoShadowColor:   'rgba(15,23,42,0.10)'
+  logoShadow:        false,                 // ← shadow DIHILANGKAN
+  logoShadowColor:   'rgba(15,23,42,0.0)'
 };
 
 /* ============================================================
@@ -665,14 +665,12 @@ function validateRef(show) {
   const v = input.value.trim();
   const maxLen = g.refMaxLength || 40;
 
-  // Kalau optional & kosong → valid
   if (g.refOptional && !v) {
     input.classList.remove('is-invalid');
     err.classList.remove('show');
     return true;
   }
 
-  // Kalau wajib & kosong → invalid
   if (!v) {
     input.classList.remove('is-invalid');
     err.classList.remove('show');
@@ -705,7 +703,6 @@ function submitForm() {
   const refRaw = document.getElementById('refInput').value.trim();
   const cabangRaw = document.getElementById('cabangInput').value.trim();
 
-  // Kalau kosong → auto "null"
   const ref = refRaw === '' ? 'null' : refRaw;
   const cabang = cabangRaw === '' ? 'null' : cabangRaw;
 
@@ -944,6 +941,9 @@ function drawFinderPattern(ctx, colStart, rowStart, mSize) {
   ctx.fill();
 }
 
+/* ============================================================
+   EMBED LOGO — tanpa shadow
+   ============================================================ */
 function embedLogoInQR(canvas, logo, cfg, logoBox) {
   const ctx = canvas.getContext('2d');
   const cx = canvas.width / 2;
@@ -957,17 +957,7 @@ function embedLogoInQR(canvas, logo, cfg, logoBox) {
   const pad = Math.round(boxSize * cfg.logoPaddingRatio);
   const innerSize = boxSize - pad * 2;
 
-  if (cfg.logoShadow) {
-    ctx.save();
-    ctx.shadowColor   = cfg.logoShadowColor;
-    ctx.shadowBlur    = Math.round(canvas.width * 0.010);
-    ctx.shadowOffsetY = Math.round(canvas.width * 0.003);
-    roundedRectPath(ctx, boxX, boxY, boxSize, boxSize, radius);
-    ctx.fillStyle = cfg.logoBg;
-    ctx.fill();
-    ctx.restore();
-  }
-
+  // Box putih rounded — TANPA shadow, TANPA border
   ctx.save();
   roundedRectPath(ctx, boxX, boxY, boxSize, boxSize, radius);
   ctx.fillStyle = cfg.logoBg;
