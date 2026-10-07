@@ -1,42 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en" class="light dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PRCUISA — Rebuilding Something Better</title>
+  <title>PRCUISA — Rebuilding Something Better | Business Systems, AI Automation & Smart Technology</title>
 
-  <meta
-    name="description"
-    content="PRCUISA is evolving. We're rebuilding our platform around Business Systems, AI Automation, and Smart Technology."
-  />
+  <meta name="description" content="PRCUISA is evolving. We're rebuilding our platform around Business Systems, AI Automation, and Smart Technology designed to work repeatedly.">
 
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#fafbfb" />
+  <meta name="keywords" content="PRCUISA, business systems, AI automation, smart technology, automation Indonesia, digital transformation">
+  <meta name="author" content="PRCUISA">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0b0d0d">
 
-  <link rel="canonical" href="https://prcuisa.com" />
+  <link rel="canonical" href="https://prcuisa.com">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="PRCUISA — Rebuilding Something Better" />
-  <meta
-    property="og:description"
-    content="Business Systems. AI Automation. Smart Technology. A new PRCUISA is coming."
-  />
-  <meta property="og:url" content="https://prcuisa.com" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="PRCUISA" />
+  <meta property="og:title" content="PRCUISA — Rebuilding Something Better">
+  <meta property="og:description" content="Business Systems. AI Automation. Smart Technology. A new PRCUISA is coming.">
+  <meta property="og:url" content="https://prcuisa.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PRCUISA">
+  <meta property="og:image" content="https://prcuisa.com/logodark.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PRCUISA — Rebuilding Something Better">
+  <meta name="twitter:description" content="Business Systems. AI Automation. Smart Technology.">
+  <meta name="twitter:image" content="https://prcuisa.com/logodark.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/logodark.png" />
+  <link rel="icon" type="image/png" href="/logodark.png">
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Structured Data: Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://prcuisa.com/#organization",
+        "name": "PRCUISA",
+        "url": "https://prcuisa.com",
+        "logo": "https://prcuisa.com/logodark.png",
+        "email": "prcuisa@gmail.com",
+        "description": "PRCUISA builds business systems, AI automation and smart technology designed to work repeatedly.",
+        "sameAs": [
+          "https://instagram.com/prcuisa",
+          "https://t.me/prcuisa",
+          "https://id.linkedin.com/in/denecsa"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://prcuisa.com/#website",
+        "url": "https://prcuisa.com",
+        "name": "PRCUISA",
+        "description": "Business Systems. AI Automation. Smart Technology.",
+        "publisher": { "@id": "https://prcuisa.com/#organization" },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
 
   <style>
     /* =====================================================
@@ -784,42 +817,146 @@
        FOOTER
     ===================================================== */
 
-    footer {
+    .site-footer {
       width: 100%;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+    }
 
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 36px;
+    }
+
+    .footer-col { min-width: 0; }
+
+    .footer-brand .brand {
+      margin-bottom: 16px;
+    }
+
+    .footer-tagline {
+      max-width: 340px;
+      margin-bottom: 20px;
+      line-height: 1.75;
+    }
+
+    .footer-contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 500;
+      transition: color 0.2s ease, gap 0.2s ease;
+    }
+    .footer-contact-link:hover {
+      color: var(--primary);
+      gap: 11px;
+    }
+    .footer-contact-link svg { width: 14px; height: 14px; }
+
+    .footer-heading {
+      margin-bottom: 16px;
+      color: var(--text);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12.5px;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: var(--primary);
+      transform: translateX(3px);
+    }
+    .footer-links a svg {
+      width: 11px;
+      height: 11px;
+      opacity: 0.55;
+      transition: opacity 0.2s ease;
+    }
+    .footer-links a:hover svg { opacity: 1; }
+
+    .footer-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      gap: 24px;
-
-      padding-top: 25px;
-
-      border-top:
-        1px solid
-        var(--border);
-
-      color: var(--muted);
-
+      gap: 20px;
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
       font-size: 11px;
     }
 
-    .socials {
-      display: flex;
+    .footer-status {
+      display: inline-flex;
       align-items: center;
-
-      gap: 18px;
+      gap: 8px;
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
-    .socials a {
-      transition:
-        color 0.2s ease;
+    .footer-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 8px rgba(0, 154, 165, 0.6);
     }
 
-    .socials a:hover {
-      color:
-        var(--primary);
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 5;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--text);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.2s ease;
     }
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      border-color: rgba(0, 154, 165, 0.5);
+      color: var(--primary);
+    }
+    .back-to-top svg { width: 16px; height: 16px; }
 
 
     /* =====================================================
@@ -881,6 +1018,15 @@
     /* =====================================================
        MOBILE
     ===================================================== */
+
+    @media (max-width: 860px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-tagline { max-width: 100%; }
+    }
 
     @media (max-width: 640px) {
 
@@ -950,20 +1096,20 @@
       .build-version {
         display: none;
       }
+    }
 
-      footer {
-        align-items:
-          flex-end;
+    @media (max-width: 480px) {
+      .site-footer { padding-top: 36px; }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        padding-bottom: 24px;
       }
-
-      .socials {
-        flex-direction:
-          column;
-
-        align-items:
-          flex-end;
-
-        gap: 6px;
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
       }
     }
 
@@ -984,6 +1130,10 @@
 
       .hero-description br {
         display: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1018,10 +1168,7 @@
        BACKGROUND
   =========================================== -->
 
-  <div
-    class="background"
-    aria-hidden="true"
-  >
+  <div class="background" aria-hidden="true">
     <div class="grid"></div>
     <div class="glow"></div>
     <div class="glow-small"></div>
@@ -1037,33 +1184,18 @@
 
     <header>
 
-      <a
-        href="/"
-        class="brand"
-        aria-label="PRCUISA"
-      >
+      <a href="/" class="brand" aria-label="PRCUISA — Home">
 
         <div class="brand-icon">
 
-          <img
-            src="/logolight.png"
-            alt=""
-            class="logo-light"
-          />
+          <img src="/logolight.png" alt="PRCUISA logo" class="logo-light">
 
-          <img
-            src="/logodark.png"
-            alt=""
-            class="logo-dark"
-          />
+          <img src="/logodark.png" alt="PRCUISA logo" class="logo-dark">
 
         </div>
 
 
-        <span
-          class="wordmark"
-          aria-label="PRCUISA"
-        ></span>
+        <span class="wordmark" aria-label="PRCUISA"></span>
 
       </a>
 
@@ -1072,45 +1204,24 @@
 
         <div class="status">
 
-          <span
-            class="status-dot"
-          ></span>
+          <span class="status-dot"></span>
 
-          <span
-            class="status-text"
-          >
+          <span class="status-text">
             Rebuilding
           </span>
 
         </div>
 
 
-        <button
-          id="themeToggle"
-          class="theme-toggle"
-          type="button"
-          aria-label="Toggle theme"
-        >
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
 
           <!-- SUN -->
 
-          <svg
-            class="sun"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-          >
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
 
-            <circle
-              cx="12"
-              cy="12"
-              r="4"
-            />
+            <circle cx="12" cy="12" r="4"></circle>
 
-            <path
-              d="
+            <path d="
                 M12 2v2
                 M12 20v2
                 M4.93 4.93l1.41 1.41
@@ -1119,31 +1230,22 @@
                 M20 12h2
                 M6.34 17.66l-1.41 1.41
                 M19.07 4.93l-1.41 1.41
-              "
-            />
+              "></path>
 
           </svg>
 
 
           <!-- MOON -->
 
-          <svg
-            class="moon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-          >
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
 
-            <path
-              d="
+            <path d="
                 M20.5 14.2
                 A8 8 0 0 1
                 9.8 3.5
                 A8.5 8.5 0 1 0
                 20.5 14.2Z
-              "
-            />
+              "></path>
 
           </svg>
 
@@ -1189,15 +1291,9 @@
 
             <span class="typing-wrapper">
 
-              <span
-                id="typing-text"
-                class="accent"
-              ></span>
+              <span id="typing-text" class="accent"></span>
 
-              <span
-                class="typing-cursor"
-                aria-hidden="true"
-              ></span>
+              <span class="typing-cursor" aria-hidden="true"></span>
 
             </span>
 
@@ -1229,9 +1325,7 @@
 
           <div class="pillar">
 
-            <span
-              class="pillar-icon"
-            ></span>
+            <span class="pillar-icon"></span>
 
             Business Systems
 
@@ -1240,9 +1334,7 @@
 
           <div class="pillar">
 
-            <span
-              class="pillar-icon"
-            ></span>
+            <span class="pillar-icon"></span>
 
             AI Automation
 
@@ -1251,9 +1343,7 @@
 
           <div class="pillar">
 
-            <span
-              class="pillar-icon"
-            ></span>
+            <span class="pillar-icon"></span>
 
             Smart Technology
 
@@ -1274,9 +1364,7 @@
               building prcuisa next version
             </span>
 
-            <span
-              class="terminal-cursor"
-            ></span>
+            <span class="terminal-cursor"></span>
 
           </div>
 
@@ -1294,29 +1382,15 @@
 
         <div class="contact">
 
-          <a
-            href="mailto:prcuisa@gmail.com"
-            class="contact-link"
-          >
+          <a href="mailto:prcuisa@gmail.com" class="contact-link">
 
             prcuisa@gmail.com
 
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 
-              <path
-                d="M5 12h14"
-              />
+              <path d="M5 12h14"></path>
 
-              <path
-                d="m13 6 6 6-6 6"
-              />
+              <path d="m13 6 6 6-6 6"></path>
 
             </svg>
 
@@ -1333,50 +1407,130 @@
          FOOTER
     =========================================== -->
 
-    <footer>
+    <footer class="site-footer" role="contentinfo">
 
-      <span>
+      <div class="footer-grid">
 
-        ©
-        <span id="year"></span>
-        PRCUISA
+        <!-- Brand column -->
+        <div class="footer-col footer-brand">
 
-      </span>
+          <a href="/" class="brand" aria-label="PRCUISA — Home">
 
+            <div class="brand-icon">
+              <img src="/logolight.png" alt="PRCUISA logo" class="logo-light">
+              <img src="/logodark.png" alt="PRCUISA logo" class="logo-dark">
+            </div>
 
-      <div class="socials">
+            <span class="wordmark" aria-label="PRCUISA"></span>
 
-        <a
-          href="https://instagram.com/prcuisa"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Instagram
-        </a>
+          </a>
 
+          <p class="footer-tagline">
+            Business systems, AI automation and smart technology —
+            engineered to work repeatedly.
+          </p>
 
-        <a
-          href="https://t.me/prcuisa"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Telegram
-        </a>
+          <address style="font-style:normal;">
+            <a href="mailto:prcuisa@gmail.com" class="footer-contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+              </svg>
+              prcuisa@gmail.com
+            </a>
+          </address>
 
+        </div>
 
-        <a
-          href="https://id.linkedin.com/in/denecsa"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
+        <!-- Connect -->
+        <nav class="footer-col" aria-labelledby="footer-connect">
+          <h2 id="footer-connect" class="footer-heading">Connect</h2>
+          <ul class="footer-links">
+
+            <li>
+              <a href="https://instagram.com/prcuisa" target="_blank"
+                 rel="noopener noreferrer me" aria-label="PRCUISA on Instagram">
+                Instagram
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                  <path d="M7 17 17 7"></path>
+                  <path d="M9 7h8v8"></path>
+                </svg>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://t.me/prcuisa" target="_blank"
+                 rel="noopener noreferrer me" aria-label="PRCUISA on Telegram">
+                Telegram
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                  <path d="M7 17 17 7"></path>
+                  <path d="M9 7h8v8"></path>
+                </svg>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://id.linkedin.com/in/denecsa" target="_blank"
+                 rel="noopener noreferrer me" aria-label="PRCUISA on LinkedIn">
+                LinkedIn
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                  <path d="M7 17 17 7"></path>
+                  <path d="M9 7h8v8"></path>
+                </svg>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+
+        <!-- Focus -->
+        <div class="footer-col">
+          <h2 class="footer-heading">Focus</h2>
+          <ul class="footer-links" style="pointer-events:none;">
+            <li><span style="color:var(--muted);font-size:12.5px;">Business Systems</span></li>
+            <li><span style="color:var(--muted);font-size:12.5px;">AI Automation</span></li>
+            <li><span style="color:var(--muted);font-size:12.5px;">Smart Technology</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+
+        <span>
+          © <span id="year">2026</span> PRCUISA. All rights reserved.
+        </span>
+
+        <span class="footer-status">
+          <span class="footer-status-dot"></span>
+          Building the next version
+        </span>
 
       </div>
 
     </footer>
 
   </div>
+
+
+  <!-- Back to top -->
+  <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+         aria-hidden="true">
+      <path d="M12 19V5"></path>
+      <path d="m5 12 7-7 7 7"></path>
+    </svg>
+  </button>
 
 
   <script>
@@ -1636,7 +1790,23 @@
       750
     );
 
+
+    /* =====================================================
+       BACK TO TOP
+    ===================================================== */
+
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("show", window.scrollY > 500);
+    }, { passive: true });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
   </script>
+
 
 </body>
 </html>
