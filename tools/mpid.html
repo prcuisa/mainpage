@@ -1,0 +1,1261 @@
+<html lang="id"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Livin' OneLink · Bulk Forge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{
+  --bg:#f4f6fb;--surface:#ffffff;--surface-2:#f8fafc;
+  --text:#0b1220;--text-2:#475569;--text-3:#94a3b8;
+  --border:#e2e8f0;--border-2:#cbd5e1;
+  --primary:#4f46e5;--primary-2:#7c3aed;--success:#10b981;--danger:#ef4444;
+  --grad-primary:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);
+  --grad-soft:linear-gradient(135deg,rgba(79,70,229,.08),rgba(124,58,237,.08));
+  --theme-grad:linear-gradient(135deg,#4f46e5,#7c3aed);
+  --theme-color:#4f46e5;
+  --theme-soft:rgba(79,70,229,.08);
+  --theme-shadow:rgba(79,70,229,.35);
+  --r-sm:10px;--r-md:14px;--r-lg:20px;--r-xl:28px;
+  --shadow-xs:0 1px 2px rgba(15,23,42,.05);
+  --shadow-sm:0 1px 3px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.04);
+  --shadow-md:0 4px 12px rgba(15,23,42,.07),0 2px 4px rgba(15,23,42,.05);
+  --shadow-lg:0 12px 32px -8px rgba(15,23,42,.14),0 4px 10px -4px rgba(15,23,42,.06);
+  --shadow-xl:0 24px 48px -16px rgba(15,23,42,.22),0 8px 16px -8px rgba(15,23,42,.08);
+  --t:220ms cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(1200px 600px at 90% -10%,rgba(124,58,237,.10),transparent 60%),radial-gradient(900px 500px at -10% 20%,rgba(79,70,229,.08),transparent 60%)}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+input,textarea{font-family:inherit}
+
+.app{position:relative;z-index:1;flex:1;display:flex;flex-direction:column}
+.app-main{flex:1;width:100%;max-width:1080px;margin:0 auto;padding:0 20px 40px}
+
+/* HERO */
+.hero{padding:48px 20px 24px;text-align:center;position:relative}
+.brand-mark{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-sm);font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:24px}
+.brand-mark i{color:var(--primary);font-size:1rem}
+.hero-logo{width:88px;height:88px;margin:0 auto 22px;border-radius:24px;background:var(--grad-primary);display:grid;place-items:center;position:relative;box-shadow:0 20px 40px -12px rgba(79,70,229,.45),0 8px 16px -6px rgba(79,70,229,.25);animation:heroFloat 5s ease-in-out infinite}
+.hero-logo::after{content:'';position:absolute;inset:-6px;border-radius:30px;background:var(--grad-primary);filter:blur(22px);opacity:.4;z-index:-1}
+.hero-logo svg{width:48px;height:48px;fill:#fff}
+@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.hero h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:12px;background:linear-gradient(135deg,#0b1220 0%,#312e81 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p.lead{color:var(--text-2);font-size:clamp(.95rem,1.4vw,1.05rem);max-width:560px;margin:0 auto}
+
+/* MODE TABS */
+.stepper{display:flex;justify-content:center;align-items:center;gap:8px;margin:32px auto 28px;padding:8px;border-radius:999px;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-sm);width:fit-content;max-width:100%}
+.step{display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;font-size:.85rem;font-weight:600;color:var(--text-3);transition:var(--t);white-space:nowrap;background:transparent}
+.step .dot{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);border:1.5px solid var(--border-2);font-size:.72rem;font-weight:700;color:var(--text-3);transition:var(--t)}
+.step.active{color:var(--primary);background:var(--grad-soft)}
+.step.active .dot{background:var(--grad-primary);color:#fff;border-color:transparent;box-shadow:0 2px 8px rgba(79,70,229,.35)}
+.step-divider{width:24px;height:2px;background:var(--border-2);border-radius:2px}
+
+/* VIEW */
+.view{display:none;animation:viewIn .45s cubic-bezier(.4,0,.2,1)}
+.view.active{display:block}
+@keyframes viewIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* FORM SHELL */
+.form-shell{background:var(--surface);border-radius:var(--r-xl);border:1px solid var(--border);box-shadow:var(--shadow-lg);padding:clamp(24px,3vw,36px);max-width:720px;margin:0 auto 24px;position:relative;overflow:hidden}
+.form-shell::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--theme-grad)}
+.form-head{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.form-head .form-head-icon{width:52px;height:52px;border-radius:16px;flex-shrink:0;background:var(--theme-grad);display:grid;place-items:center;color:#fff;font-size:1.3rem;box-shadow:0 10px 22px -8px var(--theme-shadow)}
+.form-head h2{font-size:1.15rem;font-weight:700;letter-spacing:-.01em;margin:0;line-height:1.3}
+.form-head p{font-size:.83rem;color:var(--text-2);margin:2px 0 0}
+
+.field{margin-bottom:20px}
+.field label{display:block;font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:8px}
+.field label .opt{color:var(--text-3);font-weight:500}
+.input-wrap{position:relative}
+.input-wrap .in-icon{position:absolute;left:14px;top:16px;color:var(--text-3);font-size:.9rem;pointer-events:none;transition:color var(--t)}
+.input-wrap .in-icon.center-icon{top:50%;transform:translateY(-50%)}
+.input-wrap input,
+.input-wrap textarea{width:100%;padding:14px 14px 14px 42px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:.95rem;color:var(--text);background:var(--surface-2);transition:border-color var(--t),box-shadow var(--t),background var(--t);font-family:'Inter',sans-serif;font-weight:500}
+.input-wrap textarea{min-height:180px;line-height:1.55;resize:vertical;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.85rem}
+.input-wrap input::placeholder,
+.input-wrap textarea::placeholder{color:var(--text-3);font-weight:400}
+.input-wrap input:focus,
+.input-wrap textarea:focus{outline:none;background:var(--surface);border-color:var(--primary-2);box-shadow:0 0 0 4px rgba(124,58,237,.12)}
+.input-wrap input:focus + .in-icon,
+.input-wrap textarea:focus + .in-icon{color:var(--primary-2)}
+.input-wrap input.is-invalid{border-color:var(--danger);background:#fef2f2}
+.input-wrap input.is-invalid + .in-icon{color:var(--danger)}
+.field .help{font-size:.75rem;color:var(--text-3);margin-top:6px;display:block}
+.field .err{font-size:.78rem;color:var(--danger);margin-top:6px;display:none;align-items:center;gap:6px;font-weight:500}
+.field .err.show{display:flex;animation:errIn .25s ease}
+@keyframes errIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+
+.btn-primary-cta{width:100%;padding:16px 24px;border-radius:var(--r-md);background:var(--theme-grad);color:#fff;font-size:1rem;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 10px 24px -8px var(--theme-shadow);transition:transform var(--t),box-shadow var(--t),filter var(--t);margin-top:8px}
+.btn-primary-cta:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px var(--theme-shadow);filter:brightness(1.05)}
+.btn-primary-cta:active{transform:translateY(0)}
+
+/* RESULT CARD (SINGLE) */
+.result-shell{max-width:720px;margin:0 auto}
+.result-card{background:var(--surface);border-radius:var(--r-xl);border:1px solid var(--border);box-shadow:var(--shadow-xl);overflow:hidden;position:relative}
+.result-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--theme-grad)}
+.result-head{padding:28px 28px 8px;text-align:center;position:relative;background:linear-gradient(180deg,var(--theme-soft) 0%,transparent 100%)}
+.success-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:rgba(16,185,129,.12);color:#059669;font-size:.82rem;font-weight:700;margin-bottom:18px;animation:popIn .4s cubic-bezier(.34,1.56,.64,1)}
+.success-badge i{animation:checkPop .5s cubic-bezier(.34,1.56,.64,1) .15s both}
+@keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes checkPop{0%{transform:scale(0) rotate(-45deg)}60%{transform:scale(1.3) rotate(0)}100%{transform:scale(1) rotate(0)}}
+.result-head h2{font-size:1.25rem;font-weight:800;letter-spacing:-.02em;margin:0 0 6px}
+.result-head p{color:var(--text-2);font-size:.9rem;margin:0}
+
+/* QR STAGE (styled) */
+.qr-stage{padding:6px 24px 22px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.qr-frame-wrap{position:relative;padding:16px}
+.qr-frame-wrap::before{content:'';position:absolute;inset:6px;border-radius:36px;background:var(--theme-grad);opacity:.28;filter:blur(32px);z-index:0;animation:glowPulse 4s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:.22;transform:scale(1)}50%{opacity:.36;transform:scale(1.03)}}
+.qr-corner{position:absolute;width:28px;height:28px;pointer-events:none;border:3.5px solid var(--theme-color);z-index:3;filter:drop-shadow(0 2px 6px rgba(0,0,0,.08))}
+.qr-corner.tl{top:0;left:0;border-right:0;border-bottom:0;border-top-left-radius:14px}
+.qr-corner.tr{top:0;right:0;border-left:0;border-bottom:0;border-top-right-radius:14px}
+.qr-corner.bl{bottom:0;left:0;border-right:0;border-top:0;border-bottom-left-radius:14px}
+.qr-corner.br{bottom:0;right:0;border-left:0;border-top:0;border-bottom-right-radius:14px}
+.qr-frame{position:relative;z-index:2;padding:18px;border-radius:22px;background:linear-gradient(145deg,#ffffff 0%,#fbfcfe 60%,#f4f7fb 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.9),0 0 0 1.5px rgba(15,23,42,.06),0 22px 44px -18px rgba(15,23,42,.18),0 8px 16px -8px rgba(15,23,42,.08);transition:transform .35s cubic-bezier(.4,0,.2,1),box-shadow .35s}
+.qr-frame:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.9),0 0 0 1.5px rgba(15,23,42,.06),0 28px 52px -18px rgba(15,23,42,.22),0 10px 20px -8px rgba(15,23,42,.10)}
+.qr-frame-inner{position:relative;display:grid;place-items:center;width:260px;height:260px;border-radius:12px;overflow:hidden;background:#fff}
+.qr-frame-inner img{display:block;width:100%;height:100%;border-radius:12px;-webkit-user-drag:none;user-select:none}
+.qr-loading{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(145deg,#f8fafc,#eef2f7);border-radius:12px;position:relative}
+.qr-loading::after{content:'';position:absolute;inset:12px;border-radius:8px;border:1px dashed rgba(15,23,42,.08)}
+.qr-loading .ldr{width:44px;height:44px;border-radius:50%;border:3px solid rgba(15,23,42,.10);border-top-color:var(--theme-color);animation:spin .8s linear infinite;z-index:1}
+@keyframes spin{to{transform:rotate(360deg)}}
+.qr-hint{display:inline-flex;align-items:center;gap:9px;padding:9px 18px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:.78rem;font-weight:600;color:var(--text-2);box-shadow:0 1px 2px rgba(15,23,42,.04),0 4px 10px -4px rgba(15,23,42,.06)}
+.qr-hint .pulse-dot{width:7px;height:7px;border-radius:50%;background:#10b981;box-shadow:0 0 0 0 rgba(16,185,129,.55);animation:pulse 1.9s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.qr-hint i{color:var(--theme-color);font-size:.88rem}
+
+.result-body{padding:16px 28px 28px}
+
+/* LINK PILL */
+.link-pill{display:flex;align-items:flex-start;gap:10px;padding:14px;border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--border);margin-bottom:14px}
+.link-pill i.fa-link{color:var(--text-3);font-size:.85rem;flex-shrink:0;margin-top:4px}
+.link-pill .link-val{flex:1;font-size:.78rem;color:var(--text-2);word-break:break-all;font-family:'SF Mono',Menlo,Consolas,monospace;line-height:1.55}
+.mini-copy{width:32px;height:32px;border-radius:8px;background:#fff;border:1px solid var(--border);display:grid;place-items:center;color:var(--text-2);font-size:.82rem;transition:var(--t);flex-shrink:0}
+.mini-copy:hover{color:var(--primary);border-color:var(--primary-2);background:#eef2ff}
+.mini-copy.copied{background:var(--success);color:#fff;border-color:transparent}
+
+/* QUICK COPY GRID */
+.quick-copy-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.quick-copy-item{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-md);padding:12px 14px;transition:var(--t)}
+.quick-copy-item:hover{border-color:var(--border-2);background:var(--surface)}
+.qc-head{display:flex;align-items:center;gap:6px;font-size:.68rem;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.qc-head i{color:var(--primary-2);font-size:.72rem}
+.qc-body{display:flex;align-items:center;gap:8px}
+.qc-val{flex:1;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.82rem;color:var(--text);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.qc-val .qc-prefix{color:var(--text-3);font-weight:500}
+
+/* ACTION GRID */
+.action-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.action-tile{padding:16px 12px;border-radius:var(--r-md);background:var(--surface);border:1.5px solid var(--border);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--text);transition:var(--t)}
+.action-tile i{font-size:1.05rem;color:var(--text-2);transition:var(--t)}
+.action-tile:hover{border-color:var(--primary-2);background:#eef2ff;transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.action-tile:hover i{color:var(--primary-2)}
+.action-tile:active{transform:translateY(0)}
+.action-tile.primary{background:var(--theme-grad);color:#fff;border-color:transparent;box-shadow:0 8px 20px -8px var(--theme-shadow)}
+.action-tile.primary i{color:#fff}
+.action-tile.primary:hover{filter:brightness(1.06);background:var(--theme-grad)}
+.action-tile.primary:hover i{color:#fff}
+.action-tile.full{grid-column:1/-1}
+
+/* BULK */
+.bulk-results{margin-top:6px}
+.bulk-list{background:var(--surface);border-radius:var(--r-xl);border:1px solid var(--border);box-shadow:var(--shadow-lg);padding:14px;max-height:640px;overflow-y:auto;position:relative}
+.bulk-list::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--theme-grad);border-radius:var(--r-xl) var(--r-xl) 0 0}
+.bulk-list-head{display:flex;justify-content:space-between;align-items:center;padding:14px 8px;border-bottom:1px dashed var(--border);margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.bulk-count{font-size:.8rem;font-weight:700;color:var(--text-2);display:inline-flex;align-items:center;gap:8px}
+.bulk-count i{color:var(--primary-2)}
+.bulk-count-num{background:var(--grad-soft);color:var(--primary);padding:2px 10px;border-radius:999px;font-weight:700}
+.bulk-item{background:var(--surface-2);border-radius:var(--r-lg);padding:16px;margin-bottom:12px;border:1px solid var(--border);transition:var(--t)}
+.bulk-item:hover{border-color:var(--border-2);box-shadow:var(--shadow-sm)}
+.bulk-item:last-child{margin-bottom:0}
+.item-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.item-meta{display:flex;gap:8px;flex-wrap:wrap}
+.item-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;font-size:.72rem;font-weight:600;font-family:'SF Mono',Menlo,Consolas,monospace;background:#fff;border:1px solid var(--border);color:var(--text-2);transition:var(--t);cursor:pointer}
+.item-chip:hover{border-color:var(--primary-2);color:var(--primary)}
+.item-chip.mpid{color:#4f46e5;border-color:rgba(79,70,229,.25);background:#eef2ff}
+.item-chip.c{color:#7c3aed;border-color:rgba(124,58,237,.25);background:#f5f3ff}
+.item-chip.copied{background:var(--success);color:#fff;border-color:transparent}
+.item-actions{display:flex;gap:8px;flex-wrap:wrap}
+.item-link{font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.72rem;word-break:break-all;background:#fff;padding:12px 14px;border-radius:var(--r-md);color:var(--text-2);border:1px solid var(--border);line-height:1.55;margin-bottom:8px}
+.item-copy-btn{background:var(--theme-grad);border:none;color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:.75rem;display:inline-flex;align-items:center;gap:8px;cursor:pointer;transition:var(--t);box-shadow:0 6px 14px -6px var(--theme-shadow)}
+.item-copy-btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.item-copy-btn:active{transform:translateY(0)}
+.item-copy-btn.copied{background:var(--success);box-shadow:0 6px 14px -6px rgba(16,185,129,.5)}
+.item-qr-btn{background:var(--surface);border:1.5px solid var(--border);color:var(--text);padding:8px 14px;border-radius:999px;font-weight:600;font-size:.75rem;display:inline-flex;align-items:center;gap:8px;cursor:pointer;transition:var(--t)}
+.item-qr-btn:hover{border-color:var(--primary-2);color:var(--primary);background:#eef2ff;transform:translateY(-1px)}
+.item-qr-btn:active{transform:translateY(0)}
+
+.item-shortlink{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fff;border:1px dashed rgba(124,58,237,.35);border-radius:var(--r-md);margin-top:0}
+.item-shortlink > i.fa-bolt{color:var(--primary-2);font-size:.8rem;flex-shrink:0}
+.item-shortlink .shortlink-url{flex:1;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.74rem;color:var(--text-2);word-break:break-all;font-weight:600}
+
+.bulk-empty{background:var(--surface);border-radius:var(--r-xl);border:1px dashed var(--border-2);padding:36px 20px;text-align:center;color:var(--text-3);font-size:.88rem;font-weight:500}
+.bulk-empty i{display:block;font-size:1.6rem;color:var(--border-2);margin-bottom:10px}
+
+.bulk-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.bulk-actions .action-tile{padding:14px 10px;font-size:.78rem}
+.bulk-actions .action-tile i{font-size:.95rem}
+
+/* PATTERN NOTE */
+.pattern-note{background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--border);padding:18px 22px;margin:0 auto 24px;max-width:1080px;font-size:.78rem;color:var(--text-2);box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.pattern-note::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--theme-grad)}
+.pattern-note strong{color:var(--text);font-weight:700;display:inline-flex;align-items:center;gap:8px;margin-bottom:6px;font-size:.82rem}
+.pattern-note strong i{color:var(--primary-2)}
+.pattern-note code{display:block;background:var(--surface-2);padding:10px 14px;border-radius:var(--r-sm);font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.7rem;color:var(--text-2);margin-top:8px;word-break:break-all;border:1px solid var(--border);line-height:1.5}
+
+/* FOOTER */
+.main-footer{margin-top:auto;padding:32px 20px 28px;border-top:1px solid var(--border);background:var(--surface);text-align:center;position:relative;z-index:1}
+.footer-inner{max-width:1080px;margin:0 auto}
+.footer-brand{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:12px}
+.footer-brand .fb-icon{width:32px;height:32px;border-radius:10px;background:var(--grad-primary);display:grid;place-items:center;color:#fff;font-size:.8rem}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 20px;font-size:.82rem;color:var(--text-2);margin-bottom:12px}
+.footer-links a{transition:var(--t);font-weight:600;color:var(--primary)}
+.footer-links a:hover{color:var(--primary-2)}
+.footer-copy{font-size:.75rem;color:var(--text-3)}
+
+/* TOAST */
+.toast-wrap{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:1100;display:flex;flex-direction:column;gap:10px;max-width:min(420px,calc(100vw - 32px));width:100%;pointer-events:none}
+.toast{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:var(--r-md);background:#0b1220;color:#fff;font-size:.88rem;font-weight:500;box-shadow:var(--shadow-xl);pointer-events:auto;opacity:0;transform:translateY(20px) scale(.96);transition:opacity .3s,transform .3s}
+.toast.show{opacity:1;transform:translateY(0) scale(1)}
+.toast i{font-size:1rem;flex-shrink:0}
+.toast.success i{color:#34d399}
+.toast.error i{color:#f87171}
+.toast.info i{color:#a78bfa}
+
+/* MODAL */
+.modal-back{position:fixed;inset:0;background:rgba(11,18,32,.5);backdrop-filter:blur(6px);z-index:1200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-back.show{display:flex;animation:fadeIn .2s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-box{background:var(--surface);border-radius:var(--r-lg);padding:26px;max-width:440px;width:100%;box-shadow:var(--shadow-xl);animation:modalIn .3s cubic-bezier(.34,1.56,.64,1)}
+@keyframes modalIn{from{opacity:0;transform:scale(.94) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-box h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.modal-box p{font-size:.85rem;color:var(--text-2);margin-bottom:16px}
+.modal-box textarea{width:100%;padding:12px 14px;border-radius:var(--r-sm);border:1.5px solid var(--border);font-size:.78rem;background:var(--surface-2);font-family:'SF Mono',Menlo,Consolas,monospace;min-height:110px;resize:vertical;line-height:1.5}
+.modal-box textarea:focus{outline:none;border-color:var(--primary-2);box-shadow:0 0 0 3px rgba(124,58,237,.12)}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
+.modal-actions button{padding:10px 18px;border-radius:var(--r-sm);font-weight:600;font-size:.85rem;transition:var(--t)}
+.btn-ghost{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2)}
+.btn-ghost:hover{color:var(--text);border-color:var(--border-2)}
+.btn-fill{background:var(--grad-primary);color:#fff;box-shadow:0 6px 16px -6px rgba(79,70,229,.4)}
+.btn-fill:hover{filter:brightness(1.05)}
+
+/* QR MODAL */
+.qr-modal-box{max-width:420px;text-align:center;padding:24px 24px 20px}
+.qr-modal-box h3{font-size:1rem;font-weight:700;margin-bottom:6px}
+.qr-modal-box .qr-modal-sub{font-size:.78rem;color:var(--text-2);margin-bottom:12px;font-family:'SF Mono',Menlo,Consolas,monospace;word-break:break-all;line-height:1.5}
+.qr-modal-box .qr-stage{padding:0 0 12px}
+.qr-modal-box .qr-frame-inner{width:230px;height:230px}
+.qr-modal-box .modal-actions{justify-content:center;margin-top:16px}
+
+@media (max-width:640px){
+  .hero{padding:32px 16px 16px}
+  .hero-logo{width:72px;height:72px}
+  .hero-logo svg{width:38px;height:38px}
+  .stepper{padding:6px;gap:4px}
+  .step{padding:6px 12px;font-size:.75rem;gap:6px}
+  .step .dot{width:18px;height:18px;font-size:.65rem}
+  .step-divider{width:12px}
+  .app-main{padding:0 16px 32px}
+  .result-head,.result-body{padding-left:20px;padding-right:20px}
+  .action-grid{grid-template-columns:repeat(2,1fr)}
+  .quick-copy-grid{grid-template-columns:1fr}
+  .bulk-actions{grid-template-columns:1fr}
+  .toast-wrap{bottom:16px}
+  .qr-frame-inner{width:220px;height:220px}
+  .qr-corner{width:24px;height:24px;border-width:3px}
+  .qr-frame{padding:14px;border-radius:18px}
+  .qr-frame-wrap{padding:12px}
+  .qr-modal-box .qr-frame-inner{width:200px;height:200px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- MODAL: copy fallback -->
+  <div id="copyModal" class="modal-back">
+    <div class="modal-box">
+      <h3>Salin Manual</h3>
+      <p>Salin manual jika tombol otomatis tidak bekerja:</p>
+      <textarea id="fallbackInput" readonly=""></textarea>
+      <div class="modal-actions">
+        <button class="btn-ghost" onclick="closeCopyModal()">Tutup</button>
+        <button class="btn-fill" onclick="fallbackCopyManual()">Salin</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: QR -->
+  <div id="qrModal" class="modal-back">
+    <div class="modal-box qr-modal-box">
+      <h3>QR Code · bmri.id</h3>
+      <p class="qr-modal-sub" id="qrModalSub">—</p>
+      <div class="qr-stage">
+        <div class="qr-frame-wrap">
+          <span class="qr-corner tl"></span>
+          <span class="qr-corner tr"></span>
+          <span class="qr-corner bl"></span>
+          <span class="qr-corner br"></span>
+          <div class="qr-frame">
+            <div class="qr-frame-inner" id="qrModalInner">
+              <div class="qr-loading"><div class="ldr"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-ghost" onclick="closeQrModal()">Tutup</button>
+        <button class="btn-fill" id="qrModalDownload"><i class="fas fa-download"></i> Download</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastWrap" class="toast-wrap"></div>
+
+  <header class="hero">
+    <div class="brand-mark">
+      <i class="fas fa-bolt"></i>
+      <span>Official Partner Tools</span>
+    </div>
+    <div class="hero-logo">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6a2 2 0 0 1 2-2h3.5a1 1 0 1 1 0 2H6v3.5a1 1 0 1 1-2 0V6zm14-2a2 2 0 0 1 2 2v3.5a1 1 0 1 1-2 0V6h-3.5a1 1 0 1 1 0-2H18zM4 14a1 1 0 0 1 1 1v3h3.5a1 1 0 1 1 0 2H6a2 2 0 0 1-2-2v-3a1 1 0 0 1 1-1zm16 0a1 1 0 0 1 1 1v3a2 2 0 0 1-2 2h-3.5a1 1 0 1 1 0-2H18v-3a1 1 0 0 1 1-1zM9 11a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2z"></path>
+      </svg>
+    </div>
+    <h1>Livin' OneLink Generator</h1>
+    <p class="lead">Generate link Livin' OneLink + shortlink <strong>bmri.id/{C}</strong> + QR code siap pakai. QR mengarah ke bmri.id dengan logo Mandiri di tengah.</p>
+  </header>
+
+  <div class="stepper" id="modeTabs">
+    <button class="step active" data-mode="single"><span class="dot"><i class="fas fa-pen"></i></span> Single</button>
+    <div class="step-divider"></div>
+    <button class="step" data-mode="bulk"><span class="dot"><i class="fas fa-list"></i></span> Bulk</button>
+  </div>
+
+  <main class="app-main">
+
+    <section id="view-single" class="view active">
+      <div class="form-shell">
+        <div class="form-head">
+          <div class="form-head-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+          <div>
+            <h2>Single Generator</h2>
+            <p>Buat link + QR dari MPID &amp; parameter C</p>
+          </div>
+        </div>
+        <form id="singleForm" novalidate="">
+          <div class="field">
+            <label for="singleMpid">MPID <span class="opt">(angka)</span></label>
+            <div class="input-wrap">
+              <input id="singleMpid" type="text" inputmode="numeric" placeholder="contoh: 3486010174901633" autocomplete="off">
+              <i class="fas fa-fingerprint in-icon center-icon"></i>
+            </div>
+            <span class="help">Nomor MPID dari aplikasi</span>
+            <span class="err" id="singleMpidErr"><i class="fas fa-circle-exclamation"></i><span>MPID tidak boleh kosong</span></span>
+          </div>
+          <div class="field">
+            <label for="singleC">Parameter C</label>
+            <div class="input-wrap">
+              <input id="singleC" type="text" placeholder="misal: sukhawhoosh" autocomplete="off" spellcheck="false">
+              <i class="fas fa-tag in-icon center-icon"></i>
+            </div>
+            <span class="help">Dipakai sebagai slug shortlink <strong>bmri.id/{C}</strong> yang jadi isi QR</span>
+            <span class="err" id="singleCErr"><i class="fas fa-circle-exclamation"></i><span>Parameter C tidak boleh kosong</span></span>
+          </div>
+          <button type="submit" class="btn-primary-cta">
+            <i class="fas fa-wand-magic-sparkles"></i>
+            <span>Generate Link &amp; QR</span>
+          </button>
+        </form>
+      </div>
+      <div id="singleResultMount"></div>
+    </section>
+
+    <section id="view-bulk" class="view">
+      <div class="form-shell">
+        <div class="form-head">
+          <div class="form-head-icon"><i class="fas fa-layer-group"></i></div>
+          <div>
+            <h2>Bulk Generator</h2>
+            <p>Setiap baris berisi <span style="background:var(--surface-2);padding:1px 6px;border-radius:6px;font-family:'SF Mono',monospace;font-size:.82em">MPID,C</span> — ratusan baris siap</p>
+          </div>
+        </div>
+        <form id="bulkForm" novalidate="">
+          <div class="field">
+            <label for="bulkData">Data Bulk <span class="opt">(format: MPID,C)</span></label>
+            <div class="input-wrap">
+              <textarea id="bulkData" placeholder="3486010174901633,sukhawhoosh
+1234567890123456,bonusramadhan
+9876543210987654,livinevent" spellcheck="false"></textarea>
+              <i class="fas fa-table-list in-icon"></i>
+            </div>
+            <span class="help">Satu baris satu entri, pisahkan MPID dan C dengan koma</span>
+            <span class="err" id="bulkErr"><i class="fas fa-circle-exclamation"></i><span>Data bulk masih kosong</span></span>
+          </div>
+          <button type="submit" class="btn-primary-cta">
+            <i class="fas fa-cogs"></i>
+            <span>Generate Semua Link</span>
+          </button>
+        </form>
+      </div>
+      <div id="bulkResultMount"></div>
+    </section>
+
+    <div class="pattern-note">
+      <strong><i class="fas fa-code-branch"></i> Pattern generator (otomatis)</strong>
+      <code id="patternCode">https://livinapp.onelink.me/kNH6?af_xp=text&amp;pid=Sukha&amp;af_dp=livinapp%3A%2F%2F&amp;deep_link_value=feature&amp;deep_link_sub1=944eb48e-f7cd-4a50-bf4a-b035028fdc52&amp;c={C}&amp;deep_link_sub2=mini%253A%252F%252Fplatformapi%252Fstartapp%253F_ariver_appid%253D{MPID}&amp;deep_link_sub3=mini%253A%252F%252Fplatformapi%252Fstartapp%253F_ariver_appid%253D{MPID}</code>
+    </div>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="fb-icon"><i class="fas fa-bolt"></i></div>
+        Livin' OneLink Generator
+      </div>
+      <div class="footer-links">
+        <span>© 2026 · Design and Develop by <a href="https://prcuisa.com/" target="_blank">Prcuisa Labs</a> — Ecsa Ahcri Pracasa</span>
+      </div>
+      <div class="footer-copy">Single &amp; Bulk · Copy C · Copy Shortlink bmri.id · QR Code · Salin Semua</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   BASE PATTERN
+   ============================================================ */
+const BASE_PATTERN = "https://livinapp.onelink.me/kNH6?af_xp=text&pid=Sukha&af_dp=livinapp%3A%2F%2F&deep_link_value=feature&deep_link_sub1=944eb48e-f7cd-4a50-bf4a-b035028fdc52&c={C}&deep_link_sub2=mini%253A%252F%252Fplatformapi%252Fstartapp%253F_ariver_appid%253D{MPID}&deep_link_sub3=mini%253A%252F%252Fplatformapi%252Fstartapp%253F_ariver_appid%253D{MPID}";
+
+function buildLink(mpid, cVal) {
+  let link = BASE_PATTERN.replace(/{MPID}/g, String(mpid).trim());
+  link = link.replace(/{C}/g, String(cVal).trim());
+  return link;
+}
+function buildShortlink(cVal) {
+  return `https://bmri.id/${String(cVal).trim()}`;
+}
+
+/* ============================================================
+   LOGO — sumber logo Mandiri (fallback aman)
+   ============================================================ */
+const LOGO_URL = "https://prcuisa.com/tools/Logo.png";
+
+/* ============================================================
+   QR CONFIG (mengadopsi dari QR Generator Mandiri)
+   ============================================================ */
+const QR_CONFIG = {
+  errorLevelWithLogo: QRCode.CorrectLevel.H,
+  errorLevelNoLogo:   QRCode.CorrectLevel.Q,
+
+  size:              1024,
+  paddingRatio:      0.06,
+  darkColor:         '#0a0e1a',
+  lightColor:        '#ffffff',
+
+  dotRadiusRatio:    0.42,
+  finderOuterRadius: 1.4,
+  finderInnerRadius: 0.9,
+
+  logoMaxRatio:      0.26,
+  logoPaddingRatio:  0.06,
+  logoRadiusRatio:   0.30,
+  logoClearModules:  1.1,
+  logoBg:            '#ffffff',
+  logoShadow:        false
+};
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const state = {
+  mode: 'single',
+  singleUrl: null,
+  singleShortlink: null,
+  singleImage: null,
+  singleC: null,
+  bulkItems: [],
+  qrCurrent: { dataUrl: null, filename: 'QR.png' }
+};
+
+/* ============================================================
+   MODE SWITCH
+   ============================================================ */
+function setMode(mode) {
+  state.mode = mode;
+  document.getElementById('view-single').classList.toggle('active', mode === 'single');
+  document.getElementById('view-bulk').classList.toggle('active', mode === 'bulk');
+  document.querySelectorAll('#modeTabs .step').forEach(s => {
+    s.classList.toggle('active', s.dataset.mode === mode);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ============================================================
+   QR IMAGE BUILDER — styled: rounded dots, custom finder, logo tengah
+   ============================================================ */
+async function generateStyledQR(text, logoUrl) {
+  if (!text) return null;
+
+  const hasLogo = !!(logoUrl && logoUrl.trim());
+  const errorLevel = hasLogo ? QR_CONFIG.errorLevelWithLogo : QR_CONFIG.errorLevelNoLogo;
+
+  return new Promise((resolve) => {
+    const hidden = document.createElement('div');
+    hidden.style.cssText = 'position:fixed;left:-9999px;top:-9999px;pointer-events:none;';
+    document.body.appendChild(hidden);
+
+    let qr;
+    try {
+      qr = new QRCode(hidden, {
+        text: text,
+        width: QR_CONFIG.size,
+        height: QR_CONFIG.size,
+        colorDark: QR_CONFIG.darkColor,
+        colorLight: QR_CONFIG.lightColor,
+        correctLevel: errorLevel
+      });
+    } catch (e) {
+      console.error('[QR] init failed', e);
+      hidden.remove();
+      resolve(null);
+      return;
+    }
+
+    setTimeout(async () => {
+      const qrCanvas = hidden.querySelector('canvas');
+      const qrObj = qr._oQRCode || qr._androidQRCode;
+      if (!qrCanvas || !qrObj) { hidden.remove(); resolve(null); return; }
+
+      const count = qrObj.getModuleCount();
+      const moduleSize = QR_CONFIG.size / count;
+
+      const srcCtx = qrCanvas.getContext('2d');
+      const srcData = srcCtx.getImageData(0, 0, QR_CONFIG.size, QR_CONFIG.size).data;
+
+      // Bangun matrix
+      const matrix = [];
+      for (let r = 0; r < count; r++) {
+        matrix[r] = [];
+        for (let c = 0; c < count; c++) {
+          const px = Math.min(QR_CONFIG.size - 1, Math.floor((c + 0.5) * moduleSize));
+          const py = Math.min(QR_CONFIG.size - 1, Math.floor((r + 0.5) * moduleSize));
+          const idx = (py * QR_CONFIG.size + px) * 4;
+          matrix[r][c] = srcData[idx] < 128;
+        }
+      }
+
+      // Hitung area logo & clearance
+      let logoArea = null;
+      let logoBox = null;
+      if (hasLogo) {
+        const boxSize = Math.round(QR_CONFIG.size * QR_CONFIG.logoMaxRatio);
+        const boxX = Math.round((QR_CONFIG.size - boxSize) / 2);
+        const boxY = Math.round((QR_CONFIG.size - boxSize) / 2);
+        const radius = Math.round(boxSize * QR_CONFIG.logoRadiusRatio);
+
+        logoBox = { x: boxX, y: boxY, w: boxSize, h: boxSize, r: radius };
+
+        const margin = Math.round(moduleSize * QR_CONFIG.logoClearModules);
+        logoArea = {
+          x: boxX - margin,
+          y: boxY - margin,
+          w: boxSize + margin * 2,
+          h: boxSize + margin * 2,
+          r: radius + margin
+        };
+      }
+
+      // Canvas output
+      const styled = document.createElement('canvas');
+      styled.width = QR_CONFIG.size;
+      styled.height = QR_CONFIG.size;
+      const ctx = styled.getContext('2d');
+      ctx.fillStyle = QR_CONFIG.lightColor;
+      ctx.fillRect(0, 0, styled.width, styled.height);
+
+      const isFinderArea = (r, c) =>
+        (r < 7 && c < 7) ||
+        (r < 7 && c >= count - 7) ||
+        (r >= count - 7 && c < 7);
+
+      ctx.fillStyle = QR_CONFIG.darkColor;
+      for (let r = 0; r < count; r++) {
+        for (let c = 0; c < count; c++) {
+          if (!matrix[r][c]) continue;
+          if (isFinderArea(r, c)) continue;
+
+          if (logoArea) {
+            const dotCx = c * moduleSize + moduleSize / 2;
+            const dotCy = r * moduleSize + moduleSize / 2;
+            if (pointInRoundedRect(dotCx, dotCy, logoArea.x, logoArea.y, logoArea.w, logoArea.h, logoArea.r)) {
+              continue;
+            }
+          }
+
+          drawRoundedDot(ctx, c * moduleSize, r * moduleSize, moduleSize, QR_CONFIG.dotRadiusRatio);
+        }
+      }
+
+      // Finder patterns bergaya
+      drawFinderPattern(ctx, 0, 0, moduleSize);
+      drawFinderPattern(ctx, count - 7, 0, moduleSize);
+      drawFinderPattern(ctx, 0, count - 7, moduleSize);
+
+      // Embed logo
+      if (hasLogo) {
+        try {
+          const logo = await loadImage(logoUrl);
+          embedLogoInQR(styled, logo, QR_CONFIG, logoBox);
+        } catch (err) {
+          console.warn('[QR] Logo gagal dimuat:', err);
+        }
+      }
+
+      // Padding luar
+      const padding = Math.round(QR_CONFIG.size * QR_CONFIG.paddingRatio);
+      const outCanvas = document.createElement('canvas');
+      outCanvas.width  = QR_CONFIG.size + padding * 2;
+      outCanvas.height = QR_CONFIG.size + padding * 2;
+      const octx = outCanvas.getContext('2d');
+      octx.fillStyle = QR_CONFIG.lightColor;
+      octx.fillRect(0, 0, outCanvas.width, outCanvas.height);
+      octx.drawImage(styled, padding, padding);
+
+      const dataUrl = outCanvas.toDataURL('image/png');
+      hidden.remove();
+      resolve(dataUrl);
+    }, 400);
+  });
+}
+
+function drawRoundedDot(ctx, x, y, size, radiusRatio) {
+  const cx = x + size / 2;
+  const cy = y + size / 2;
+  const half = size / 2;
+  const r = size * radiusRatio;
+
+  if (r >= half - 0.5) {
+    ctx.beginPath();
+    ctx.arc(cx, cy, half, 0, Math.PI * 2);
+    ctx.fill();
+  } else {
+    const shrink = size * 0.06;
+    const dsize = size - shrink * 2;
+    roundedRectPath(ctx, x + shrink, y + shrink, dsize, dsize, r);
+    ctx.fill();
+  }
+}
+
+function drawFinderPattern(ctx, colStart, rowStart, mSize) {
+  const x = colStart * mSize;
+  const y = rowStart * mSize;
+  const total = mSize * 7;
+
+  const outerR = mSize * QR_CONFIG.finderOuterRadius;
+  const innerR = mSize * QR_CONFIG.finderInnerRadius;
+
+  ctx.save();
+  roundedRectPath(ctx, x + mSize / 2, y + mSize / 2, total - mSize, total - mSize, outerR);
+  ctx.lineWidth = mSize;
+  ctx.strokeStyle = QR_CONFIG.darkColor;
+  ctx.lineJoin = 'round';
+  ctx.stroke();
+  ctx.restore();
+
+  ctx.fillStyle = QR_CONFIG.darkColor;
+  roundedRectPath(ctx, x + mSize * 2, y + mSize * 2, mSize * 3, mSize * 3, innerR);
+  ctx.fill();
+}
+
+function embedLogoInQR(canvas, logo, cfg, logoBox) {
+  const ctx = canvas.getContext('2d');
+  const cx = canvas.width / 2;
+  const cy = canvas.height / 2;
+
+  const boxX = logoBox.x;
+  const boxY = logoBox.y;
+  const boxSize = logoBox.w;
+  const radius = logoBox.r;
+
+  const pad = Math.round(boxSize * cfg.logoPaddingRatio);
+  const innerSize = boxSize - pad * 2;
+
+  // Box putih rounded, tanpa shadow / border
+  ctx.save();
+  roundedRectPath(ctx, boxX, boxY, boxSize, boxSize, radius);
+  ctx.fillStyle = cfg.logoBg;
+  ctx.fill();
+  ctx.restore();
+
+  const ar = logo.width / logo.height;
+  let lw = innerSize, lh = innerSize;
+  if (ar > 1) lh = innerSize / ar;
+  else        lw = innerSize * ar;
+
+  const lx = Math.round(cx - lw / 2);
+  const ly = Math.round(cy - lh / 2);
+  const innerRadius = Math.max(2, Math.round(radius * 0.60));
+
+  ctx.save();
+  roundedRectPath(ctx, boxX + pad, boxY + pad, innerSize, innerSize, innerRadius);
+  ctx.clip();
+  ctx.drawImage(logo, lx, ly, lw, lh);
+  ctx.restore();
+}
+
+function roundedRectPath(ctx, x, y, w, h, r) {
+  r = Math.min(r, w / 2, h / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+function pointInRoundedRect(px, py, x, y, w, h, r) {
+  if (px < x || px > x + w || py < y || py > y + h) return false;
+  r = Math.min(r, w / 2, h / 2);
+
+  const inTL = px < x + r && py < y + r;
+  const inTR = px > x + w - r && py < y + r;
+  const inBL = px < x + r && py > y + h - r;
+  const inBR = px > x + w - r && py > y + h - r;
+
+  if (inTL) return (px - (x + r)) ** 2 + (py - (y + r)) ** 2 <= r * r;
+  if (inTR) return (px - (x + w - r)) ** 2 + (py - (y + r)) ** 2 <= r * r;
+  if (inBL) return (px - (x + r)) ** 2 + (py - (y + h - r)) ** 2 <= r * r;
+  if (inBR) return (px - (x + w - r)) ** 2 + (py - (y + h - r)) ** 2 <= r * r;
+
+  return true;
+}
+
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error('Image load failed'));
+    img.src = src;
+  });
+}
+
+/* ============================================================
+   SINGLE MODE
+   ============================================================ */
+function handleSingleSubmit(e) {
+  e.preventDefault();
+  const mpid = document.getElementById('singleMpid').value.trim();
+  const cVal = document.getElementById('singleC').value.trim();
+  const mpidErr = document.getElementById('singleMpidErr');
+  const cErr = document.getElementById('singleCErr');
+  const mpidInput = document.getElementById('singleMpid');
+  const cInput = document.getElementById('singleC');
+
+  mpidErr.classList.remove('show');
+  cErr.classList.remove('show');
+  mpidInput.classList.remove('is-invalid');
+  cInput.classList.remove('is-invalid');
+
+  if (!mpid) {
+    mpidInput.classList.add('is-invalid');
+    mpidErr.classList.add('show');
+    return;
+  }
+  if (!cVal) {
+    cInput.classList.add('is-invalid');
+    cErr.classList.add('show');
+    return;
+  }
+  if (/[&=?#\s]/.test(cVal)) {
+    showToast('Parameter C mengandung karakter khusus, bisa bermasalah', 'error');
+  }
+  if (!/^\d+$/.test(mpid)) {
+    showToast('MPID sebaiknya hanya angka, link tetap dibuat', 'info');
+  }
+
+  const url = buildLink(mpid, cVal);
+  const shortUrl = buildShortlink(cVal);
+  state.singleUrl = url;
+  state.singleShortlink = shortUrl;
+  state.singleC = cVal;
+  state.singleImage = null;
+  renderSingleResult(url, shortUrl, mpid, cVal);
+}
+
+function renderSingleResult(url, shortUrl, mpid, cVal) {
+  const mount = document.getElementById('singleResultMount');
+
+  mount.innerHTML = `
+    <div class="result-shell">
+      <div class="result-card">
+        <div class="result-head">
+          <div class="success-badge"><i class="fas fa-circle-check"></i> Link &amp; QR Berhasil Dibuat</div>
+          <h2>Livin' OneLink</h2>
+          <p>QR mengarah ke <strong>bmri.id/${escapeHtml(cVal)}</strong></p>
+        </div>
+
+        <div class="qr-stage">
+          <div class="qr-frame-wrap">
+            <span class="qr-corner tl"></span>
+            <span class="qr-corner tr"></span>
+            <span class="qr-corner bl"></span>
+            <span class="qr-corner br"></span>
+            <div class="qr-frame">
+              <div class="qr-frame-inner" id="singleQrInner">
+                <div class="qr-loading"><div class="ldr"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="qr-hint">
+            <span class="pulse-dot"></span>
+            <span>Siap discan — arahkan kamera ke QR</span>
+          </div>
+        </div>
+
+        <div class="result-body">
+          <div class="link-pill">
+            <i class="fas fa-link"></i>
+            <span class="link-val">${escapeHtml(url)}</span>
+            <button class="mini-copy" data-copy="${escapeHtml(url)}" data-copy-label="Link berhasil disalin" aria-label="Copy link">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+
+          <div class="quick-copy-grid">
+            <div class="quick-copy-item">
+              <div class="qc-head"><i class="fas fa-tag"></i> Parameter C</div>
+              <div class="qc-body">
+                <span class="qc-val" title="${escapeHtml(cVal)}">${escapeHtml(cVal)}</span>
+                <button class="mini-copy" data-copy="${escapeHtml(cVal)}" data-copy-label="Parameter C berhasil disalin" aria-label="Copy C">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+            <div class="quick-copy-item">
+              <div class="qc-head"><i class="fas fa-bolt"></i> Shortlink bmri.id</div>
+              <div class="qc-body">
+                <span class="qc-val" title="${escapeHtml(shortUrl)}"><span class="qc-prefix">bmri.id/</span>${escapeHtml(cVal)}</span>
+                <button class="mini-copy" data-copy="${escapeHtml(shortUrl)}" data-copy-label="Shortlink berhasil disalin" aria-label="Copy shortlink">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-grid">
+            <button class="action-tile primary" data-copy="${escapeHtml(url)}" data-copy-label="Link berhasil disalin">
+              <i class="fas fa-copy"></i><span>Salin Link</span>
+            </button>
+            <button class="action-tile" data-copy="${escapeHtml(shortUrl)}" data-copy-label="Shortlink berhasil disalin">
+              <i class="fas fa-bolt"></i><span>Salin Shortlink</span>
+            </button>
+            <button class="action-tile" id="singleDownloadQr">
+              <i class="fas fa-download"></i><span>Download QR</span>
+            </button>
+            <button class="action-tile" id="singleViewQr">
+              <i class="fas fa-qrcode"></i><span>Lihat QR</span>
+            </button>
+            <button class="action-tile full" id="singleNew">
+              <i class="fas fa-plus"></i><span>Buat Baru</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('singleNew').addEventListener('click', () => {
+    document.getElementById('singleMpid').value = '';
+    document.getElementById('singleC').value = '';
+    state.singleImage = null;
+    mount.innerHTML = '';
+    document.getElementById('singleMpid').focus();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.getElementById('singleDownloadQr').addEventListener('click', () => {
+    if (!state.singleImage) { showToast('QR belum siap, tunggu sebentar', 'error'); return; }
+    downloadDataUrl(state.singleImage, `QR_bmri_${sanitizeFile(cVal)}.png`);
+    showToast('QR berhasil di-download', 'success');
+  });
+
+  document.getElementById('singleViewQr').addEventListener('click', () => {
+    openQrModal(shortUrl, `bmri.id/${cVal}`, `QR_bmri_${sanitizeFile(cVal)}.png`);
+  });
+
+  // Generate QR (isi = shortlink bmri.id) dengan logo Mandiri
+  generateStyledQR(shortUrl, LOGO_URL).then(dataUrl => {
+    const inner = document.getElementById('singleQrInner');
+    if (!inner) return;
+    if (!dataUrl) {
+      inner.innerHTML = '<div class="qr-loading"><div class="ldr"></div></div>';
+      return;
+    }
+    state.singleImage = dataUrl;
+    inner.innerHTML = `<img src="${dataUrl}" alt="QR Code untuk bmri.id/${escapeHtml(cVal)}">`;
+  });
+
+  setTimeout(() => {
+    document.querySelector('.result-shell')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+}
+
+/* ============================================================
+   BULK MODE
+   ============================================================ */
+function handleBulkSubmit(e) {
+  e.preventDefault();
+  const raw = document.getElementById('bulkData').value;
+  const err = document.getElementById('bulkErr');
+  err.classList.remove('show');
+
+  if (!raw.trim()) {
+    err.classList.add('show');
+    return;
+  }
+  const entries = parseBulkData(raw);
+  if (entries.length === 0) {
+    showToast('Tidak ada data valid. Periksa format MPID,C', 'error');
+    renderBulkEmpty('❌ Format tidak valid. Gunakan: MPID,C per baris');
+    return;
+  }
+  state.bulkItems = entries.map(ent => ({
+    mpid: ent.mpid,
+    c: ent.c,
+    link: buildLink(ent.mpid, ent.c),
+    shortlink: buildShortlink(ent.c)
+  }));
+  renderBulkResults();
+  showToast(`Berhasil generate ${state.bulkItems.length} link`, 'success');
+}
+
+function parseBulkData(rawText) {
+  const lines = rawText.split(/\r?\n/);
+  const parsed = [];
+  let lineNum = 0;
+  for (let line of lines) {
+    lineNum++;
+    line = line.trim();
+    if (line === '') continue;
+    const commaIndex = line.indexOf(',');
+    if (commaIndex === -1) {
+      showToast(`Baris ${lineNum}: format salah (harus MPID,C)`, 'error');
+      continue;
+    }
+    const mpid = line.substring(0, commaIndex).trim();
+    const c = line.substring(commaIndex + 1).trim();
+    if (!mpid) { showToast(`Baris ${lineNum}: MPID kosong`, 'error'); continue; }
+    if (!c)    { showToast(`Baris ${lineNum}: C kosong`, 'error'); continue; }
+    if (!/^\d+$/.test(mpid)) {
+      showToast(`Baris ${lineNum}: MPID bukan angka (${mpid})`, 'info');
+    }
+    parsed.push({ mpid, c });
+  }
+  return parsed;
+}
+
+function renderBulkResults() {
+  const mount = document.getElementById('bulkResultMount');
+  if (!state.bulkItems.length) {
+    renderBulkEmpty('Belum ada hasil, klik Generate Semua Link');
+    return;
+  }
+
+  const items = state.bulkItems.map((item, idx) => `
+    <div class="bulk-item">
+      <div class="item-head">
+        <div class="item-meta">
+          <button class="item-chip mpid" data-copy="${escapeHtml(item.mpid)}" data-copy-label="MPID berhasil disalin" title="Salin MPID">
+            <i class="fas fa-id-card"></i> ${escapeHtml(item.mpid)}
+          </button>
+          <button class="item-chip c" data-copy="${escapeHtml(item.c)}" data-copy-label="Parameter C berhasil disalin" title="Salin parameter C">
+            <i class="fas fa-tag"></i> ${escapeHtml(item.c)}
+          </button>
+        </div>
+        <div class="item-actions">
+          <button class="item-copy-btn" data-copy="${escapeHtml(item.link)}" data-copy-label="Link berhasil disalin">
+            <i class="fas fa-copy"></i> Salin Link
+          </button>
+          <button class="item-qr-btn" data-qr="${escapeHtml(item.shortlink)}" data-qr-label="bmri.id/${escapeHtml(item.c)}" data-qr-filename="QR_bmri_${sanitizeFile(item.c)}.png">
+            <i class="fas fa-qrcode"></i> QR
+          </button>
+        </div>
+      </div>
+      <div class="item-link">${escapeHtml(item.link)}</div>
+      <div class="item-shortlink">
+        <i class="fas fa-bolt"></i>
+        <span class="shortlink-url">${escapeHtml(item.shortlink)}</span>
+        <button class="mini-copy" data-copy="${escapeHtml(item.shortlink)}" data-copy-label="Shortlink berhasil disalin" aria-label="Copy shortlink">
+          <i class="fas fa-copy"></i>
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  mount.innerHTML = `
+    <div class="bulk-results">
+      <div class="bulk-list">
+        <div class="bulk-list-head">
+          <span class="bulk-count"><i class="fas fa-circle-check"></i> Hasil Bulk <span class="bulk-count-num">${state.bulkItems.length} link</span></span>
+        </div>
+        ${items}
+      </div>
+      <div class="bulk-actions">
+        <button class="action-tile primary" id="copyAllBtn"><i class="fas fa-copy"></i><span>Salin Semua Link</span></button>
+        <button class="action-tile" id="copyAllShortlinksBtn"><i class="fas fa-bolt"></i><span>Salin Semua Shortlink</span></button>
+        <button class="action-tile" id="clearBulkBtn"><i class="fas fa-trash-alt"></i><span>Bersihkan</span></button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('copyAllBtn').addEventListener('click', copyAllLinks);
+  document.getElementById('copyAllShortlinksBtn').addEventListener('click', copyAllShortlinks);
+  document.getElementById('clearBulkBtn').addEventListener('click', clearBulkResults);
+
+  setTimeout(() => {
+    document.querySelector('.bulk-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+}
+
+function renderBulkEmpty(msg) {
+  const mount = document.getElementById('bulkResultMount');
+  mount.innerHTML = `<div class="bulk-empty"><i class="fas fa-inbox"></i>${msg}</div>`;
+}
+
+async function copyAllLinks() {
+  if (!state.bulkItems.length) { showToast('Tidak ada link untuk disalin', 'error'); return; }
+  const all = state.bulkItems.map(it => it.link).join('\n');
+  const res = await clipboard.copyText(all);
+  if (res.success) showToast(`${state.bulkItems.length} link berhasil disalin`, 'success');
+  else openCopyModal(all);
+}
+
+async function copyAllShortlinks() {
+  if (!state.bulkItems.length) { showToast('Tidak ada shortlink untuk disalin', 'error'); return; }
+  const all = state.bulkItems.map(it => it.shortlink).join('\n');
+  const res = await clipboard.copyText(all);
+  if (res.success) showToast(`${state.bulkItems.length} shortlink berhasil disalin`, 'success');
+  else openCopyModal(all);
+}
+
+function clearBulkResults() {
+  state.bulkItems = [];
+  renderBulkEmpty('Hasil dibersihkan — siap generate ulang');
+  showToast('Hasil bulk dihapus', 'info');
+}
+
+/* ============================================================
+   CLIPBOARD
+   ============================================================ */
+const clipboard = {
+  async copyText(text) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return { success: ok };
+    } catch (e) { return { success: false, error: e.message }; }
+  }
+};
+
+/* ============================================================
+   DELEGASI CLICK: [data-copy] & [data-qr]
+   ============================================================ */
+async function handleDelegation(e) {
+  // --- Copy ---
+  const copyBtn = e.target.closest('[data-copy]');
+  if (copyBtn) {
+    e.preventDefault();
+    const text = copyBtn.dataset.copy;
+    const label = copyBtn.dataset.copyLabel || 'Berhasil disalin';
+    const res = await clipboard.copyText(text);
+    if (!res.success) { openCopyModal(text); return; }
+    showToast(label, 'success');
+
+    if (copyBtn.classList.contains('mini-copy')) {
+      const orig = copyBtn.innerHTML;
+      copyBtn.classList.add('copied');
+      copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+      setTimeout(() => { copyBtn.classList.remove('copied'); copyBtn.innerHTML = orig; }, 1400);
+    } else if (copyBtn.classList.contains('item-copy-btn')) {
+      const orig = copyBtn.innerHTML;
+      copyBtn.classList.add('copied');
+      copyBtn.innerHTML = '<i class="fas fa-check"></i> Tersalin';
+      setTimeout(() => { copyBtn.classList.remove('copied'); copyBtn.innerHTML = orig; }, 1400);
+    } else if (copyBtn.classList.contains('item-chip')) {
+      const orig = copyBtn.innerHTML;
+      copyBtn.classList.add('copied');
+      copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied';
+      setTimeout(() => { copyBtn.classList.remove('copied'); copyBtn.innerHTML = orig; }, 1200);
+    }
+    return;
+  }
+
+  // --- QR ---
+  const qrBtn = e.target.closest('[data-qr]');
+  if (qrBtn) {
+    e.preventDefault();
+    const link = qrBtn.dataset.qr;
+    const label = qrBtn.dataset.qrLabel || 'QR Code';
+    const filename = qrBtn.dataset.qrFilename || `QR_${Date.now()}.png`;
+    openQrModal(link, label, filename);
+  }
+}
+
+/* ============================================================
+   QR MODAL
+   ============================================================ */
+async function openQrModal(link, label, filename) {
+  const modal = document.getElementById('qrModal');
+  const sub = document.getElementById('qrModalSub');
+  const inner = document.getElementById('qrModalInner');
+
+  sub.textContent = label || link;
+  inner.innerHTML = '<div class="qr-loading"><div class="ldr"></div></div>';
+  state.qrCurrent = { dataUrl: null, filename: filename || 'QR.png' };
+
+  modal.classList.add('show');
+
+  const dataUrl = await generateStyledQR(link, LOGO_URL);
+  if (!dataUrl) {
+    inner.innerHTML = '<div class="qr-loading"><div class="ldr"></div></div>';
+    showToast('Gagal generate QR', 'error');
+    return;
+  }
+  state.qrCurrent.dataUrl = dataUrl;
+  inner.innerHTML = `<img src="${dataUrl}" alt="QR Code">`;
+}
+
+function closeQrModal() {
+  document.getElementById('qrModal').classList.remove('show');
+}
+
+function downloadCurrentQr() {
+  if (!state.qrCurrent.dataUrl) { showToast('QR belum siap', 'error'); return; }
+  downloadDataUrl(state.qrCurrent.dataUrl, state.qrCurrent.filename);
+  showToast('QR berhasil di-download', 'success');
+}
+
+/* ============================================================
+   DOWNLOAD HELPER
+   ============================================================ */
+function downloadDataUrl(dataUrl, filename) {
+  const a = document.createElement('a');
+  a.href = dataUrl;
+  a.download = filename || `QR_${Date.now()}.png`;
+  a.click();
+}
+
+function sanitizeFile(str) {
+  return String(str || 'unknown').replace(/[^a-zA-Z0-9-_]/g, '_').slice(0, 50);
+}
+
+/* ============================================================
+   MODAL & TOAST
+   ============================================================ */
+function openCopyModal(text) {
+  document.getElementById('fallbackInput').value = text;
+  document.getElementById('copyModal').classList.add('show');
+}
+function closeCopyModal() {
+  document.getElementById('copyModal').classList.remove('show');
+}
+function fallbackCopyManual() {
+  const input = document.getElementById('fallbackInput');
+  input.select();
+  try {
+    document.execCommand('copy');
+    showToast('Berhasil disalin', 'success');
+    closeCopyModal();
+  } catch { showToast('Gagal menyalin', 'error'); }
+}
+
+function showToast(msg, type = 'info') {
+  const wrap = document.getElementById('toastWrap');
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  const icon = type === 'success' ? 'fa-circle-check' : type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-info';
+  el.innerHTML = `<i class="fas ${icon}"></i><span>${escapeHtml(msg)}</span>`;
+  wrap.appendChild(el);
+  requestAnimationFrame(() => el.classList.add('show'));
+  setTimeout(() => {
+    el.classList.remove('show');
+    setTimeout(() => el.remove(), 300);
+  }, 2600);
+}
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function escapeHtml(str) {
+  if (str == null) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init() {
+  document.querySelectorAll('#modeTabs .step').forEach(btn => {
+    btn.addEventListener('click', () => setMode(btn.dataset.mode));
+  });
+
+  document.getElementById('singleForm').addEventListener('submit', handleSingleSubmit);
+  document.getElementById('singleMpid').addEventListener('input', () => {
+    document.getElementById('singleMpidErr').classList.remove('show');
+    document.getElementById('singleMpid').classList.remove('is-invalid');
+  });
+  document.getElementById('singleC').addEventListener('input', () => {
+    document.getElementById('singleCErr').classList.remove('show');
+    document.getElementById('singleC').classList.remove('is-invalid');
+  });
+
+  document.getElementById('bulkForm').addEventListener('submit', handleBulkSubmit);
+  document.getElementById('bulkData').addEventListener('input', () => {
+    document.getElementById('bulkErr').classList.remove('show');
+  });
+
+  document.getElementById('copyModal').addEventListener('click', (e) => {
+    if (e.target.id === 'copyModal') closeCopyModal();
+  });
+  document.getElementById('qrModal').addEventListener('click', (e) => {
+    if (e.target.id === 'qrModal') closeQrModal();
+  });
+  document.getElementById('qrModalDownload').addEventListener('click', downloadCurrentQr);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { closeCopyModal(); closeQrModal(); }
+  });
+
+  // delegasi global
+  document.addEventListener('click', handleDelegation);
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+
+</body></html>
