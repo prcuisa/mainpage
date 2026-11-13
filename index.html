@@ -53,6 +53,7 @@
         "email": "prcuisa@gmail.com",
         "description": "PRCUISA builds business systems, AI automation and smart technology designed to work repeatedly.",
         "sameAs": [
+          "https://cv.prcuisa.com",
           "https://instagram.com/prcuisa",
           "https://t.me/prcuisa",
           "https://id.linkedin.com/in/denecsa"
@@ -778,11 +779,74 @@
 
 
     /* =====================================================
-       CONTACT
+       CONTACT / CTA
     ===================================================== */
 
     .contact {
-      margin-top: 32px;
+      margin-top: 36px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 16px 22px;
+    }
+
+    /* Primary CTA — CV / Portfolio */
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 9px;
+
+      padding:
+        13px 22px;
+
+      border-radius: 11px;
+
+      background: var(--primary);
+      color: #ffffff;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      letter-spacing: 0.01em;
+
+      box-shadow:
+        0 8px 24px -10px
+        rgba(0, 154, 165, 0.65);
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-2px);
+
+      background: #008a94;
+
+      box-shadow:
+        0 12px 30px -10px
+        rgba(0, 154, 165, 0.8);
+    }
+
+    .cta-primary svg {
+      width: 15px;
+      height: 15px;
+
+      transition: transform 0.2s ease;
+    }
+
+    .cta-primary:hover svg {
+      transform: translateX(3px);
     }
 
     .contact-link {
@@ -895,6 +959,33 @@
       transition: opacity 0.2s ease;
     }
     .footer-links a:hover svg { opacity: 1; }
+
+    /* CV link in footer brand block */
+    .footer-cv-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 0;
+      margin-top: 14px;
+      padding: 9px 15px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface);
+      color: var(--text);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .footer-cv-link:hover {
+      border-color: rgba(0, 154, 165, 0.5);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+    .footer-cv-link svg {
+      width: 13px;
+      height: 13px;
+    }
 
     .footer-bottom {
       display: flex;
@@ -1096,6 +1187,10 @@
       .build-version {
         display: none;
       }
+
+      .contact {
+        gap: 14px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1110,6 +1205,24 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
+      }
+
+      /* Stack CTA above email on very small screens */
+      .contact {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-primary {
+        justify-content: center;
+      }
+
+      .contact-link {
+        justify-content: center;
       }
     }
 
@@ -1377,16 +1490,40 @@
 
 
         <!-- ======================================
-             CONTACT
+             CONTACT + PRIMARY CTA
         ======================================= -->
 
         <div class="contact">
+
+          <!-- PRIMARY CTA → cv.prcuisa.com -->
+
+          <a
+            href="https://cv.prcuisa.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-primary"
+            aria-label="Open PRCUISA CV and portfolio at cv.prcuisa.com"
+          >
+            View Portfolio / CV
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+              <path d="M5 12h14"></path>
+
+              <path d="m13 6 6 6-6 6"></path>
+
+            </svg>
+
+          </a>
+
+
+          <!-- Secondary: email -->
 
           <a href="mailto:prcuisa@gmail.com" class="contact-link">
 
             prcuisa@gmail.com
 
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 
               <path d="M5 12h14"></path>
 
@@ -1442,12 +1579,44 @@
             </a>
           </address>
 
+          <!-- CV CTA in footer brand block -->
+
+          <a
+            href="https://cv.prcuisa.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-cv-link"
+            aria-label="Open PRCUISA CV at cv.prcuisa.com"
+          >
+            Portfolio / CV
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M9 7h8v8"></path>
+            </svg>
+          </a>
+
         </div>
 
         <!-- Connect -->
         <nav class="footer-col" aria-labelledby="footer-connect">
           <h2 id="footer-connect" class="footer-heading">Connect</h2>
           <ul class="footer-links">
+
+            <li>
+              <a href="https://cv.prcuisa.com" target="_blank"
+                 rel="noopener noreferrer" aria-label="PRCUISA CV and portfolio">
+                CV / Portfolio
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                  <path d="M7 17 17 7"></path>
+                  <path d="M9 7h8v8"></path>
+                </svg>
+              </a>
+            </li>
 
             <li>
               <a href="https://instagram.com/prcuisa" target="_blank"
