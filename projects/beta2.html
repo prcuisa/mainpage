@@ -31,21 +31,21 @@
   /* Dark Spatial Cyber-Glass */
   --bg:#06090D;
   --bg-elev:#0B1119;
-  --card-bg:linear-gradient(155deg,rgba(20,30,44,.78) 0%,rgba(11,17,26,.92) 100%);
-  --card-hover:linear-gradient(155deg,rgba(26,40,58,.88) 0%,rgba(14,22,34,.96) 100%);
-  --nav-bg:rgba(12,18,27,.76);
+  --card-bg:linear-gradient(155deg,rgba(19,29,43,.82) 0%,rgba(10,16,25,.94) 100%);
+  --card-hover:linear-gradient(155deg,rgba(25,39,57,.92) 0%,rgba(13,21,33,.98) 100%);
+  --nav-bg:rgba(12,18,27,.78);
   --ink:#F4F8FB;
   --ink-muted:#8C9EB2;
   --border:rgba(255,255,255,.09);
-  --border-bright:rgba(0,229,255,.42);
-  --shadow:0 18px 42px -16px rgba(0,0,0,.65);
-  --glow:0 0 26px -4px rgba(0,229,255,.32);
-  --grid-line:rgba(0,229,255,.045);
+  --border-bright:rgba(0,229,255,.44);
+  --shadow:0 20px 46px -16px rgba(0,0,0,.68);
+  --glow:0 0 30px -4px rgba(0,229,255,.36);
+  --grid-line:rgba(0,229,255,.048);
 
   --sans:"Geist",ui-sans-serif,system-ui,-apple-system,sans-serif;
   --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --pad:clamp(18px,4.5vw,60px);
-  --r-xl:24px;
+  --r-xl:26px;
   --r-lg:18px;
   --r-md:12px;
   --ease:cubic-bezier(.16,1,.3,1);
@@ -59,15 +59,15 @@
   color-scheme:light;
   --bg:#F3F7FB;
   --bg-elev:#E8EFF6;
-  --card-bg:linear-gradient(155deg,rgba(255,255,255,.94) 0%,rgba(244,248,253,.98) 100%);
-  --card-hover:linear-gradient(155deg,#FFFFFF 0%,rgba(248,251,255,1) 100%);
-  --nav-bg:rgba(255,255,255,.82);
+  --card-bg:linear-gradient(155deg,rgba(255,255,255,.95) 0%,rgba(243,248,253,.98) 100%);
+  --card-hover:linear-gradient(155deg,#FFFFFF 0%,rgba(247,251,255,1) 100%);
+  --nav-bg:rgba(255,255,255,.84);
   --ink:#0B121C;
   --ink-muted:#4E6075;
   --border:rgba(11,18,28,.09);
-  --border-bright:rgba(0,145,158,.45);
-  --shadow:0 18px 38px -16px rgba(15,28,46,.1);
-  --glow:0 8px 24px -6px rgba(0,145,158,.24);
+  --border-bright:rgba(0,145,158,.46);
+  --shadow:0 18px 38px -16px rgba(15,28,46,.11);
+  --glow:0 8px 26px -6px rgba(0,145,158,.26);
   --grid-line:rgba(0,145,158,.055);
   --cyan:#008B99;
   --teal:#009AA5;
@@ -89,52 +89,41 @@ body{
 }
 a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 button{-webkit-tap-highlight-color:transparent}
-img{max-width:100%;display:block}
 h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1.05;margin:0}
 p{margin:0}
 :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
 
-/* ---------- Lightweight GPU Ambient Backdrop ---------- */
+/* ---------- GPU Parallax Ambient Backdrop ---------- */
 .ambient{
   position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
   -webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);
 }
 .ambient-grid{
-  position:absolute;inset:0;
+  position:absolute;inset:-120px 0;
   background-image:
     linear-gradient(var(--grid-line) 1px,transparent 1px),
     linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
   background-size:48px 48px;
-  -webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 25%,#000 35%,transparent 85%);
-  mask-image:radial-gradient(ellipse 85% 75% at 50% 25%,#000 35%,transparent 85%);
+  -webkit-mask-image:radial-gradient(ellipse 88% 78% at 50% 30%,#000 35%,transparent 88%);
+  mask-image:radial-gradient(ellipse 88% 78% at 50% 30%,#000 35%,transparent 88%);
+  will-change:transform;
 }
 .orb{
   position:absolute;border-radius:50%;
   will-change:transform;
-  -webkit-animation:orbDrift 16s ease-in-out infinite alternate;
-  animation:orbDrift 16s ease-in-out infinite alternate;
 }
 .orb-1{
-  top:-18%;right:-10%;width:min(65vw,740px);height:min(65vw,740px);
-  background:radial-gradient(circle,rgba(0,229,255,.15) 0%,transparent 68%);
+  top:-16%;right:-10%;width:min(66vw,760px);height:min(66vw,760px);
+  background:radial-gradient(circle,rgba(0,229,255,.16) 0%,transparent 68%);
 }
 .orb-2{
-  bottom:-14%;left:-14%;width:min(60vw,680px);height:min(60vw,680px);
-  background:radial-gradient(circle,rgba(99,102,241,.13) 0%,transparent 68%);
-  -webkit-animation-delay:-8s;animation-delay:-8s;
-}
-@-webkit-keyframes orbDrift{
-  0%{-webkit-transform:translate3d(0,0,0) scale(1);transform:translate3d(0,0,0) scale(1)}
-  100%{-webkit-transform:translate3d(-24px,28px,0) scale(1.06);transform:translate3d(-24px,28px,0) scale(1.06)}
-}
-@keyframes orbDrift{
-  0%{transform:translate3d(0,0,0) scale(1)}
-  100%{transform:translate3d(-24px,28px,0) scale(1.06)}
+  bottom:-14%;left:-14%;width:min(62vw,700px);height:min(62vw,700px);
+  background:radial-gradient(circle,rgba(99,102,241,.14) 0%,transparent 68%);
 }
 
 .wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
 
-/* ---------- Floating Glass Dock Navbar ---------- */
+/* ---------- Floating Glass Dock Navbar (Single backdrop-filter layer) ---------- */
 .nav-shell{
   position:fixed;top:0;left:0;right:0;z-index:80;
   padding:calc(12px + env(safe-area-inset-top,0px)) max(var(--pad),env(safe-area-inset-right,0px)) 0 max(var(--pad),env(safe-area-inset-left,0px));
@@ -192,7 +181,7 @@ p{margin:0}
   display:grid;place-items:center;cursor:pointer;
   transition:border-color .2s,transform .25s var(--spring);
 }
-.icon-btn:active{transform:scale(.9)}
+.icon-btn:active{-webkit-transform:scale(.9);transform:scale(.9)}
 .icon-btn svg{width:16px;height:16px}
 .icon-btn .ic-sun{display:none}
 :root[data-theme="light"] .icon-btn .ic-sun{display:block}
@@ -204,7 +193,7 @@ p{margin:0}
   border:1px solid transparent;cursor:pointer;
   transition:transform .25s var(--spring),box-shadow .3s var(--ease),border-color .2s;
 }
-.btn:active{transform:scale(.95)}
+.btn:active{-webkit-transform:scale(.95);transform:scale(.95)}
 .btn-primary{
   background:linear-gradient(135deg,var(--cyan),var(--teal) 60%,var(--indigo));
   color:#050A0E;box-shadow:var(--glow);
@@ -232,7 +221,7 @@ p{margin:0}
 .drawer a small{font-family:var(--mono);font-size:12px;color:var(--cyan)}
 @media (max-width:860px){.links,.nav .btn{display:none}.menu-btn{display:grid}}
 
-/* ---------- Explicit Keyframe Entrance (Bulletproof on iPadOS WebKit) ---------- */
+/* ---------- Explicit Keyframe Entrance (Bulletproof on iPadOS 27 WebKit) ---------- */
 @-webkit-keyframes heroEnter{
   0%{opacity:0;-webkit-transform:translate3d(0,22px,0);transform:translate3d(0,22px,0)}
   100%{opacity:1;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
@@ -252,6 +241,7 @@ p{margin:0}
   display:grid;grid-template-columns:1.1fr .9fr;
   gap:clamp(28px,4.5vw,56px);align-items:center;width:100%;
 }
+.hero-copy,.hero-hud-wrap{will-change:transform}
 .eyebrow{
   display:inline-flex;align-items:center;gap:9px;
   padding:6px 14px;border-radius:999px;
@@ -359,7 +349,7 @@ p{margin:0}
 @media (max-width:920px){.hero-grid{grid-template-columns:1fr}}
 
 /* ---------- Sections & Scroll Reveal ---------- */
-.sec{padding:clamp(68px,9vw,120px) 0}
+.sec{padding:clamp(72px,9.5vw,126px) 0;position:relative}
 .sec-head{
   display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;
   gap:16px 36px;margin-bottom:clamp(32px,4.5vw,54px);
@@ -369,7 +359,7 @@ p{margin:0}
   font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--cyan);
   margin-bottom:10px;
 }
-.sec-head h2{font-size:clamp(30px,4.4vw,54px)}
+.sec-head h2{font-size:clamp(32px,4.5vw,56px)}
 .sec-head p{max-width:44ch;color:var(--ink-muted);font-size:15.5px}
 
 .rv{
@@ -385,7 +375,7 @@ p{margin:0}
   transform:translate3d(0,0,0);
 }
 
-/* ---------- Card Surface (Zero backdrop-filter bottleneck) ---------- */
+/* ---------- Card Surface ---------- */
 .card{
   position:relative;border-radius:var(--r-lg);
   background:var(--card-bg);border:1px solid var(--border);
@@ -401,10 +391,8 @@ p{margin:0}
 }
 .card:active{-webkit-transform:scale(.985);transform:scale(.985)}
 
-/* ---------- 01 // Unified Filterable Works Grid ---------- */
-.filter-bar{
-  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;
-}
+/* ---------- 01 // Selected Works ---------- */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
 .filter-btn{
   padding:8px 16px;border-radius:999px;
   font:500 13px/1 var(--mono);
@@ -461,127 +449,298 @@ p{margin:0}
 }
 .work-card:hover .work-arrow{-webkit-transform:rotate(45deg);transform:rotate(45deg);background:var(--cyan);color:#050A0E}
 
-/* ---------- 02 // Capabilities & Process Bento ---------- */
-.cap-bento{
-  display:grid;grid-template-columns:310px 1fr;gap:20px;align-items:stretch;
-}
-.cap-tabs{display:flex;flex-direction:column;gap:8px;list-style:none;margin:0;padding:0}
-.cap-tab{
-  all:unset;box-sizing:border-box;width:100%;cursor:pointer;
-  padding:15px 18px;border-radius:var(--r-md);
-  background:var(--card-bg);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  font-size:16px;font-weight:600;color:var(--ink-muted);
-  transition:all .25s var(--ease);touch-action:manipulation;
-}
-.cap-tab:hover{color:var(--ink);border-color:var(--border-bright)}
-.cap-tab[aria-selected="true"]{
-  color:var(--ink);border-color:var(--cyan);
-  background:linear-gradient(135deg,rgba(0,229,255,.15),rgba(99,102,241,.1));
-}
-.cap-tab small{font-family:var(--mono);font-size:11px;color:var(--cyan)}
-.cap-tab i{width:7px;height:7px;border-radius:50%;background:var(--border-bright);transition:all .25s}
-.cap-tab[aria-selected="true"] i{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
-
-.cap-panel{padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
-.cap-panel h3{font-size:26px}
-.cap-panel p{color:var(--ink-muted);margin-top:8px;max-width:54ch}
-.cap-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;list-style:none;padding:0}
-.cap-pills li{
-  padding:7px 13px;border-radius:999px;
-  background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.24);
-  font-family:var(--mono);font-size:12px;color:var(--ink);
-  -webkit-animation:cardPop .35s var(--ease) calc(var(--i,0)*35ms) both;
-  animation:cardPop .35s var(--ease) calc(var(--i,0)*35ms) both;
+/* ---------- 02 // REDESIGNED: High-Tech Interactive Capabilities & Scroll Pipeline ---------- */
+.cap-matrix{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
 }
 
-.pipeline-strip{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
-  padding-top:18px;border-top:1px solid var(--border);
+/* Scroll-Scrubbed Interactive Execution Pipeline */
+.scroll-pipeline{
+  padding:20px 24px;
+  border-radius:var(--r-lg);
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
 }
-.step-item span{font-family:var(--mono);font-size:11px;color:var(--cyan)}
-.step-item strong{display:block;font-size:14.5px;margin-top:2px}
-.step-item small{display:block;font-size:12px;color:var(--ink-muted);line-height:1.4;margin-top:2px}
-@media (max-width:880px){.cap-bento{grid-template-columns:1fr}.pipeline-strip{grid-template-columns:repeat(2,1fr)}}
-
-/* ---------- 03 // Studio, Connect & QRIS Support ---------- */
-.bottom-bento{
-  display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch;
-}
-.studio-box{padding:clamp(26px,4vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:28px}
-.studio-box p{font-size:17px;color:var(--ink-muted);max-width:50ch}
-.studio-box p strong{color:var(--ink);font-weight:600}
-.founder-row{
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
-  padding:16px 18px;border-radius:var(--r-md);
-  background:var(--bg-elev);border:1px solid var(--border);
-}
-.founder-row strong{display:block;font-size:18px}
-.founder-row span{font-family:var(--mono);font-size:12px;color:var(--cyan)}
-
-.connect-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.connect-btn{
-  padding:16px 18px;border-radius:var(--r-md);
-  background:var(--bg-elev);border:1px solid var(--border);
+.pipe-header{
   display:flex;justify-content:space-between;align-items:center;
-  transition:border-color .2s,transform .25s var(--spring);
+  font-family:var(--mono);font-size:11px;color:var(--ink-muted);
+  margin-bottom:16px;
 }
-.connect-btn:hover{border-color:var(--cyan);-webkit-transform:translate3d(0,-2px,0);transform:translate3d(0,-2px,0)}
-.connect-btn strong{display:block;font-size:15.5px}
-.connect-btn small{display:block;font-size:12px;color:var(--ink-muted)}
-.connect-btn span{color:var(--cyan);font-family:var(--mono);font-size:16px}
+.pipe-header b{color:var(--cyan)}
+.pipe-track-wrap{position:relative;padding-top:12px}
+.pipe-rail{
+  position:absolute;top:19px;left:6%;right:6%;height:2px;
+  background:var(--border);border-radius:2px;overflow:hidden;
+}
+.pipe-fill{
+  width:100%;height:100%;
+  background:linear-gradient(90deg,var(--cyan),var(--indigo),var(--emerald));
+  -webkit-transform-origin:0 50%;transform-origin:0 50%;
+  -webkit-transform:scaleX(var(--pipe-prog,0.25));transform:scaleX(var(--pipe-prog,0.25));
+  will-change:transform;
+}
+.pipe-steps{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+}
+.pipe-node{
+  all:unset;box-sizing:border-box;cursor:pointer;
+  display:flex;flex-direction:column;align-items:flex-start;gap:6px;
+  padding:10px 12px;border-radius:var(--r-md);
+  transition:background .25s,transform .25s var(--spring);
+  touch-action:manipulation;
+}
+.pipe-node:hover{background:rgba(0,229,255,.06)}
+.pipe-dot{
+  width:14px;height:14px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--border-bright);
+  transition:all .3s var(--spring);
+}
+.pipe-node.reached .pipe-dot,
+.pipe-node[aria-pressed="true"] .pipe-dot{
+  background:var(--cyan);border-color:var(--cyan);
+  box-shadow:0 0 12px var(--cyan);
+  -webkit-transform:scale(1.18);transform:scale(1.18);
+}
+.pipe-node small{font-family:var(--mono);font-size:10.5px;color:var(--cyan);margin-top:4px}
+.pipe-node strong{font-size:15px;color:var(--ink)}
+.pipe-node span{font-size:12.5px;color:var(--ink-muted);line-height:1.35}
+@media (max-width:760px){
+  .pipe-rail{display:none}
+  .pipe-steps{grid-template-columns:repeat(2,1fr)}
+}
 
-.qris-box{padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
-.qris-top{display:flex;justify-content:space-between;align-items:center}
-.qris-top span{font-family:var(--mono);font-size:11px;color:var(--cyan)}
-.qris-top b{font-size:16px;letter-spacing:.05em}
-.qris-body{display:grid;grid-template-columns:168px 1fr;gap:18px;align-items:center}
-.qris-frame{
-  position:relative;width:100%;aspect-ratio:1;border-radius:var(--r-md);
-  background:#FFF;border:1px solid var(--border-bright);
-  padding:0;overflow:hidden;cursor:zoom-in;display:grid;place-items:center;
+/* Interactive Architecture Console */
+.arch-console{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:20px;
+  align-items:stretch;
 }
-.qris-frame img{width:100%;height:100%;object-fit:contain}
-.scan-beam{
-  position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+.arch-nav{
+  display:flex;flex-direction:column;gap:8px;list-style:none;margin:0;padding:0;
+}
+.arch-btn{
+  all:unset;box-sizing:border-box;width:100%;cursor:pointer;
+  padding:16px 18px;border-radius:var(--r-md);
+  background:var(--card-bg);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  transition:border-color .25s,background .25s,transform .25s var(--spring);
+  touch-action:manipulation;
+}
+.arch-btn:hover{border-color:var(--border-bright)}
+.arch-btn:active{-webkit-transform:scale(.98);transform:scale(.98)}
+.arch-btn[aria-selected="true"]{
+  border-color:var(--cyan);
+  background:linear-gradient(135deg,rgba(0,229,255,.16),rgba(99,102,241,.12));
+  box-shadow:var(--glow);
+}
+.arch-btn-meta{display:flex;flex-direction:column;gap:2px}
+.arch-btn-meta small{font-family:var(--mono);font-size:10.5px;color:var(--cyan)}
+.arch-btn-meta strong{font-size:16px;color:var(--ink)}
+.arch-pulse{
+  width:8px;height:8px;border-radius:50%;background:var(--border-bright);
+  transition:all .25s;
+}
+.arch-btn[aria-selected="true"] .arch-pulse{
+  background:var(--cyan);box-shadow:0 0 12px var(--cyan);
+}
+
+.arch-stage{
+  border-radius:var(--r-xl);
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  padding:24px;
+  display:flex;flex-direction:column;justify-content:space-between;gap:20px;
+  position:relative;overflow:hidden;
+  touch-action:pan-y;
+}
+.arch-blueprint{
+  position:relative;
+  border-radius:var(--r-md);
+  background:rgba(4,7,11,.65);
+  border:1px solid var(--border);
+  min-height:190px;
+  overflow:hidden;
+  display:grid;place-items:center;
+}
+:root[data-theme="light"] .arch-blueprint{background:rgba(11,18,28,.04)}
+.arch-blueprint-grid{
+  position:absolute;inset:-20px;
+  background-image:radial-gradient(rgba(0,229,255,.22) 1px,transparent 1px);
+  background-size:20px 20px;
+  opacity:.45;
+  will-change:transform;
+}
+.arch-svg{
+  position:relative;z-index:2;width:100%;height:190px;display:block;
+  will-change:transform;
+}
+.arch-trace{
+  fill:none;stroke:var(--border-bright);stroke-opacity:.35;stroke-width:1.4;
+}
+.arch-signal{
+  fill:none;stroke:var(--cyan);stroke-width:2.2;
+  stroke-dasharray:22 78;
+  -webkit-animation:svgFlow 2.6s linear infinite;
+  animation:svgFlow 2.6s linear infinite;
+}
+.arch-node{cursor:pointer}
+.arch-node rect{
+  fill:var(--bg-elev);stroke:var(--border-bright);stroke-width:1.4;
+  transition:stroke .25s,fill .25s;
+}
+.arch-node:hover rect,.arch-node.active rect{
+  stroke:var(--cyan);fill:rgba(0,229,255,.18);
+}
+.arch-node text{
+  font-family:var(--mono);font-size:10px;fill:var(--ink);font-weight:600;letter-spacing:.05em;
+}
+.arch-telemetry{
+  position:absolute;left:12px;bottom:10px;z-index:3;
+  font-family:var(--mono);font-size:10.5px;color:var(--cyan);
+  background:rgba(6,9,13,.75);padding:4px 10px;border-radius:999px;
+  border:1px solid var(--border);
+}
+:root[data-theme="light"] .arch-telemetry{background:rgba(255,255,255,.88)}
+
+.arch-details h3{font-size:26px}
+.arch-details p{color:var(--ink-muted);margin-top:6px;max-width:56ch;font-size:15px}
+.arch-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;list-style:none;padding:0}
+.arch-tags li{
+  padding:7px 13px;border-radius:999px;
+  background:rgba(0,229,255,.09);border:1px solid rgba(0,229,255,.26);
+  font-family:var(--mono);font-size:12px;color:var(--ink);
+  -webkit-animation:cardPop .35s var(--ease) calc(var(--i,0)*40ms) both;
+  animation:cardPop .35s var(--ease) calc(var(--i,0)*40ms) both;
+}
+@media (max-width:880px){.arch-console{grid-template-columns:1fr}}
+
+/* ---------- 03 // REDESIGNED: High-Tech Interactive CV Portal CTA (ONLY CTA to cv.prcuisa.com) ---------- */
+.cv-portal{
+  position:relative;
+  border-radius:var(--r-xl);
+  background:var(--card-bg);
+  border:1px solid var(--border-bright);
+  box-shadow:var(--shadow),var(--glow);
+  padding:clamp(44px,7vw,88px) clamp(24px,5vw,64px);
+  overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  isolation:isolate;
+  touch-action:pan-y;
+}
+
+/* Multi-layer Parallax Orbital Radar Backdrop */
+.portal-radar{
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  display:grid;place-items:center;overflow:hidden;
+}
+.portal-radar svg{
+  width:min(760px,145vw);height:min(760px,145vw);
+  opacity:.55;will-change:transform;
+}
+.radar-ring-1{
+  -webkit-transform-origin:300px 300px;transform-origin:300px 300px;
+  will-change:transform;
+}
+.radar-ring-2{
+  -webkit-transform-origin:300px 300px;transform-origin:300px 300px;
+  will-change:transform;
+}
+.portal-glow{
+  position:absolute;width:440px;height:440px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,229,255,.2) 0%,rgba(99,102,241,.12) 45%,transparent 70%);
+  pointer-events:none;z-index:-1;
+  will-change:transform;
+}
+
+.portal-hud-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:6px 14px;border-radius:999px;
+  background:var(--bg-elev);border:1px solid var(--border-bright);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--cyan);
+  margin-bottom:20px;
+}
+.portal-hud-tag i{
+  width:7px;height:7px;border-radius:50%;background:var(--cyan);
   box-shadow:0 0 10px var(--cyan);
-  -webkit-animation:laserScan 3s ease-in-out infinite;
-  animation:laserScan 3s ease-in-out infinite;
-  pointer-events:none;
+  -webkit-animation:blink 1.8s ease-in-out infinite;animation:blink 1.8s ease-in-out infinite;
 }
-@-webkit-keyframes laserScan{
-  0%,100%{opacity:.2;-webkit-transform:translate3d(0,12px,0);transform:translate3d(0,12px,0)}
-  50%{opacity:.95;-webkit-transform:translate3d(0,152px,0);transform:translate3d(0,152px,0)}
+.cv-portal h2{
+  font-size:clamp(34px,5.4vw,66px);
+  max-width:16ch;
+  line-height:1.02;
 }
-@keyframes laserScan{
-  0%,100%{opacity:.2;transform:translate3d(0,12px,0)}
-  50%{opacity:.95;transform:translate3d(0,152px,0)}
+.cv-portal p{
+  margin-top:16px;
+  max-width:44ch;
+  color:var(--ink-muted);
+  font-size:clamp(15.5px,1.3vw,18px);
 }
-.qris-box.missing .scan-beam{display:none}
-.qris-empty{
-  position:absolute;inset:0;display:none;place-items:center;text-align:center;
-  padding:12px;background:#F4F7FA;color:#334155;font-size:12px;cursor:default;
-}
-.qris-box.missing .qris-empty{display:grid}
-.qris-box.missing img{display:none}
-.qris-box.missing .qris-frame{cursor:default}
 
-.qris-copy p{font-size:13.5px;color:var(--ink-muted);line-height:1.5}
-.qris-meta{margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--ink-muted)}
-.qris-acts{display:flex;gap:10px}
-.qris-acts .btn{flex:1;padding:11px 14px;font-size:13px}
-.btn[aria-disabled="true"]{opacity:.4;pointer-events:none}
+/* High-Tech Kinetic Launch CTA Button */
+.portal-cta-wrap{
+  margin-top:34px;
+  position:relative;
+  display:inline-flex;
+  will-change:transform;
+}
+.portal-cta{
+  position:relative;
+  display:inline-flex;align-items:center;gap:14px;
+  padding:18px 34px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--cyan),var(--teal) 55%,var(--indigo));
+  color:#050A0E;
+  font:700 16px/1 var(--sans);
+  letter-spacing:-.01em;
+  box-shadow:0 14px 36px -6px rgba(0,229,255,.48);
+  transition:transform .28s var(--spring),box-shadow .3s var(--ease);
+  overflow:hidden;
+}
+:root[data-theme="light"] .portal-cta{color:#FFF}
+.portal-cta::before{
+  content:"";position:absolute;top:0;left:-120%;width:65%;height:100%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);
+  -webkit-transform:skewX(-22deg);transform:skewX(-22deg);
+  -webkit-animation:ctaSweep 3.8s var(--ease) infinite;
+  animation:ctaSweep 3.8s var(--ease) infinite;
+}
+@-webkit-keyframes ctaSweep{
+  0%,55%{left:-120%}
+  100%{left:165%}
+}
+@keyframes ctaSweep{
+  0%,55%{left:-120%}
+  100%{left:165%}
+}
+@media (hover:hover){
+  .portal-cta:hover{
+    -webkit-transform:translate3d(0,-2px,0) scale(1.03);
+    transform:translate3d(0,-2px,0) scale(1.03);
+    box-shadow:0 18px 44px -4px rgba(0,229,255,.65);
+  }
+  .portal-cta:hover .cta-icon{-webkit-transform:translate(3px,-3px);transform:translate(3px,-3px)}
+}
+.portal-cta:active{-webkit-transform:scale(.96);transform:scale(.96)}
+.portal-cta .cta-domain{font-family:var(--mono);font-size:15px}
+.portal-cta .cta-icon{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(5,10,14,.18);
+  display:grid;place-items:center;
+  transition:transform .28s var(--spring);
+}
+:root[data-theme="light"] .portal-cta .cta-icon{background:rgba(255,255,255,.22)}
 
-@media (max-width:920px){.bottom-bento{grid-template-columns:1fr}}
-@media (max-width:480px){.qris-body,.connect-row{grid-template-columns:1fr}.qris-frame{max-width:200px}}
-
-dialog{border:none;padding:0;background:transparent;max-width:min(90vw,440px);width:100%}
-dialog::backdrop{background:rgba(6,9,13,.84);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-dialog img{width:100%;background:#FFF;border-radius:var(--r-lg)}
-dialog .x{
-  position:absolute;top:-48px;right:0;width:38px;height:38px;border-radius:50%;
-  background:var(--bg-elev);border:1px solid var(--border-bright);color:#FFF;font-size:20px;cursor:pointer;
+.portal-coords{
+  margin-top:24px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-muted);
 }
 
 /* ---------- Minimal Footer ---------- */
@@ -599,16 +758,15 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
     transition-duration:.001ms!important;scroll-behavior:auto!important;
   }
   .rv{opacity:1!important;-webkit-transform:none!important;transform:none!important}
-  .scan-beam{display:none!important}
 }
 </style>
 </head>
 <body>
 
 <div class="ambient" aria-hidden="true">
-  <div class="ambient-grid"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
+  <div class="ambient-grid" id="ambGrid"></div>
+  <div class="orb orb-1" id="ambOrb1"></div>
+  <div class="orb orb-2" id="ambOrb2"></div>
 </div>
 
 <!-- Floating Glass Navbar -->
@@ -624,7 +782,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
       <ul class="links">
         <li><a href="#works">Works</a></li>
         <li><a href="#capabilities">Capabilities</a></li>
-        <li><a href="#studio">Studio & Support</a></li>
+        <li><a href="#dossier">CV</a></li>
       </ul>
     </nav>
     <div class="nav-actions">
@@ -632,7 +790,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
         <svg class="ic-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="3.5"/><path d="M10 2.5v2M10 15.5v2M2.5 10h2M15.5 10h2M4.7 4.7l1.4 1.4M13.9 13.9l1.4 1.4M15.3 4.7l-1.4 1.4M6.1 13.9l-1.4 1.4"/></svg>
         <svg class="ic-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16.2 12.6A6.5 6.5 0 0 1 7.4 3.8a6.5 6.5 0 1 0 8.8 8.8Z"/></svg>
       </button>
-      <a class="btn btn-primary" href="#studio">Let’s Connect</a>
+      <a class="btn btn-primary" href="https://cv.prcuisa.com" target="_blank" rel="noopener">cv.prcuisa.com ↗</a>
       <button class="icon-btn menu-btn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path class="m1" d="M3 7h14M3 13h14"/></svg>
       </button>
@@ -644,14 +802,14 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 <div class="drawer" id="drawer" aria-hidden="true">
   <a href="#works"><span>Selected Works</span><small>01</small></a>
   <a href="#capabilities"><span>Capabilities</span><small>02</small></a>
-  <a href="#studio"><span>Studio & Support</span><small>03</small></a>
+  <a href="#dossier"><span>CV Dossier</span><small>03</small></a>
 </div>
 
 <main id="top">
 <!-- ================= HERO ================= -->
-<section class="hero" aria-labelledby="hero-h">
+<section class="hero" id="heroSec" aria-labelledby="hero-h">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-copy" id="heroCopy">
       <div class="eyebrow"><i></i><span>INDEPENDENT ENGINEERING STUDIO</span></div>
       <h1 id="hero-h">Engineering Ideas<span class="grad">Into Practical Systems.</span></h1>
       <p class="hero-sub">Building digital products and integrated systems across software, AI automation, hardware, and infrastructure.</p>
@@ -659,52 +817,54 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
         <a class="btn btn-primary" href="#works">Explore Works
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v10M3 8l5 5 5-5"/></svg>
         </a>
-        <a class="btn btn-ghost" href="#studio">Collaborate</a>
+        <a class="btn btn-ghost" href="#capabilities">System Architecture</a>
       </div>
     </div>
 
-    <div class="hud-card">
-      <div class="hud-bar">
-        <div class="hud-dots"><i></i><i></i><i></i></div>
-        <span>PRCUISA.SYS // TOPOLOGY</span>
-        <span style="color:var(--emerald)">● LIVE</span>
-      </div>
-      <svg class="sysviz" viewBox="0 0 520 380" role="img" aria-label="Interactive system architecture diagram">
-        <circle cx="260" cy="190" r="142" fill="none" stroke="var(--border-bright)" stroke-opacity=".2" stroke-dasharray="4 6"/>
-        <path class="link" data-link="SOFTWARE" d="M104 86 C 172 86, 192 190, 260 190"/>
-        <path class="link" data-link="DATA" d="M416 86 C 348 86, 328 190, 260 190"/>
-        <path class="link" data-link="HARDWARE" d="M104 294 C 172 294, 192 190, 260 190"/>
-        <path class="link" data-link="AUTOMATE" d="M416 294 C 348 294, 328 190, 260 190"/>
-        <path class="link" data-link="API" d="M260 190 L260 326"/>
+    <div class="hero-hud-wrap" id="heroHud">
+      <div class="hud-card">
+        <div class="hud-bar">
+          <div class="hud-dots"><i></i><i></i><i></i></div>
+          <span>PRCUISA.SYS // TOPOLOGY</span>
+          <span style="color:var(--emerald)">● LIVE</span>
+        </div>
+        <svg class="sysviz" viewBox="0 0 520 380" role="img" aria-label="Interactive system architecture diagram">
+          <circle cx="260" cy="190" r="142" fill="none" stroke="var(--border-bright)" stroke-opacity=".2" stroke-dasharray="4 6"/>
+          <path class="link" data-link="SOFTWARE" d="M104 86 C 172 86, 192 190, 260 190"/>
+          <path class="link" data-link="DATA" d="M416 86 C 348 86, 328 190, 260 190"/>
+          <path class="link" data-link="HARDWARE" d="M104 294 C 172 294, 192 190, 260 190"/>
+          <path class="link" data-link="AUTOMATE" d="M416 294 C 348 294, 328 190, 260 190"/>
+          <path class="link" data-link="API" d="M260 190 L260 326"/>
 
-        <path class="flow" pathLength="100" d="M104 86 C 172 86, 192 190, 260 190"/>
-        <path class="flow" pathLength="100" style="-webkit-animation-delay:-.8s;animation-delay:-.8s" d="M416 86 C 348 86, 328 190, 260 190"/>
-        <path class="flow" pathLength="100" style="-webkit-animation-delay:-1.6s;animation-delay:-1.6s" d="M104 294 C 172 294, 192 190, 260 190"/>
-        <path class="flow" pathLength="100" style="-webkit-animation-delay:-2.4s;animation-delay:-2.4s" d="M416 294 C 348 294, 328 190, 260 190"/>
-        <path class="flow" pathLength="100" style="-webkit-animation-delay:-1.2s;animation-delay:-1.2s" d="M260 190 L260 326"/>
+          <path class="flow" pathLength="100" d="M104 86 C 172 86, 192 190, 260 190"/>
+          <path class="flow" pathLength="100" style="-webkit-animation-delay:-.8s;animation-delay:-.8s" d="M416 86 C 348 86, 328 190, 260 190"/>
+          <path class="flow" pathLength="100" style="-webkit-animation-delay:-1.6s;animation-delay:-1.6s" d="M104 294 C 172 294, 192 190, 260 190"/>
+          <path class="flow" pathLength="100" style="-webkit-animation-delay:-2.4s;animation-delay:-2.4s" d="M416 294 C 348 294, 328 190, 260 190"/>
+          <path class="flow" pathLength="100" style="-webkit-animation-delay:-1.2s;animation-delay:-1.2s" d="M260 190 L260 326"/>
 
-        <g class="node" data-key="SOFTWARE" data-info="Web Apps, PWAs & Product Interfaces"><rect x="58" y="64" width="92" height="42" rx="10"/><text x="76" y="89">SOFTWARE</text><text class="sub" x="58" y="56">01</text></g>
-        <g class="node" data-key="DATA" data-info="Databases, Analytics & Market Telemetry"><rect x="370" y="64" width="92" height="42" rx="10"/><text x="400" y="89">DATA</text><text class="sub" x="370" y="56">02</text></g>
-        <g class="node" data-key="HARDWARE" data-info="ESP32, Arduino & Connected IoT Sensors"><rect x="58" y="272" width="92" height="42" rx="10"/><text x="76" y="297">HARDWARE</text><text class="sub" x="58" y="330">03 · IOT</text></g>
-        <g class="node" data-key="AUTOMATE" data-info="AI Agents & n8n Workflow Pipelines"><rect x="370" y="272" width="92" height="42" rx="10"/><text x="388" y="297">AUTOMATE</text><text class="sub" x="370" y="330">04 · AI</text></g>
-        <g class="node" data-key="API" data-info="REST Gateways, Linux & Cloud Deployment"><rect x="225" y="312" width="70" height="30" rx="8"/><text x="249" y="331">API</text></g>
+          <g class="node" data-key="SOFTWARE" data-info="Web Apps, PWAs & Product Interfaces"><rect x="58" y="64" width="92" height="42" rx="10"/><text x="76" y="89">SOFTWARE</text><text class="sub" x="58" y="56">01</text></g>
+          <g class="node" data-key="DATA" data-info="Databases, Analytics & Market Telemetry"><rect x="370" y="64" width="92" height="42" rx="10"/><text x="400" y="89">DATA</text><text class="sub" x="370" y="56">02</text></g>
+          <g class="node" data-key="HARDWARE" data-info="ESP32, Arduino & Connected IoT Sensors"><rect x="58" y="272" width="92" height="42" rx="10"/><text x="76" y="297">HARDWARE</text><text class="sub" x="58" y="330">03 · IOT</text></g>
+          <g class="node" data-key="AUTOMATE" data-info="AI Agents & n8n Workflow Pipelines"><rect x="370" y="272" width="92" height="42" rx="10"/><text x="388" y="297">AUTOMATE</text><text class="sub" x="370" y="330">04 · AI</text></g>
+          <g class="node" data-key="API" data-info="REST Gateways, Linux & Cloud Deployment"><rect x="225" y="312" width="70" height="30" rx="8"/><text x="249" y="331">API</text></g>
 
-        <g class="node active" data-key="CORE" data-info="Unified Product & Systems Architecture" transform="translate(260, 190)">
-          <circle class="pulse" cx="0" cy="0" r="34"/>
-          <circle class="core" cx="0" cy="0" r="34"/>
-          <circle cx="0" cy="0" r="5" fill="var(--cyan)"/>
-          <text x="-18" y="50">CORE</text>
-        </g>
-      </svg>
-      <div class="hud-foot">
-        <span id="hudInfo">Unified Product & Systems Architecture</span>
-        <b>TAP NODE</b>
+          <g class="node active" data-key="CORE" data-info="Unified Product & Systems Architecture" transform="translate(260, 190)">
+            <circle class="pulse" cx="0" cy="0" r="34"/>
+            <circle class="core" cx="0" cy="0" r="34"/>
+            <circle cx="0" cy="0" r="5" fill="var(--cyan)"/>
+            <text x="-18" y="50">CORE</text>
+          </g>
+        </svg>
+        <div class="hud-foot">
+          <span id="hudInfo">Unified Product & Systems Architecture</span>
+          <b>TAP NODE</b>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 01 // SELECTED WORKS (UNIFIED) ================= -->
+<!-- ================= 01 // SELECTED WORKS ================= -->
 <section class="sec" id="works" aria-labelledby="works-h">
   <div class="wrap">
     <div class="sec-head rv">
@@ -726,7 +886,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
   </div>
 </section>
 
-<!-- ================= 02 // CAPABILITIES & PROCESS ================= -->
+<!-- ================= 02 // REDESIGNED: CAPABILITIES & SCROLL PIPELINE ================= -->
 <section class="sec" id="capabilities" aria-labelledby="caps-h">
   <div class="wrap">
     <div class="sec-head rv">
@@ -734,100 +894,111 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
         <div class="tag">02 // CAPABILITIES</div>
         <h2 id="caps-h">Full-Stack to Hardware.</h2>
       </div>
-      <p>Five integrated disciplines connecting user interfaces down to devices and servers.</p>
+      <p>Interactive system layers connecting user interfaces down to edge devices and servers.</p>
     </div>
 
-    <div class="cap-bento rv">
-      <ul class="cap-tabs" role="tablist" aria-label="Disciplines" id="capTabs"></ul>
-      <div class="cap-panel card" role="tabpanel" id="capPanel" aria-live="polite">
-        <div id="capContent"></div>
-        <div class="pipeline-strip" aria-label="Engineering workflow">
-          <div class="step-item"><span>01</span><strong>Discover</strong><small>Define problem & constraints</small></div>
-          <div class="step-item"><span>02</span><strong>Architect</strong><small>Design system & data flow</small></div>
-          <div class="step-item"><span>03</span><strong>Build</strong><small>Develop, integrate & test</small></div>
-          <div class="step-item"><span>04</span><strong>Deploy</strong><small>Launch, monitor & iterate</small></div>
+    <div class="cap-matrix">
+      <!-- Scroll-Scrubbed Interactive Execution Pipeline -->
+      <div class="scroll-pipeline rv" id="scrollPipeline">
+        <div class="pipe-header">
+          <span>EXECUTION PROTOCOL // SCROLL-SYNCED</span>
+          <b id="pipeStatus">PHASE 01 · DISCOVER</b>
+        </div>
+        <div class="pipe-track-wrap">
+          <div class="pipe-rail" aria-hidden="true"><div class="pipe-fill" id="pipeFill"></div></div>
+          <div class="pipe-steps" id="pipeSteps">
+            <button type="button" class="pipe-node reached" data-step="0" data-label="PHASE 01 · DISCOVER" aria-pressed="true">
+              <span class="pipe-dot"></span>
+              <small>01</small>
+              <strong>Discover</strong>
+              <span>Scope constraints & user friction</span>
+            </button>
+            <button type="button" class="pipe-node" data-step="1" data-label="PHASE 02 · ARCHITECT" aria-pressed="false">
+              <span class="pipe-dot"></span>
+              <small>02</small>
+              <strong>Architect</strong>
+              <span>Map APIs, schemas & hardware bus</span>
+            </button>
+            <button type="button" class="pipe-node" data-step="2" data-label="PHASE 03 · BUILD" aria-pressed="false">
+              <span class="pipe-dot"></span>
+              <small>03</small>
+              <strong>Build</strong>
+              <span>Develop, wire & stress-test</span>
+            </button>
+            <button type="button" class="pipe-node" data-step="3" data-label="PHASE 04 · DEPLOY" aria-pressed="false">
+              <span class="pipe-dot"></span>
+              <small>04</small>
+              <strong>Deploy</strong>
+              <span>Ship, monitor & automate</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Architecture Console with Parallax Blueprint -->
+      <div class="arch-console rv" style="--d:80ms">
+        <ul class="arch-nav" role="tablist" aria-label="Engineering disciplines" id="archNav"></ul>
+
+        <div class="arch-stage" id="archStage" role="tabpanel" aria-live="polite">
+          <div class="arch-blueprint" id="archBlueprint">
+            <div class="arch-blueprint-grid" id="archGridLayer"></div>
+            <svg class="arch-svg" id="archSvg" viewBox="0 0 560 190" role="img" aria-label="Discipline architecture schematic"></svg>
+            <div class="arch-telemetry" id="archTelemetry">TAP ANY NODE TO INSPECT LAYER</div>
+          </div>
+          <div class="arch-details" id="archDetails"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 03 // STUDIO & SUPPORT ================= -->
-<section class="sec" id="studio" aria-labelledby="studio-h">
+<!-- ================= 03 // REDESIGNED: EXCLUSIVE CTA PORTAL TO cv.prcuisa.com ================= -->
+<section class="sec" id="dossier" aria-labelledby="dossier-h">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div>
-        <div class="tag">03 // STUDIO & SUPPORT</div>
-        <h2 id="studio-h">Independent by Design.</h2>
-      </div>
-      <p>Have a product or system worth building? Reach out directly or support open development.</p>
-    </div>
-
-    <div class="bottom-bento">
-      <div class="studio-box card rv">
-        <div>
-          <p><strong>PRCUISA</strong> is an independent engineering initiative focused on practical digital products, AI automation, IoT experimentation, and reliable infrastructure.</p>
-          <div class="founder-row" style="margin-top:22px">
-            <div>
-              <strong>Ecsa Ahcri Pracasa</strong>
-              <span>Founder · Product & Systems Engineer</span>
-            </div>
-            <span style="font-family:var(--mono);font-size:11px;color:var(--ink-muted)">ID // EST. 2026</span>
-          </div>
-        </div>
-
-        <div class="connect-row">
-          <a class="connect-btn" href="https://prcuisa.com" target="_blank" rel="noopener">
-            <div><strong>prcuisa.com</strong><small>Main studio portal</small></div>
-            <span>↗</span>
-          </a>
-          <a class="connect-btn" href="https://prd.prcuisa.com" target="_blank" rel="noopener">
-            <div><strong>PRD Studio</strong><small>Scope your product idea</small></div>
-            <span>↗</span>
-          </a>
-        </div>
+    <div class="cv-portal rv" id="cvPortal">
+      <!-- Parallax Orbital Radar Layer -->
+      <div class="portal-radar" aria-hidden="true">
+        <div class="portal-glow" id="portalGlow"></div>
+        <svg viewBox="0 0 600 600" fill="none">
+          <g class="radar-ring-1" id="radarRing1">
+            <circle cx="300" cy="300" r="250" stroke="var(--cyan)" stroke-opacity=".22" stroke-dasharray="6 10"/>
+            <circle cx="300" cy="50" r="4" fill="var(--cyan)"/>
+            <circle cx="300" cy="550" r="4" fill="var(--indigo)"/>
+          </g>
+          <g class="radar-ring-2" id="radarRing2">
+            <circle cx="300" cy="300" r="175" stroke="var(--indigo)" stroke-opacity=".28" stroke-dasharray="2 8"/>
+            <path d="M125 300H145M455 300H475M300 125V145M300 455V475" stroke="var(--cyan)" stroke-width="1.5" stroke-opacity=".45"/>
+          </g>
+        </svg>
       </div>
 
-      <div class="qris-box card rv" id="qris" style="--d:80ms">
-        <div class="qris-top">
-          <span>VOLUNTARY SUPPORT · QRIS</span>
-          <b>PRCUISA</b>
-        </div>
-        <div class="qris-body">
-          <button class="qris-frame" id="qrisOpen" aria-label="Enlarge QRIS code">
-            <img id="qrisImg" src="/assets/donation/qris.png" alt="QRIS payment code for PRCUISA" width="400" height="400" loading="lazy">
-            <span class="scan-beam" aria-hidden="true"></span>
-            <span class="qris-empty" role="status">QRIS unavailable right now</span>
-          </button>
-          <div class="qris-copy">
-            <p>Contributions keep independent tools online and fund new R&D experiments.</p>
-            <div class="qris-meta">One-time · Any amount · Indonesian banks & e-wallets</div>
-          </div>
-        </div>
-        <div class="qris-acts">
-          <button class="btn btn-ghost" id="zoomBtn" type="button">Enlarge</button>
-          <a class="btn btn-primary" id="dlBtn" href="/assets/donation/qris.png" download="PRCUISA-QRIS.png">Download QRIS</a>
-        </div>
+      <div class="portal-hud-tag"><i></i><span>03 // CURRICULUM VITAE</span></div>
+      <h2 id="dossier-h">Inspect the Complete Engineering Dossier.</h2>
+      <p>Experience, shipped architecture, technical stack, and direct contact credentials.</p>
+
+      <div class="portal-cta-wrap" id="portalCtaWrap">
+        <a class="portal-cta" href="https://cv.prcuisa.com" target="_blank" rel="noopener">
+          <span class="cta-domain">cv.prcuisa.com</span>
+          <span class="cta-icon" aria-hidden="true">↗</span>
+        </a>
       </div>
+
+      <div class="portal-coords" id="portalCoords">PORTAL READY // DIRECT ACCESS</div>
     </div>
   </div>
 </section>
 </main>
 
-<dialog id="qrisDlg" aria-label="Enlarged QRIS code">
-  <button class="x" id="dlgClose" aria-label="Close">×</button>
-  <img src="/assets/donation/qris.png" alt="QRIS payment code for PRCUISA, enlarged">
-</dialog>
-
 <footer>
   <div class="wrap">
-    <span>© 2026 PRCUISA Labs · Product & Systems Engineering</span>
-    <span>Built with curiosity. Engineered with purpose.</span>
+    <span>© 2026 PRCUISA · Product & Systems Engineering</span>
+    <span>Engineered with purpose.</span>
   </div>
 </footer>
 
 <script>
 (() => {
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 
@@ -845,7 +1016,7 @@ themeBtn.addEventListener('click', () => {
   applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
 });
 
-/* ---------- Unified Projects + Filter ---------- */
+/* ---------- 01 // Selected Works ---------- */
 const projects = [
   {t:'CashFlow PRCUISA', c:'Business Systems', u:'https://cashflow.prcuisa.com', tier:'featured', d:'Business financial management for tracking transactions and real-time cash flow.'},
   {t:'PRD Studio', c:'Product Engineering', u:'https://prd.prcuisa.com', tier:'featured', d:'AI-assisted product discovery and technical requirements documentation workspace.'},
@@ -863,7 +1034,7 @@ const worksGrid = $('#worksGrid');
 function renderWorks(filter = 'all'){
   const list = filter === 'all' ? projects : projects.filter(p => p.tier === filter);
   worksGrid.innerHTML = list.map((p, i) => `
-    <a class="work-card card" style="animation-delay:${i * 40}ms" href="${p.u}" target="_blank" rel="noopener">
+    <a class="work-card card" style="animation-delay:${i * 35}ms" href="${p.u}" target="_blank" rel="noopener">
       <div>
         <div class="work-top">
           <span class="work-cat">${p.c}</span>
@@ -889,37 +1060,196 @@ $$('.filter-btn').forEach(btn => {
   });
 });
 
-/* ---------- Capabilities Tabs ---------- */
-const caps = [
-  {k:'Product Engineering', d:'Taking ideas from initial prototype to fast, dependable web and progressive web applications.', items:['Web Applications','Progressive Web Apps','Interface Engineering','Rapid Prototyping']},
-  {k:'Systems Engineering', d:'Connecting APIs, databases, and background workers so distributed parts act as one cohesive system.', items:['API Integration','Database Architecture','Backend Workflows','System Integration']},
-  {k:'AI & Automation', d:'Building LLM agents and n8n pipelines that eliminate repetitive operational tasks.', items:['AI Agents','n8n Automation','Process Orchestration','Intelligent Interfaces']},
-  {k:'Hardware & IoT', d:'Wiring microcontrollers and physical sensors directly into real-time web dashboards.', items:['ESP32 & Arduino','Embedded Firmware','MQTT Telemetry','Smart Device Integration']},
-  {k:'Infrastructure', d:'Linux servers, networking, cloud deployments, and monitoring that keep systems resilient.', items:['Linux Administration','Networking','Cloud Deployment','System Monitoring']}
+/* ---------- 02 // Interactive Capabilities Architecture Console ---------- */
+const disciplines = [
+  {
+    k:'Product Engineering',
+    sub:'WEB · PWA · UI',
+    d:'Taking ideas from rapid prototypes to responsive, high-craft web applications and progressive web apps.',
+    items:['Web Applications','Progressive Web Apps','Interface Engineering','Rapid Prototyping'],
+    nodes:[
+      {x:75, y:95, t:'CLIENT UI', info:'Responsive React / TypeScript interface'},
+      {x:220, y:52, t:'EDGE PWA', info:'Offline-ready service worker & cache'},
+      {x:365, y:138, t:'STATE SYNC', info:'Optimistic updates & real-time sync'},
+      {x:490, y:95, t:'PRODUCT', info:'Production-ready user experience'}
+    ]
+  },
+  {
+    k:'Systems Engineering',
+    sub:'API · DB · WORKERS',
+    d:'Connecting APIs, relational databases, and asynchronous workers so distributed parts act as one reliable system.',
+    items:['API Integration','Database Architecture','Backend Workflows','System Integration'],
+    nodes:[
+      {x:75, y:95, t:'GATEWAY', info:'REST & Webhook ingestion layer'},
+      {x:220, y:138, t:'WORKER', info:'Queue-driven background processing'},
+      {x:365, y:52, t:'POSTGRES', info:'Structured relational persistence'},
+      {x:490, y:95, t:'TELEMETRY', info:'Health checks & audit logging'}
+    ]
+  },
+  {
+    k:'AI & Automation',
+    sub:'AGENTS · N8N',
+    d:'Building autonomous LLM agents and n8n orchestration pipelines that eliminate repetitive operational work.',
+    items:['AI Agents','n8n Automation','Workflow Orchestration','Intelligent Interfaces'],
+    nodes:[
+      {x:75, y:95, t:'TRIGGER', info:'Webhook, schedule, or chat event'},
+      {x:220, y:52, t:'LLM AGENT', info:'Context-aware reasoning & tool routing'},
+      {x:365, y:138, t:'N8N FLOW', info:'Multi-service API orchestration'},
+      {x:490, y:95, t:'OUTCOME', info:'Automated execution & reporting'}
+    ]
+  },
+  {
+    k:'Hardware & IoT',
+    sub:'ESP32 · MQTT',
+    d:'Wiring microcontrollers and physical sensors directly into real-time cloud telemetry and web dashboards.',
+    items:['ESP32 & Arduino','Embedded Firmware','MQTT Telemetry','Smart Device Integration'],
+    nodes:[
+      {x:75, y:95, t:'SENSORS', info:'Environmental & analog hardware inputs'},
+      {x:220, y:138, t:'ESP32 MCU', info:'Low-power C++/MicroPython firmware'},
+      {x:365, y:52, t:'MQTT BUS', info:'Sub-second pub/sub message broker'},
+      {x:490, y:95, t:'DASHBOARD', info:'Live control & device state UI'}
+    ]
+  },
+  {
+    k:'Infrastructure',
+    sub:'LINUX · CLOUD',
+    d:'Hardened Linux servers, private networking, cloud deployments, and monitoring that keep systems resilient.',
+    items:['Linux Administration','Networking','Cloud Deployment','System Monitoring'],
+    nodes:[
+      {x:75, y:95, t:'EDGE DNS', info:'TLS termination & reverse proxy'},
+      {x:220, y:52, t:'LINUX VPS', info:'Containerized services & firewall'},
+      {x:365, y:138, t:'PRIVATE NET', info:'Zero-trust mesh & Ubiquiti routing'},
+      {x:490, y:95, t:'UPTIME', info:'24/7 metrics & automated alerts'}
+    ]
+  }
 ];
-const capTabs = $('#capTabs');
-capTabs.innerHTML = caps.map((c, i) => `
+
+const archNav = $('#archNav');
+const archSvg = $('#archSvg');
+const archDetails = $('#archDetails');
+const archTelemetry = $('#archTelemetry');
+
+archNav.innerHTML = disciplines.map((d, i) => `
   <li role="presentation">
-    <button class="cap-tab" role="tab" id="tab-${i}" aria-selected="${i===0}" data-i="${i}">
-      <span><small>0${i+1} · </small>${c.k}</span><i></i>
+    <button class="arch-btn" role="tab" id="arch-t-${i}" aria-selected="${i===0}" data-i="${i}">
+      <div class="arch-btn-meta">
+        <small>0${i+1} // ${d.sub}</small>
+        <strong>${d.k}</strong>
+      </div>
+      <span class="arch-pulse"></span>
     </button>
   </li>
 `).join('');
 
-function setCap(i){
-  $$('.cap-tab', capTabs).forEach((b, k) => b.setAttribute('aria-selected', k === i));
-  const c = caps[i];
-  $('#capContent').innerHTML = `
-    <h3>${c.k}</h3>
-    <p>${c.d}</p>
-    <ul class="cap-pills">${c.items.map((x, idx) => `<li style="--i:${idx}">${x}</li>`).join('')}</ul>
+function setDiscipline(i){
+  $$('.arch-btn', archNav).forEach((b, k) => b.setAttribute('aria-selected', k === i));
+  const d = disciplines[i];
+  const pts = d.nodes;
+  const pathD = `M ${pts[0].x} ${pts[0].y} C ${(pts[0].x+pts[1].x)/2} ${pts[0].y}, ${(pts[0].x+pts[1].x)/2} ${pts[1].y}, ${pts[1].x} ${pts[1].y} S ${(pts[1].x+pts[2].x)/2} ${pts[2].y}, ${pts[2].x} ${pts[2].y} S ${(pts[2].x+pts[3].x)/2} ${pts[3].y}, ${pts[3].x} ${pts[3].y}`;
+
+  archSvg.innerHTML = `
+    <path class="arch-trace" d="${pathD}"/>
+    <path class="arch-signal" pathLength="100" d="${pathD}"/>
+    ${pts.map((n, idx) => `
+      <g class="arch-node ${idx===0?'active':''}" data-info="${n.info}">
+        <rect x="${n.x - 46}" y="${n.y - 18}" width="92" height="36" rx="9"/>
+        <text x="${n.x}" y="${n.y + 4}" text-anchor="middle">${n.t}</text>
+      </g>
+    `).join('')}
+  `;
+
+  archTelemetry.textContent = `${pts[0].t} → ${pts[0].info}`;
+
+  $$('.arch-node', archSvg).forEach(nodeEl => {
+    const activate = () => {
+      $$('.arch-node', archSvg).forEach(el => el.classList.remove('active'));
+      nodeEl.classList.add('active');
+      archTelemetry.textContent = nodeEl.dataset.info;
+    };
+    nodeEl.addEventListener('click', activate);
+    nodeEl.addEventListener('pointerenter', activate);
+  });
+
+  archDetails.innerHTML = `
+    <h3>${d.k}</h3>
+    <p>${d.d}</p>
+    <ul class="arch-tags">${d.items.map((item, idx) => `<li style="--i:${idx}">${item}</li>`).join('')}</ul>
   `;
 }
-capTabs.addEventListener('click', e => {
-  const b = e.target.closest('.cap-tab');
-  if (b) setCap(+b.dataset.i);
+
+archNav.addEventListener('click', e => {
+  const b = e.target.closest('.arch-btn');
+  if (b) setDiscipline(+b.dataset.i);
 });
-setCap(0);
+setDiscipline(0);
+
+/* Interactive Blueprint Parallax (Touch + Pointer) */
+const archStage = $('#archStage');
+const archGridLayer = $('#archGridLayer');
+if (!reduce && archStage) {
+  const moveBlueprint = (clientX, clientY) => {
+    const r = archStage.getBoundingClientRect();
+    const nx = ((clientX - r.left) / r.width - 0.5) * 2;
+    const ny = ((clientY - r.top) / r.height - 0.5) * 2;
+    archGridLayer.style.transform = `translate3d(${(-nx * 12).toFixed(1)}px, ${(-ny * 10).toFixed(1)}px, 0)`;
+    archSvg.style.transform = `translate3d(${(nx * 7).toFixed(1)}px, ${(ny * 5).toFixed(1)}px, 0)`;
+  };
+  archStage.addEventListener('pointermove', e => moveBlueprint(e.clientX, e.clientY), {passive: true});
+  archStage.addEventListener('touchmove', e => {
+    if (e.touches[0]) moveBlueprint(e.touches[0].clientX, e.touches[0].clientY);
+  }, {passive: true});
+  archStage.addEventListener('pointerleave', () => {
+    archGridLayer.style.transform = '';
+    archSvg.style.transform = '';
+  });
+}
+
+/* Interactive Pipeline Step Tap */
+const pipeSteps = $$('.pipe-node');
+const pipeStatus = $('#pipeStatus');
+const pipeFill = $('#pipeFill');
+let manualStepLock = false;
+pipeSteps.forEach((btn, idx) => {
+  btn.addEventListener('click', () => {
+    manualStepLock = true;
+    pipeSteps.forEach((b, k) => {
+      b.classList.toggle('reached', k <= idx);
+      b.setAttribute('aria-pressed', k === idx);
+    });
+    if (pipeStatus) pipeStatus.textContent = btn.dataset.label;
+    if (pipeFill) pipeFill.style.transform = `scaleX(${(idx + 1) / 4})`;
+    setTimeout(() => { manualStepLock = false; }, 2200);
+  });
+});
+
+/* ---------- 03 // Interactive CV Portal Parallax (Touch + Pointer) ---------- */
+const cvPortal = $('#cvPortal');
+const portalGlow = $('#portalGlow');
+const portalCtaWrap = $('#portalCtaWrap');
+const portalCoords = $('#portalCoords');
+if (!reduce && cvPortal) {
+  const updatePortal = (clientX, clientY) => {
+    const r = cvPortal.getBoundingClientRect();
+    const nx = ((clientX - r.left) / r.width - 0.5) * 2;
+    const ny = ((clientY - r.top) / r.height - 0.5) * 2;
+    if (portalGlow) portalGlow.style.transform = `translate3d(${(nx * 46).toFixed(1)}px, ${(ny * 34).toFixed(1)}px, 0)`;
+    if (portalCtaWrap) portalCtaWrap.style.transform = `translate3d(${(nx * 10).toFixed(1)}px, ${(ny * 8).toFixed(1)}px, 0)`;
+    if (portalCoords) {
+      const px = Math.round((nx + 1) * 50);
+      const py = Math.round((ny + 1) * 50);
+      portalCoords.textContent = `VECTOR X:${String(px).padStart(3,'0')} · Y:${String(py).padStart(3,'0')} // READY`;
+    }
+  };
+  cvPortal.addEventListener('pointermove', e => updatePortal(e.clientX, e.clientY), {passive: true});
+  cvPortal.addEventListener('touchmove', e => {
+    if (e.touches[0]) updatePortal(e.touches[0].clientX, e.touches[0].clientY);
+  }, {passive: true});
+  cvPortal.addEventListener('pointerleave', () => {
+    if (portalGlow) portalGlow.style.transform = '';
+    if (portalCtaWrap) portalCtaWrap.style.transform = '';
+    if (portalCoords) portalCoords.textContent = 'PORTAL READY // DIRECT ACCESS';
+  });
+}
 
 /* ---------- Hero Topology Tap & Hover ---------- */
 const hudInfo = $('#hudInfo');
@@ -930,9 +1260,7 @@ function selectNode(node){
   nodes.forEach(n => n.classList.remove('active'));
   node.classList.add('active');
   if (hudInfo) hudInfo.textContent = node.dataset.info;
-  links.forEach(l => {
-    l.classList.toggle('lit', key === 'CORE' || l.dataset.link === key);
-  });
+  links.forEach(l => l.classList.toggle('lit', key === 'CORE' || l.dataset.link === key));
 }
 nodes.forEach(n => {
   n.addEventListener('click', () => selectNode(n));
@@ -951,11 +1279,20 @@ function toggleMenu(open){
 menuBtn.addEventListener('click', () => toggleMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
 $$('a', drawer).forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-/* ---------- Bulletproof Scroll Reveal + Scroll Progress (iPadOS Safe) ---------- */
+/* ---------- Unified 120fps Scroll Parallax & Reveal Loop ---------- */
 const nav = $('#nav');
 const navLinks = $$('.links a');
-const secIds = ['works', 'capabilities', 'studio'].map(id => document.getElementById(id));
+const secIds = ['works', 'capabilities', 'dossier'].map(id => document.getElementById(id));
 const rvEls = $$('.rv');
+
+const ambGrid = $('#ambGrid');
+const ambOrb1 = $('#ambOrb1');
+const ambOrb2 = $('#ambOrb2');
+const heroCopy = $('#heroCopy');
+const heroHud = $('#heroHud');
+const scrollPipeline = $('#scrollPipeline');
+const radarRing1 = $('#radarRing1');
+const radarRing2 = $('#radarRing2');
 
 function checkReveals(){
   const triggerBottom = window.innerHeight * 0.94;
@@ -980,13 +1317,52 @@ if ('IntersectionObserver' in window) {
 
 let ticking = false;
 function onScroll(){
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const ratio = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
+  const y = window.scrollY;
+  const vh = window.innerHeight;
+  const maxScroll = document.documentElement.scrollHeight - vh;
+  const ratio = maxScroll > 0 ? Math.min(1, Math.max(0, y / maxScroll)) : 0;
   nav.style.setProperty('--scroll', ratio.toFixed(4));
 
+  // Active nav highlight
   let current = null;
-  secIds.forEach(s => { if (s && s.getBoundingClientRect().top < window.innerHeight * 0.45) current = s.id; });
+  secIds.forEach(s => { if (s && s.getBoundingClientRect().top < vh * 0.45) current = s.id; });
   navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+
+  if (!reduce) {
+    // 1. Ambient multi-depth scroll parallax
+    if (ambGrid) ambGrid.style.transform = `translate3d(0, ${(-y * 0.06).toFixed(1)}px, 0)`;
+    if (ambOrb1) ambOrb1.style.transform = `translate3d(${(-y * 0.04).toFixed(1)}px, ${(y * 0.09).toFixed(1)}px, 0)`;
+    if (ambOrb2) ambOrb2.style.transform = `translate3d(${(y * 0.04).toFixed(1)}px, ${(-y * 0.08).toFixed(1)}px, 0)`;
+
+    // 2. Hero spatial depth split
+    if (y < vh * 1.2) {
+      if (heroCopy) heroCopy.style.transform = `translate3d(0, ${(y * 0.14).toFixed(1)}px, 0)`;
+      if (heroHud) heroHud.style.transform = `translate3d(0, ${(y * 0.06).toFixed(1)}px, 0)`;
+    }
+
+    // 3. Section 02 scroll-scrubbed pipeline progress
+    if (scrollPipeline && !manualStepLock) {
+      const pr = scrollPipeline.getBoundingClientRect();
+      const prog = Math.min(1, Math.max(0.12, (vh * 0.82 - pr.top) / (vh * 0.55)));
+      if (pipeFill) pipeFill.style.transform = `scaleX(${prog.toFixed(3)})`;
+      const activeIdx = Math.min(3, Math.floor(prog * 3.99));
+      pipeSteps.forEach((b, k) => {
+        b.classList.toggle('reached', k <= activeIdx);
+        b.setAttribute('aria-pressed', k === activeIdx);
+      });
+      if (pipeStatus && pipeSteps[activeIdx]) pipeStatus.textContent = pipeSteps[activeIdx].dataset.label;
+    }
+
+    // 4. Section 03 scroll-scrubbed orbital radar rotation
+    if (cvPortal) {
+      const cr = cvPortal.getBoundingClientRect();
+      if (cr.top < vh && cr.bottom > 0) {
+        const p3 = (vh - cr.top) / (vh + cr.height);
+        if (radarRing1) radarRing1.style.transform = `rotate(${(p3 * 90).toFixed(1)}deg)`;
+        if (radarRing2) radarRing2.style.transform = `rotate(${(-p3 * 135).toFixed(1)}deg)`;
+      }
+    }
+  }
 
   checkReveals();
   ticking = false;
@@ -999,24 +1375,8 @@ window.addEventListener('resize', onScroll, {passive: true});
 window.addEventListener('orientationchange', () => setTimeout(onScroll, 150), {passive: true});
 window.addEventListener('pageshow', () => { rvEls.forEach(el => el.classList.add('in')); onScroll(); });
 
-// Initial frame check + fail-safe reveal
 requestAnimationFrame(() => { checkReveals(); onScroll(); });
-setTimeout(() => rvEls.forEach(el => el.classList.add('in')), 1800);
-
-/* ---------- QRIS Modal ---------- */
-const qris = $('#qris'), img = $('#qrisImg'), dlg = $('#qrisDlg'), dl = $('#dlBtn'), zoom = $('#zoomBtn');
-function handleMissing(){
-  qris.classList.add('missing');
-  [dl, zoom].forEach(b => { b.setAttribute('aria-disabled', 'true'); b.tabIndex = -1; });
-  $('#qrisOpen').disabled = true;
-}
-img.addEventListener('error', handleMissing);
-if (img.complete && img.naturalWidth === 0) handleMissing();
-const openDlg = () => { if (!qris.classList.contains('missing')) dlg.showModal(); };
-$('#qrisOpen').addEventListener('click', openDlg);
-zoom.addEventListener('click', openDlg);
-$('#dlgClose').addEventListener('click', () => dlg.close());
-dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+setTimeout(() => rvEls.forEach(el => el.classList.add('in')), 1600);
 })();
 </script>
 </body>
